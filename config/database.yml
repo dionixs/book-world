@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  host: localhost
+  port: <%= ENV["DATABASE_PORT"] %>
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+
+development:
+  <<: *default
+  database: LiveLib_development
+
+test:
+  <<: *default
+  database: LiveLib_test
+
+production:
+  <<: *default
+  database: LiveLib_production
+  username: LiveLib
+  password: <%= ENV["DATABASE_PASSWORD"] %>
