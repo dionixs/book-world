@@ -20,4 +20,11 @@ RSpec.describe Book, type: :model do
       expect(book).to be_valid
     end
   end
+
+  describe 'creating an invalid book' do
+    it 'does not create a valid book' do
+      book = Book.new(title: '', author: '', description: '', genre: '', rating: 6, cover: '')
+      expect(book).to_not be_valid
+    end
+  end
 end
