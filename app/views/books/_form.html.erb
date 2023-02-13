@@ -1,0 +1,19 @@
+<div class="col-lg-6 mx-auto">
+  <%= simple_form_for @book do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs my-3">
+      <%= f.input :cover, as: :file, required: false %>
+      <%= f.input :author, required: true %>
+      <%= f.input :title, required: true %>
+      <%= f.input :genre, collection: Book.genres, required: true %>
+      <%= f.input :description, required: true %>
+    </div>
+
+    <div class="form-actions d-grid gap-2 d-md-block">
+      <%= f.button :submit, class: 'btn btn-success' %>
+      <%= link_to 'Back', books_path, class: 'btn btn-secondary' %>
+    </div>
+  <% end %>
+</div>
+
