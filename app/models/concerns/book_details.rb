@@ -2,17 +2,10 @@ module BookDetails
   extend ActiveSupport::Concern
 
   included do
+    before_validation :set_default_cover
+  end
 
-    GENRES = [
-      'Fantasy',
-      'Science Fiction',
-      'Mystery',
-      'Romance',
-      'Horror'
-    ]
-
-    def self.genres
-      GENRES
-    end
+  def set_default_cover
+    self.cover ||= 'default_cover.jpg'
   end
 end
