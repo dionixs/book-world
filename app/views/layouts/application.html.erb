@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>LiveLib</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>LiveLib</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= favicon_link_tag asset_path('favicon.png') %>
+  <%= favicon_link_tag asset_path('favicon.png') %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-  </head>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application", defer: true %>
+  <%#= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%#= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+</head>
 
-  <body>
-  <%= render 'shared/header' %>
-    <main>
-      <div class="container">
-        <%= yield %>
-      </div>
-    </main>
+<body>
+<%= render 'shared/header' %>
+<main>
+  <div class="container">
+    <%= render partial: 'shared/flash_messages' %>
+    <%= yield %>
+  </div>
+</main>
   <%#= render 'shared/footer' %>
   </body>
 </html>
