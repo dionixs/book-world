@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   get 'static_pages/contacts'
   get 'static_pages/help'
   get 'static_pages/terms'
+
+  resources :books
 end
