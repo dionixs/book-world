@@ -1,4 +1,6 @@
 class Book < ApplicationRecord
+  include BookDetails
+
   validates :title, presence: true
   validates :author, presence: true
   validates :description, presence: true
