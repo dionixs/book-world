@@ -33,6 +33,8 @@ class BooksController < ApplicationController
   end
 
   def destroy
+    @book.destroy
+    redirect_to books_url, notice: 'Book was successfully destroyed.'
   end
 
   private
