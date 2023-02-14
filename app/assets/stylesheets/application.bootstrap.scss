@@ -1,6 +1,7 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 
-.header {
-  background-color: white;
-}
+@import "./config/fonts.scss";
+
+@import "./layouts/_header.scss";
+@import "./layouts/_books.sass";
