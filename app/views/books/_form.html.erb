@@ -6,8 +6,8 @@
       <%= f.input :cover, as: :file, required: false %>
       <%= f.input :author, required: true %>
       <%= f.input :title, required: true %>
-      <%= f.input :genre, collection: Book.genres, required: true %>
-      <%= f.input :description, required: true %>
+      <%= f.input :genre, collection: Book.genres, required: false %>
+      <%= f.input :description, required: false %>
     </div>
 
     <div class="form-actions d-grid gap-2 d-md-block">
