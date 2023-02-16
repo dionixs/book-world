@@ -6,6 +6,6 @@ module BookDetails
   end
 
   def set_default_cover
-    self.cover ||= 'default_cover.jpg'
+    self.cover ||= 'cover.jpg'
   end
 end

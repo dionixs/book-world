@@ -13,7 +13,7 @@ RSpec.describe Book, type: :model do
     it "should set the default cover" do
       book = Book.new(title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', description: 'A novel about decadence and excess in 1920s New York', rating: 4)
       book.valid?
-      expect(book.cover).to eq('default_cover.jpg')
+      expect(book.cover).to eq('cover.jpg')
     end
 
     it "should not set the default cover if it is already set" do

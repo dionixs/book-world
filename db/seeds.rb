@@ -20,21 +20,21 @@ fahrenheit451 = Book.create(
   author: 'Рэй Брэдбери',
   description: 'Роман-антиутопия о тоталитарном обществе будущего, в котором книги запрещены и сжигаются пожарами',
   rating: 4.2,
-  cover: 'default_cover.jpg'
+  cover: 'cover.jpg'
 )
 it = Book.create(
   title: 'Оно',
   author: 'Стивен Кинг',
   description: 'Роман ужасов о маленьком городке в Нью-Хэмпшире, где появляется зловещий клоун',
   rating: 4.6,
-  cover: 'default_cover.jpg'
+  cover: 'cover.jpg'
 )
 lotr = Book.create(
   title: 'Властелин колец',
   author: 'Дж. Р. Р. Толкин',
   description: 'Трилогия фэнтези о сражении добра и зла в Средиземье',
   rating: 4.9,
-  cover: 'default_cover.jpg'
+  cover: 'cover.jpg'
 )
 
 # Создаем связи между книгами и жанрами
