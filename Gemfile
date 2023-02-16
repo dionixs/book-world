@@ -10,12 +10,6 @@ gem "sprockets-rails"
 # Simple Form
 gem 'simple_form'
 
-# Nokogiri
-gem 'nokogiri'
-
-# HTTParty
-gem 'httparty'
-
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
