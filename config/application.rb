@@ -36,5 +36,8 @@ module LiveLib
 
     # Active Storage Validations
     config.active_storage.validate_on_load = true
+
+    # Custom Validations
+    config.autoload_paths += %W["#{config.root}/app/validators/"]
   end
 end

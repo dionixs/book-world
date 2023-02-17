@@ -8,7 +8,7 @@ class Book < ApplicationRecord
 
   has_one_attached :cover
 
-  validates :title, presence: true
+  validates :title, presence: true, unique_title_author_combination: { on: %i[create update] }
   validates :author, presence: true
   validates :rating, numericality: { greater_than_or_equal_to: 0.0, less_than_or_equal_to: 5.0 }
 
