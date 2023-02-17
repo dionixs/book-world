@@ -3,7 +3,7 @@
     <%= f.error_notification %>
 
     <div class="form-inputs my-3">
-      <%= f.input :cover, as: :file, required: false %>
+      <%= f.input :cover, as: :file, required: false, input_html: { data: { preview: f.object.cover.attached? ? url_for(f.object.cover) : nil } } %>
       <%= f.input :author, required: true %>
       <%= f.input :title, required: true %>
       <%#= f.input :genre, collection: Book.genres, required: false %>

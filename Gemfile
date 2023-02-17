@@ -50,7 +50,19 @@ gem "bootsnap", require: false
 # gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.2"
+
+# MiniMagick
+gem 'mini_magick', '~>4.9'
+
+# Amazon S3
+gem "aws-sdk-s3", require: false
+
+# Active Storage Validations
+gem 'active_storage_validations'
+
+# OpenURI
+gem 'open-uri'
 
 group :development, :test do
   gem "byebug"

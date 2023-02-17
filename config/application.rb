@@ -33,5 +33,8 @@ module LiveLib
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Active Storage Validations
+    config.active_storage.validate_on_load = true
   end
 end
