@@ -10,14 +10,14 @@ default: &default
 
 development:
   <<: *default
-  database: LiveLib_development
+  database: BookWorld_development
 
 test:
   <<: *default
-  database: LiveLib_test
+  database: BookWorld_test
 
 production:
   <<: *default
-  database: LiveLib_production
-  username: LiveLib
+  database: BookWorld_production
+  username: BookWorld
   password: <%= ENV["DATABASE_PASSWORD"] %>
