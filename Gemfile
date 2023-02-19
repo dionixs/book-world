@@ -61,8 +61,8 @@ gem "aws-sdk-s3", require: false
 # Active Storage Validations
 gem 'active_storage_validations'
 
-# OpenURI
-gem 'open-uri'
+#  Streaming downloads using net/http, http.rb, HTTPX or wget
+gem 'down'
 
 group :development, :test do
   gem "byebug"
