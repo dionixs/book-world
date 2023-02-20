@@ -17,4 +17,16 @@ module BooksHelper
   def cover(obj)
     obj.cover.attached? ? obj.cover : 'cover.jpg'
   end
+
+  def gen_book_title
+    Faker::Book.title
+  end
+
+  def gen_book_author
+    Faker::Book.author
+  end
+
+  def gen_book_description
+    Faker::Lorem.paragraph
+  end
 end
