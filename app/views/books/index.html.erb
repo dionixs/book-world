@@ -6,8 +6,8 @@
   <% @books.each do |book| %>
     <div class="col mb-3">
       <div class="card h-100">
-        <%= link_to edit_book_path(book.id), class: 'edit-icon' do %>
-          <i class="material-icons edit-book">edit_note</i>
+        <%= link_to edit_book_path(book.id), class: 'edit-icon', title: 'Edit' do %>
+          <i class="material-icons edit-book">edit</i>
         <% end %>
 
         <%= link_to book_path(book), title: "#{book.author} - #{book.title}" do %>
