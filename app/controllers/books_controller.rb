@@ -5,9 +5,19 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @books }
+    end
   end
 
-  def show; end
+  def show
+    respond_to do |format|
+      format.html
+      format.json { render json: @book }
+    end
+  end
 
   def new
     @book = Book.new
@@ -16,20 +26,28 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
 
-    if @book.save
-      redirect_to @book, success: 'Book was successfully created.'
-    else
-      render :new
+    respond_to do |format|
+      if @book.save
+        format.html { redirect_to @book, success: 'Book was successfully created.' }
+        format.json { render json: @book, status: :created, location: @book }
+      else
+        format.html { render :new }
+        format.json { render json: @book.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   def edit; end
 
   def update
-    if @book.update(book_params)
-      redirect_to @book, success: 'Book was successfully updated.'
-    else
-      render :edit
+    respond_to do |format|
+      if @book.update(book_params)
+        format.html { redirect_to @book, success: 'Book was successfully updated.' }
+        format.json { render json: @book, status: :ok }
+      else
+        format.html { render :edit }
+        format.json { render json: @book.errors, status: :unprocessable_entity }
+      end
     end
   end
 
