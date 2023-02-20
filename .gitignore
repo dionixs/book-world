@@ -44,3 +44,5 @@
 .byebug_history
 
 erd.pdf
+
+/spec/fixtures/large_image.jpeg

@@ -68,4 +68,13 @@ RSpec.configure do |config|
       with.library :rails
     end
   end
+
+  config.before(:suite) do
+    large_image_path = Rails.root.join('spec', 'fixtures', 'large_image.jpeg')
+    unless File.exist?(large_image_path)
+      File.open('spec/fixtures/large_image.jpeg', 'wb') do |f|
+        f.write(SecureRandom.random_bytes(6 * 1024 * 1024))
+      end
+    end
+  end
 end

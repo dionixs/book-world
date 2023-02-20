@@ -1,40 +1,69 @@
+# frozen_string_literal: true
 require 'rails_helper'
 require 'shoulda/matchers'
 
 RSpec.describe Book, type: :model do
 
+  let(:book) { create(:book) }
+
+  describe 'associations' do
+    it { should have_many(:book_genres).dependent(:destroy) }
+    it { should have_many(:genres).through(:book_genres) }
+    it { should have_one_attached(:cover) }
+  end
+
   describe 'validations' do
     it { should validate_presence_of(:title) }
+    it { should validate_length_of(:title).is_at_least(1).is_at_most(70) }
     it { should validate_presence_of(:author) }
+    it { should validate_length_of(:author).is_at_least(3).is_at_most(50) }
     it { should validate_numericality_of(:rating).is_greater_than_or_equal_to(0.0).is_less_than_or_equal_to(5.0) }
+    it { should validate_uniqueness_of(:title).scoped_to(:author).on(%i[create update]) }
+    it { should validate_uniqueness_of(:author).scoped_to(:title).on(%i[create update]) }
   end
 
-  describe "#set_default_cover" do
-    it "should set the default cover" do
-      book = Book.new(title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', description: 'A novel about decadence and excess in 1920s New York', rating: 4)
+  describe 'custom validations' do
+
+    it 'should set the default cover' do
+      book = Book.new(title: 'The Great Gatsby', author: 'F. Scott Fitzgerald',
+                      description: 'A novel about decadence and excess in 1920s New York', rating: 4)
       book.valid?
-      expect(book.cover).to eq('cover.jpg')
+      expect(book.cover.attached?).to eq(false)
     end
 
-    it "should not set the default cover if it is already set" do
-      book = Book.new(title: 'To Kill a Mockingbird', author: 'Harper Lee', description: 'A novel about racial injustice in the American South', rating: 5, cover: 'custom_cover.jpg')
-      book.valid?
-      expect(book.cover).to eq('custom_cover.jpg')
+    it 'should validate correct cover type' do
+      book.cover.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'test.txt')), filename: 'test.txt',
+                        content_type: 'text/plain')
+      expect(book).not_to be_valid
+      expect(book.errors[:cover]).to include('must be a PNG, JPG, or JPEG file')
     end
-  end
 
-  describe 'creating a book' do
-    it 'creates a valid book' do
-      book = Book.new(title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', description: 'A classic novel about the decadence of the Roaring Twenties', rating: 4, cover: 'https://example.com/the-great-gatsby.jpg')
+    it 'should validate cover size' do
+      file = fixture_file_upload(Rails.root.join('spec', 'fixtures', 'cover.jpg'), 'image/jpeg')
+      book.cover.attach(file)
       expect(book).to be_valid
+
+      # Test for maximum cover size
+      too_large_file = fixture_file_upload(Rails.root.join('spec', 'fixtures', 'large_image.jpeg'), 'image/jpeg')
+      book.cover.attach(too_large_file)
+      expect(book).not_to be_valid
+      expect(book.errors[:cover]).to include('size must be less than 5MB')
+    end
+  end
+
+  describe 'creating a book with cover' do
+    it 'creates a book with cover attached' do
+      book = build(:book)
+      expect(book.cover).to be_attached
+      expect(book.cover.content_type).to eq('image/jpeg')
+      expect(book.cover.byte_size).to be <= 5.megabytes
     end
   end
 
   describe 'creating an invalid book' do
     it 'does not create a valid book' do
-      book = Book.new(title: '', author: '', description: '', rating: 6, cover: '')
+      book = Book.new(title: '', author: '', description: '', rating: 6)
       expect(book).to_not be_valid
     end
   end
-
 end
