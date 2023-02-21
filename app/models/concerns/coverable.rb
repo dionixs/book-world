@@ -8,7 +8,24 @@ module Coverable
 
   included do
 
+    def download_cover_from_url(cover_url)
+      # uri = URI.parse(cover_url)
+      #
+      # raise ArgumentError, "Invalid URL: #{cover_url}" if uri.scheme.blank? || uri.host.blank?
+      #
+      # tempfile = Down.open(cover_url)
+      # cover.attach(io: tempfile, filename: File.basename(cover_url))
+      # tempfile.close
+    end
+
     private
+
+    def add_default_cover
+      return if cover.attached?
+
+      cover.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default_cover.jpg')),
+                   filename: 'default_cover.jpg', content_type: 'image/jpeg')
+    end
 
     def correct_cover_type
       return unless cover.attached? && unsupported_image_type?

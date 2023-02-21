@@ -15,7 +15,7 @@ module BooksHelper
   end
 
   def cover(obj)
-    obj.cover.attached? ? obj.cover : 'cover.jpg'
+    obj.cover.attached? ? obj.cover : 'default_cover.jpg'
   end
 
   def gen_book_title
