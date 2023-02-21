@@ -2,7 +2,7 @@
 
 class Book < ApplicationRecord
   # include BookDetails
-  include BookCoverValidatable
+  include Coverable
 
   has_many :book_genres, dependent: :destroy
   has_many :genres, through: :book_genres
