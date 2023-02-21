@@ -7,6 +7,7 @@ RSpec.describe Book, type: :model do
   let(:book) { create(:book) }
 
   describe 'associations' do
+    it { should have_many(:reviews) }
     it { should have_many(:book_genres).dependent(:destroy) }
     it { should have_many(:genres).through(:book_genres) }
     it { should have_one_attached(:cover) }
