@@ -1,10 +1,15 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  root "static_pages#home"
 
-  get 'static_pages/about'
-  get 'static_pages/contacts'
-  get 'static_pages/help'
-  get 'static_pages/terms'
+  resources :books do
+    resources :reviews, only: %i[create]
+  end
 
-  resources :books
+  get '/about', to: 'static_pages#about'
+  get '/contacts', to: 'static_pages#contacts'
+  get '/help', to: 'static_pages#help'
+  get '/terms', to: 'static_pages#terms'
+
+  root 'static_pages#home'
 end
