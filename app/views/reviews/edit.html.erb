@@ -1,0 +1,7 @@
+<% provide(:title, 'Edit Review') %>
+
+<h1 class="text-center">Edit Review</h1>
+
+<div class="col-lg-8 mx-auto">
+  <%= render partial: 'review_form', locals: { book: @book, review: @review } %>
+</div>

@@ -1,0 +1,26 @@
+<div class="form-review">
+  <h3 id="reviews" class="mb-3">Write a Review:</h3>
+
+  <%= simple_form_for [book, review] do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs my-3">
+      <%= f.input :title, required: true, minlength: 1,
+                  maxlength: 70, placeholder: 'Your review title',
+                  label: 'Review title' %>
+    </div>
+
+    <div class="form-inputs my-3">
+      <%= f.input :body, required: true, minlength: 10,
+                  maxlength: 3000, placeholder: 'Your review',
+                  label: 'Review' , as: :text, input_html: { 'rows': 5, 'cols': 10 } %>
+    </div>
+
+    <div class="form-actions d-grid gap-2 d-md-block">
+      <%= f.button :submit, class: 'btn btn-success' %>
+      <% if action_name == 'edit' %>
+        <%= link_to 'Delete', book_review_path(book, review), class: 'btn btn-danger', data: { turbo: true, turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

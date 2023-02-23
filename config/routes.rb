@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
 
   resources :books do
-    resources :reviews, only: %i[create]
+    resources :reviews
   end
 
   get '/about', to: 'static_pages#about'

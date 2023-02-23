@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class BooksController < ApplicationController
-  before_action :set_book, only: %i[show edit update destroy]
+  before_action :set_book!, only: %i[show edit update destroy]
+  before_action :set_reviews, only: %i[show]
 
   def index
     @books = Book.all
@@ -58,8 +59,12 @@ class BooksController < ApplicationController
 
   private
 
-  def set_book
+  def set_book!
     @book = Book.find(params[:id])
+  end
+
+  def set_reviews
+    @reviews = @book.reviews.order created_at: :desc
   end
 
   def book_params
