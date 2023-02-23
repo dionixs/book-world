@@ -1,0 +1,15 @@
+<div class="mb-4 text-center">
+  <h4>What do you think?</h4>
+
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="rate">
+      <%= stars_for_rating(0) %>
+      <br>
+      <span>Rate this book</span>
+    </div>
+
+    <div class="new-review-btn">
+      <%= link_to 'Write a Review', new_book_review_path(@book, @review),  class: 'btn btn-dark' %>
+    </div>
+  </div>
+</div>

@@ -1,28 +1,19 @@
 <% provide(:title, @book.title) %>
 
-<section class="pt-5">
+<section class="section-book">
   <div class="container">
-    <div class="d-flex">
-      <div class="flex-shrink-0">
-        <%= image_tag(cover(@book), size: '220x400', alt: "Book Cover", class: "img-fluid") %>
-      </div>
-      <div class="flex-grow-1 ms-5">
-        <h2 class="fw-bold"><%= @book.title %></h2>
-        <h3><%= @book.author %></h3>
-        <div class="d-flex align-items-center">
-
-          <div class="stars me-2">
-            <%= stars_for_rating(@book.rating) %>
-          </div>
-
-          <div class="rating">
-            <span class="fs-3 my-0"><%= number_with_precision(@book.rating, precision: 2) %></span>
-          </div>
+    <div class="row">
+      <div class="col-md-4 text-center">
+        <%= image_tag(cover(@book), width: 300, alt: "#{@book.title}", class: "img-fluid") %>
+        <div class="d-grid gap-2 book-card-button">
+          <button class="btn btn-primary btn-half-width mt-3" type="button">Want to Read</button>
         </div>
-        <p class="lead w-50 fs-5">
-          <%= @book.description %>
-        </p>
-        <!--        <p class="mt-3"><strong>Genre:</strong> <%#= @book.genre.capitalize %></p>-->
+      </div>
+
+      <div class="col-md-8">
+        <%= render partial: 'books/book_info', locals: { book: @book } %>
+        <hr>
+        <%= render partial: 'books/reviews', locals: { book: @book, reviews: @reviews } %>
       </div>
     </div>
   </div>

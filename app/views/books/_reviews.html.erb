@@ -1,0 +1,9 @@
+<div class="reviews">
+  <h3 class="mb-3">Отзывы:</h3>
+
+  <%= render partial: 'book_review_section', locals: { book: @book, review: @review } %>
+
+  <% unless reviews.empty? %>
+    <%= render partial: 'reviews/review', collection: @reviews, locals: { book: @book } %>
+  <% end %>
+</div>

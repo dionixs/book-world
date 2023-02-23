@@ -1,0 +1,18 @@
+<div class="book_info">
+  <h1 class="title mb-3"><%= book.title %></h1>
+  <h2 class="author mb-3"> Автор:
+    <%= link_to book.author, '#', class: 'link-dark', title: book.author %>
+  </h2>
+
+  <div class="rating d-flex align-items-center mb-3">
+    <span class="fs-4">Рейтинг:</span>
+    <div class="stars me-2 ms-2">
+      <%= stars_for_rating(book.rating) %>
+    </div>
+    <div class="rating-text">
+      <span class="fs-3 my-0"><%= "#{book.rating}/5 (100 голосов)" %></span>
+    </div>
+  </div>
+
+  <p class="description mb-3 fs-5">Описание: <%= book.description %></p>
+</div>
