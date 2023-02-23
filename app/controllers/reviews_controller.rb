@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
         format.html { redirect_to @book, success: 'Review was successfully created.' }
         format.json { render json: @review, status: :ok }
       else
-        format.html { render :new}
+        format.html { render :new, status: :unprocessable_entity}
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
@@ -34,7 +34,7 @@ class ReviewsController < ApplicationController
         format.html { redirect_to @book, success: 'Review was successfully updated.' }
         format.json { render json: @review, status: :ok }
       else
-        format.html { render :edit }
+        format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
