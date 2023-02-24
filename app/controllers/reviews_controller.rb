@@ -2,7 +2,7 @@
 
 class ReviewsController < ApplicationController
   before_action :set_book!, only: %i[index new show create edit update destroy]
-  before_action :set_review!, only: %i[show edit update destroy]
+  before_action :set_review!, except: %i[index new create]
   before_action :build_review, only: %i[create]
   before_action :set_reviews, only: %i[index create]
 
