@@ -1,51 +1,40 @@
-.edit
-  &-icon
-    position: absolute
-    top: 0
-    right: 0
-    height: 30px
-    padding: 5px 5px 8px
-    background-color: white
-    text-align: center
-    font-size: 5px
-    color: #6f42c1
-    z-index: 1
-    border: 1px solid #050404
-
-  &:hover
-    cursor: pointer
-    text-decoration: underline
-
-.cover
-  height: 270px
-
-.section
-  &-book
-    padding-top: 30px
-    padding-bottom: 30px
-
-.book
-  &-card
-    &-button
-      padding-left: 100px
-      padding-right: 100px
-
-.rate
-  margin-right: 20px
+.card
+  border: 1px solid black
 
 .card
-  border: none
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
-
-.card-body
-  padding: 1.25rem
+  height: 470px
+  &-img
+    position: relative
+    &-top
+      height: 300px
+      object-fit: cover
+  &-edit-btn
+    position: absolute
+    width: 42px
+    right: 0
+    top: 0
+  &-delete-btn
+    position: absolute
+    height: 40px
+    width: 42px
+    right: 0
+    top: 40px
 
 .card-title
-  font-size: 2rem
-  margin-bottom: 0.5rem
+  color: #1a1e21
+  font-size: 18px
+  height: 40px
+  overflow: hidden
 
 .card-text
-  font-size: 1.25rem
+  color: #343a40
+  font-size: 16px
+  overflow: hidden
 
-.text-muted
-  color: #6c757d
+.want_to_read_btn
+  height: 50px
+  width: 100%
+  font-size: 18px
+  padding: 10px
+
