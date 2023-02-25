@@ -18,7 +18,7 @@ RSpec.describe Book, type: :model do
     it { should validate_length_of(:title).is_at_least(1).is_at_most(70) }
     it { should validate_presence_of(:author) }
     it { should validate_length_of(:author).is_at_least(3).is_at_most(50) }
-    it { should validate_length_of(:description).is_at_most(600) }
+    it { should validate_length_of(:description).is_at_most(3000) }
     it { should validate_numericality_of(:rating).is_greater_than_or_equal_to(0.0).is_less_than_or_equal_to(5.0) }
     it { should validate_uniqueness_of(:title).scoped_to(:author).on(%i[create update]) }
     it { should validate_uniqueness_of(:author).scoped_to(:title).on(%i[create update]) }

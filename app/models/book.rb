@@ -16,7 +16,7 @@ class Book < ApplicationRecord
                     uniqueness: { scope: :author, case_sensitive: true, on: %i[create update] }
   validates :author, presence: true, length: { minimum: 3, maximum: 50 },
                      uniqueness: { scope: :title, case_sensitive: true, on: %i[create update] }
-  validates :description, length: { maximum: 600 }
+  validates :description, length: { maximum: 3000 }
   validates :rating, numericality: { greater_than_or_equal_to: 0.0, less_than_or_equal_to: 5.0 }
 
   validate :correct_cover_type
