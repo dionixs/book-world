@@ -55,5 +55,9 @@
 - JavaScript
 - gems: devise, simpleform, carrierwave, rspec-rails, factory-bot-rails, CanCan 
 
+#### Возможности
+- [ ] Добавить генератор обложек, для книг, у которых они отсутствуют
+
 #### Демо
 Последняя актуальная версия приложения крутится [здесь](https://example.com/)
+
