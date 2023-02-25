@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
+require 'csv'
+
 # Создаем жанры
 # scifi = Genre.create(name_en: 'Sci-Fi', name_ru: 'Фантастика')
 # horror = Genre.create(name_en: 'Horror', name_ru: 'Ужасы')
 # fantasy = Genre.create(name_en: 'Fantasy', name_ru: 'Фэнтези')
 # dystopian = Genre.create(name_en: 'Dystopian', name_ru: 'Антиутопия', parent: scifi)
 
-# Создаем книги
+# Создаем несколько книг
 # fahrenheit451 = Book.new(
 #   title: '451 градус по Фаренгейту',
 #   author: 'Рэй Брэдбери',
@@ -22,7 +24,7 @@
 # )
 
 # lotr = Book.new(
-#   title: 'Властелин колец',
+#   title: 'Властелин Колец',
 #   author: 'Дж. Р. Р. Толкин',
 #   description: 'Трилогия фэнтези о сражении добра и зла в Средиземье',
 #   rating: 4.9
@@ -47,3 +49,27 @@
 #
 # it.genres << horror
 # lotr.genres << fantasy
+
+# Создаем 100 книг из CSV файла
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'top_100_books.csv'))
+csv = CSV.parse(csv_text, headers: true)
+
+csv&.each do |row|
+  book = Book.new
+  book.title = row['title']
+  book.author= row['author']
+  book.description = row['description']
+
+  url = row['cover_url']
+
+  file = Down.download(url)
+  filename = File.basename(url)
+
+  book.cover.attach(io: file, filename: "#{filename}.jpeg", content_type: 'image/jpeg')
+
+  if book.save
+    puts "#{book.title} - #{book.author} saved"
+  else
+    puts "#{book.title} - #{book.author} failed to save"
+  end
+end
