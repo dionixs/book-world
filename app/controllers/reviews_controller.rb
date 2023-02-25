@@ -6,7 +6,9 @@ class ReviewsController < ApplicationController
   before_action :build_review, only: %i[create]
   before_action :set_reviews, only: %i[index create]
 
-  def index; end
+  def index
+    @pagy, @reviews  = pagy(@reviews, items: 10)
+  end
 
   def new
     @review = @book.reviews.build

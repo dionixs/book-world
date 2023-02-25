@@ -6,6 +6,7 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
+    @pagy, @books = pagy(@books)
 
     respond_to do |format|
       format.html
@@ -65,6 +66,7 @@ class BooksController < ApplicationController
 
   def set_reviews
     @reviews = @book.reviews.order created_at: :desc
+    @pagy, @reviews  = pagy(@reviews, items: 4)
   end
 
   def book_params

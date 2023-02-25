@@ -10,6 +10,9 @@ gem "sprockets-rails"
 # Simple Form
 gem 'simple_form'
 
+# Pagination Ruby Gem
+gem 'pagy', '~> 6.0'
+
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
