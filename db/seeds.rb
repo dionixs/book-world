@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'csv'
+# require 'csv'
 
 # Создаем жанры
 # scifi = Genre.create(name_en: 'Sci-Fi', name_ru: 'Фантастика')
@@ -51,25 +51,41 @@ require 'csv'
 # lotr.genres << fantasy
 
 # Создаем 100 книг из CSV файла
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'top_100_books.csv'))
-csv = CSV.parse(csv_text, headers: true)
+# csv_text = File.read(Rails.root.join('lib', 'seeds', 'top_100_books.csv'))
+# csv = CSV.parse(csv_text, headers: true)
+#
+# csv&.each do |row|
+#   book = Book.new
+#   book.title = row['title']
+#   book.author= row['author']
+#   book.description = row['description']
+#
+#   url = row['cover_url']
+#
+#   file = Down.download(url)
+#   filename = File.basename(url)
+#
+#   book.cover.attach(io: file, filename: "#{filename}.jpeg", content_type: 'image/jpeg')
+#
+#   if book.save
+#     puts "#{book.title} - #{book.author} saved"
+#   else
+#     puts "#{book.title} - #{book.author} failed to save"
+#   end
+# end
 
-csv&.each do |row|
-  book = Book.new
-  book.title = row['title']
-  book.author= row['author']
-  book.description = row['description']
-
-  url = row['cover_url']
-
-  file = Down.download(url)
-  filename = File.basename(url)
-
-  book.cover.attach(io: file, filename: "#{filename}.jpeg", content_type: 'image/jpeg')
-
-  if book.save
-    puts "#{book.title} - #{book.author} saved"
-  else
-    puts "#{book.title} - #{book.author} failed to save"
-  end
-end
+# Создаем по 10 отзывов для каждой книги
+# books = Book.all
+#
+# books.each do |book|
+#   title = Faker::Lorem.sentence(word_count: 3)
+#   body = Faker::Hipster.paragraph(sentence_count: 16)
+#
+#   review = book.reviews.create(title:, body:)
+#
+#   if review.save
+#     puts 'Review saved'
+#   else
+#     puts 'Review failed to save'
+#   end
+# end
