@@ -71,9 +71,9 @@ group :development, :test do
   gem "byebug"
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'dotenv-rails'
-  gem "rspec-rails"
   gem "factory_bot_rails"
   gem "faker"
+  gem "rspec-rails"
   gem 'rubocop'
 end
 

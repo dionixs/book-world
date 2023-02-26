@@ -1,7 +1,8 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 
-@import "./config/fonts.scss";
+@import 'config/_actiontext.css';
+@import "./config/_fonts.scss";
 
 @import "./layouts/_header.scss";
 @import "./layouts/_book.sass";
