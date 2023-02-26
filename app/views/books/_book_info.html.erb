@@ -18,7 +18,9 @@
     <% if book.description? %>
       <h3>Описание</h3>
       <div class="trix-content mt-2">
-        <%= book.description %>
+        <%= truncate(book.description.to_plain_text, length: 200) %>
+        <br>
+        <%= link_to "Continue", "#" %>
       </div>
     <% end %>
   </div>
