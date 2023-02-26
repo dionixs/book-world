@@ -88,7 +88,7 @@ RSpec.describe ReviewsController, type: :controller do
 
       it "redirects to the book page" do
         post :create, params: { book_id: book.id, review: { title: 'Test review', body: "Test review" } }
-        expect(response).to redirect_to(book_url(book))
+        expect(response).to redirect_to("#{book_url(book)}#review-#{assigns(:review).id}")
       end
 
       it "sets a success flash message" do
@@ -154,7 +154,7 @@ RSpec.describe ReviewsController, type: :controller do
 
       it "redirects to the book" do
         patch :update, params: { book_id: book.id, id: review.id, review: valid_attributes }
-        expect(response).to redirect_to(book_path(book))
+        expect(response).to redirect_to("#{book_path(book)}#review-#{review.id}")
       end
     end
 

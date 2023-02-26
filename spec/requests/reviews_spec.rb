@@ -37,7 +37,7 @@ RSpec.describe 'Reviews', type: :request do
           post book_reviews_path(@book), params: { review: FactoryBot.attributes_for(:review) }
         end.to change { Review.count }.by(1)
 
-        expect(response).to redirect_to(book_path(@book))
+        expect(response).to redirect_to("#{book_path(@book)}#review-#{assigns(:review).id}")
         follow_redirect!
         expect(response.body).to include('Review was successfully created.')
       end
@@ -55,7 +55,7 @@ RSpec.describe 'Reviews', type: :request do
       it 'does not create a new review' do
         expect do
           post book_reviews_path(@book), params: { review: { title: nil, body: nil } }
-        end.not_to change { Review.count }
+        end.to_not change { Review.count }
 
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response).to render_template(:new)
@@ -84,7 +84,7 @@ RSpec.describe 'Reviews', type: :request do
   describe 'PUT /update' do
     it 'updates the review' do
       put book_review_path(@book, @review), params: { review: { title: 'Updated Title' } }
-      expect(response).to redirect_to(book_path(@book))
+      expect(response).to redirect_to("#{book_path(@book)}#review-#{@review.id}")
       expect(@review.reload.title).to eq('Updated Title')
     end
 

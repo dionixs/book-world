@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
   before_action :set_reviews, only: %i[index create]
 
   def index
-    @pagy, @reviews  = pagy(@reviews, items: 10)
+    @pagy, @reviews = pagy(@reviews, items: 10)
   end
 
   def new
@@ -19,7 +19,10 @@ class ReviewsController < ApplicationController
   def create
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @book, success: 'Review was successfully created.' }
+        format.html do
+          flash[:success] = 'Review was successfully created.'
+          redirect_to book_path(@book, anchor: "review-#{@review.id}")
+        end
         format.json { render json: @review, status: :ok }
       else
         format.html { render :new, status: :unprocessable_entity}
@@ -33,7 +36,10 @@ class ReviewsController < ApplicationController
   def update
     respond_to do |format|
       if @review.update(review_params)
-        format.html { redirect_to @book, success: 'Review was successfully updated.' }
+        format.html do
+          flash[:success] = 'Review was successfully updated.'
+          redirect_to book_path(@book, anchor: "review-#{@review.id}")
+        end
         format.json { render json: @review, status: :ok }
       else
         format.html { render :edit, status: :unprocessable_entity }
