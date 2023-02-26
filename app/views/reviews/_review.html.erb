@@ -2,14 +2,14 @@
   <div class="card-body">
     <article>
       <h5 class="card-title"><%= review.title %></h5>
-      <p class="card-text"><%= review.body %></p>
-      <p class="card-text">
+      <div class="card-text mb-3"><%= sanitize review.body %></div>
+      <div class="card-text mb-3">
         <small class="text-muted">
           Автор отзыва, <time datetime="<%= formatted_created_at(review)%>", title="<%= formatted_created_at(review)%>" >
           <%= formatted_created_at(review) %>
         </time>
         </small>
-      </p>
+      </div>
       <%= link_to 'Edit', edit_book_review_path(book, review), class: 'btn btn-secondary', title: 'Edit' %>
       <%= link_to 'Delete', book_review_path(book, review), class: 'btn btn-danger', data: { turbo: true, turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
     </article>

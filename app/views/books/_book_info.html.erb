@@ -14,5 +14,12 @@
     </div>
   </div>
 
-  <p class="description mb-3 fs-5">Описание: <%= book.description %></p>
+  <div class="description mb-3 fs-5">
+    <% if book.description? %>
+      <h3>Описание</h3>
+      <div class="mt-2">
+        <%= sanitize book.description %>
+      </div>
+    <% end %>
+  </div>
 </div>
