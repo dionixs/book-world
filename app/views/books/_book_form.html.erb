@@ -7,7 +7,7 @@
       <%= f.input :title, required: true, minlength: 1, maxlength: 70, placeholder: gen_book_title %>
       <%= f.input :author, required: true, minlength: 3, maxlength: 50, placeholder: gen_book_author %>
       <%#= f.input :genre, collection: Book.genres, required: false %>
-      <%= f.input :description, required: false, maxlength: 600, placeholder: gen_book_description %>
+      <%= f.input :description, required: false, as: :text, input_html: { 'rows': 15, 'cols': 10 }, maxlength: 600, placeholder: gen_book_description %>
     </div>
 
     <div class="form-actions d-grid gap-2 d-md-block">
