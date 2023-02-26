@@ -5,3 +5,7 @@ Turbo.session.drive = false
 import * as bootstrap from "bootstrap"
 import "trix"
 import "@rails/actiontext"
+
+// Pages
+import './pages/_book';
+import './pages/_review';

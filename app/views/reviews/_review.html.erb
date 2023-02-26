@@ -2,8 +2,12 @@
   <div class="card-body">
     <article>
       <h5 class="card-title"><%= review.title %></h5>
-      <div class="card-text trix-content mb-3">
-        <%= review.body %>
+      <div class="card-text mb-3">
+        <div class="card-review-hidden trix-content"><%= review.body %></div>
+        <div class="review-content">
+          <%= summary(review, :body, length: 290) %>
+        </div>
+        <%= link_to 'Read more...', '#', class: 'review-read-more' %>
       </div>
       <div class="card-text mb-3">
         <small class="text-muted">
@@ -12,8 +16,10 @@
         </time>
         </small>
       </div>
-      <%= link_to 'Edit', edit_book_review_path(book, review), class: 'btn btn-secondary', title: 'Edit' %>
-      <%= link_to 'Delete', book_review_path(book, review), class: 'btn btn-danger', data: { turbo: true, turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+      <div class="btn-group">
+        <%= link_to 'Edit', edit_book_review_path(book, review), class: 'btn btn-secondary', title: 'Edit' %>
+        <%= link_to 'Delete', book_review_path(book, review), class: 'btn btn-danger', data: { turbo: true, turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+      </div>
     </article>
   </div>
 </div>

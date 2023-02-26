@@ -14,13 +14,15 @@
     </div>
   </div>
 
-  <div class="description mb-3 fs-5">
+  <div class="description mb-3 fs-5" data-description="<%= @book.description %>">
     <% if book.description? %>
       <h3>Описание</h3>
-      <div class="trix-content mt-2">
-        <%= truncate(book.description.to_plain_text, length: 200) %>
-        <br>
-        <%= link_to "Continue", "#" %>
+      <div class="mt-2">
+        <p class="description-text">
+          <%= book.description %>
+        </p>
+
+        <%= link_to 'Read more...', '#', class: 'read-more' %>
       </div>
     <% end %>
   </div>
