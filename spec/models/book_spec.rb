@@ -11,7 +11,6 @@ RSpec.describe Book, type: :model do
     it { should have_many(:book_genres).dependent(:destroy) }
     it { should have_many(:genres).through(:book_genres) }
     it { should have_one_attached(:cover) }
-    it { should have_rich_text(:description) }
   end
 
   describe 'validations' do
