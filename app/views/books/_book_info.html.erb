@@ -14,7 +14,7 @@
     </div>
   </div>
 
-  <div class="description mb-3 fs-5" data-description="<%= @book.description %>">
+  <div class="description mb-3 fs-5">
     <% if book.description? %>
       <h3>Описание</h3>
       <div class="mt-2">
@@ -22,7 +22,9 @@
           <%= book.description %>
         </p>
 
-        <%= link_to 'Read more...', '#', class: 'read-more' %>
+        <% if book.description.size > 240 %>
+          <%= link_to 'Read more...', '#', class: 'read-more' %>
+        <% end %>
       </div>
     <% end %>
   </div>
