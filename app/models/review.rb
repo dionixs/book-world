@@ -10,5 +10,6 @@ class Review < ApplicationRecord
   has_rich_text :body
 
   validates :title, presence: true, length: { minimum: 1, maximum: 70 }
+  validates_presence_of :body
   validate :body_length
 end
