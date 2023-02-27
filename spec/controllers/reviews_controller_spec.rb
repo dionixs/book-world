@@ -149,7 +149,7 @@ RSpec.describe ReviewsController, type: :controller do
         patch :update, params: { book_id: book.id, id: review.id, review: valid_attributes }
         review.reload
         expect(review.title).to eq("Updated Title")
-        expect(review.body).to eq("Updated Body")
+        expect(review.body.to_plain_text).to eq("Updated Body")
       end
 
       it "redirects to the book" do

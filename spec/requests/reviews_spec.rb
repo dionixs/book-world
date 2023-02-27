@@ -65,10 +65,11 @@ RSpec.describe 'Reviews', type: :request do
         post book_reviews_path(@book, format: :json), params: { review: { title: nil, body: nil } }
         expect(response).to have_http_status(:unprocessable_entity)
         json = JSON.parse(response.body)
+
         expect(json['title']).to include("can't be blank")
-        expect(json['title']).to include("is too short (minimum is 1 character)")
+        expect(json['title']).to include('is too short (minimum is 1 character)')
         expect(json['body']).to include("can't be blank")
-        expect(json['body']).to include("is too short (minimum is 10 characters)")
+        expect(json['body']).to include('must be at least 10 characters long')
       end
     end
   end
