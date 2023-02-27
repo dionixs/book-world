@@ -23,7 +23,7 @@ class ReviewsController < ApplicationController
           flash[:success] = 'Review was successfully created.'
           redirect_to book_path(@book, anchor: "review-#{@review.id}")
         end
-        format.json { render json: @review, status: :ok }
+        format.json { render json: review_as_json(@review), status: :ok }
       else
         format.html { render :new, status: :unprocessable_entity}
         format.json { render json: @review.errors, status: :unprocessable_entity }
@@ -40,7 +40,7 @@ class ReviewsController < ApplicationController
           flash[:success] = 'Review was successfully updated.'
           redirect_to book_path(@book, anchor: "review-#{@review.id}")
         end
-        format.json { render json: @review, status: :ok }
+        format.json { render json: review_as_json(@review), status: :ok }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @review.errors, status: :unprocessable_entity }
@@ -58,6 +58,12 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:title, :body)
+  end
+
+  def review_as_json(review)
+    review_json = review.as_json
+    review_json['body'] = review.body.to_plain_text
+    review_json
   end
 
   def set_book!
