@@ -1,7 +1,7 @@
 <div class="book_info">
   <h1 class="title mb-3"><%= book.title %></h1>
   <h2 class="author mb-3"> Автор:
-    <%= link_to book.author, '#', class: 'link-dark', title: book.author %>
+    <%= author_links(book) %>
   </h2>
 
   <div class="rating d-flex align-items-center mb-3">

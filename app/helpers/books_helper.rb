@@ -29,4 +29,14 @@ module BooksHelper
   def gen_book_description
     Faker::Lorem.paragraph
   end
+
+  def author_links(book)
+    book.author_names_with_ids.map do |name, id|
+      link_to name, author_path(id), class: 'link-dark', title: name
+    end.join(', ').html_safe
+  end
+
+  def book_author_names(book)
+    book.authors.pluck(:name).join(', ')
+  end
 end
