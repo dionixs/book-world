@@ -15,8 +15,12 @@ module ApplicationHelper
 
   def summary(object, attribute, options = {})
     length = options[:length] || 200
-    plain_text = strip_tags(object.send(attribute).to_plain_text)
+    plain_text = plain_text(object, attribute)
     truncate(plain_text, length: length)
+  end
+
+  def plain_text(object, attribute)
+    strip_tags(object.send(attribute).to_plain_text)
   end
 
   def flash_class(level)

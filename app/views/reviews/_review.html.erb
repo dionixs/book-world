@@ -7,7 +7,7 @@
         <div class="review-content">
           <%= summary(review, :body, length: 290) %>
         </div>
-        <%= link_to 'Read more...', '#', class: 'review-read-more' %>
+        <%= review_read_more_link(review, 290, :body) %>
       </div>
       <div class="card-text mb-3">
         <small class="text-muted">
