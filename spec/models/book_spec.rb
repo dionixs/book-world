@@ -66,7 +66,7 @@ RSpec.describe Book, type: :model do
   end
 
   context 'with invalid attributes' do
-    let(:book) { build(:book, author_names: 'x' * 71) }
+    let(:book) { build(:book, author_names: 'x' * 101) }
 
     it 'is invalid' do
       expect(book).to be_invalid
