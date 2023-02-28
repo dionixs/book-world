@@ -7,8 +7,8 @@ module ReviewsHelper
   end
 
   def review_read_more_link(review, length, body)
-    if plain_text(review, body).length > length
-      link_to 'Read more...', '#', class: 'review-read-more'
-    end
+    return unless plain_text(review, body).length > length
+
+    link_to 'Read more...', '#', class: 'review-read-more'
   end
 end
