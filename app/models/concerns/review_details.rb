@@ -14,5 +14,11 @@ module ReviewDetails
         errors.add(:body, 'must be less than or equal to 3000 characters long')
       end
     end
+
+    def user_can_only_review_book_once
+      if Review.exists?(user_id: user_id, book_id: book_id)
+        errors.add(:base, message: "You can only review a book once")
+      end
+    end
   end
 end

@@ -5,6 +5,7 @@ class Review < ApplicationRecord
 
   attr_accessor :body
 
+  belongs_to :user
   belongs_to :book
 
   has_rich_text :body
@@ -12,4 +13,5 @@ class Review < ApplicationRecord
   validates :title, presence: true, length: { minimum: 1, maximum: 70 }
   validates_presence_of :body
   validate :body_length
+  validate :user_can_only_review_book_once, on: :create
 end
