@@ -7,7 +7,7 @@ module Authorable
   included do
 
     def author
-      authors.first&.name
+      authors.first
     end
 
     def all_author_names
