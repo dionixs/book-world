@@ -6,6 +6,7 @@ class ReviewsController < ApplicationController
   before_action :set_review!, except: %i[index new create]
   before_action :build_review, only: %i[create]
   before_action :set_reviews, only: %i[index create]
+  before_action :check_user_reviewed_book, only: [:new, :create]
 
   def index
     @pagy, @reviews = pagy(@reviews, items: 10)
@@ -82,5 +83,11 @@ class ReviewsController < ApplicationController
 
   def set_reviews
     @reviews = @book.reviews.order created_at: :desc
+  end
+
+  def check_user_reviewed_book
+    if @book.reviewed_by_user?(current_user)
+      redirect_to @book, alert: 'You have already reviewed this book.'
+    end
   end
 end

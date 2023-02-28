@@ -2,6 +2,7 @@
 
 class Book < ApplicationRecord
   include Authorable
+  include BookDetails
   include Coverable
 
   attr_accessor :author_names

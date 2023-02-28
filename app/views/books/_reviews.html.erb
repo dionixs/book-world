@@ -1,10 +1,12 @@
 <div class="reviews">
   <h3 class="mb-3">Отзывы:</h3>
 
-  <%= render partial: 'book_review_section', locals: { book: @book, review: @review } %>
+  <% if book.not_reviewed_by_user?(current_user) %>
+    <%= render partial: 'book_review_section', locals: { book: book, review: review } %>
+  <% end %>
 
   <% unless reviews.empty? %>
-    <%= render partial: 'reviews/review', collection: @reviews, locals: { book: @book } %>
+    <%= render partial: 'reviews/review', collection: reviews, locals: { book: book } %>
 
     <div class="d-flex justify-content-center mt-5 mb-5">
       <%== pagy_bootstrap_nav(@pagy) %>
