@@ -77,6 +77,7 @@ class ReviewsController < ApplicationController
 
   def build_review
     @review = @book.reviews.build(review_params)
+    @review.user_id = current_user.id
   end
 
   def set_reviews
