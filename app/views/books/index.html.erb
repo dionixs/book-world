@@ -23,8 +23,8 @@
             <h5 class="card-title text-center"><%= book.title %></h5>
           <% end %>
 
-          <%= link_to '#', title: "#{book.author}", class: 'text-decoration-none' do %>
-            <p class="card-text text-center"><%= book.author %></p>
+          <%= link_to author_path(book.author), title: "#{book_author_name(book)}", class: 'text-decoration-none' do %>
+            <p class="card-text text-center"><%= book_author_name(book) %></p>
           <% end %>
           <div class="mt-auto">
             <a href="#" class="btn btn-primary want_to_read_btn">Want to Read</a>

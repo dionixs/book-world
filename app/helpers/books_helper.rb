@@ -36,6 +36,10 @@ module BooksHelper
     end.join(', ').html_safe
   end
 
+  def book_author_name(book)
+    book.author&.name
+  end
+
   def book_author_names(book)
     book.authors.pluck(:name).join(', ')
   end
