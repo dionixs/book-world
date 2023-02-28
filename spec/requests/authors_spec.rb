@@ -1,6 +1,6 @@
 # frozen_string_literal: true
-
 require 'rails_helper'
 
-RSpec.describe BooksController, type: :request do
+RSpec.describe '/authors', type: :request do
+
 end

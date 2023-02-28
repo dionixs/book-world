@@ -16,19 +16,14 @@ RSpec.describe Book, type: :model do
   describe 'validations' do
     it { should validate_presence_of(:title) }
     it { should validate_length_of(:title).is_at_least(1).is_at_most(70) }
-    it { should validate_presence_of(:author) }
-    it { should validate_length_of(:author).is_at_least(3).is_at_most(50) }
     it { should validate_length_of(:description).is_at_most(3000) }
     it { should validate_numericality_of(:rating).is_greater_than_or_equal_to(0.0).is_less_than_or_equal_to(5.0) }
-    it { should validate_uniqueness_of(:title).scoped_to(:author).on(%i[create update]) }
-    it { should validate_uniqueness_of(:author).scoped_to(:title).on(%i[create update]) }
   end
 
   describe 'custom validations' do
 
     it 'should set the default cover' do
-      book = Book.new(title: 'The Great Gatsby', author: 'F. Scott Fitzgerald',
-                      description: 'A novel about decadence and excess in 1920s New York', rating: 4)
+      book = Book.new(title: 'The Great Gatsby', description: 'A novel about decadence and excess in 1920s New York', rating: 4)
       book.valid?
       expect(book.cover.attached?).to eq(false)
     end
@@ -62,10 +57,19 @@ RSpec.describe Book, type: :model do
     end
   end
 
-  describe 'creating an invalid book' do
-    it 'does not create a valid book' do
-      book = Book.new(title: '', author: '', description: '', rating: 6)
-      expect(book).to_not be_valid
+  context 'with valid attributes' do
+    let(:book) { build(:book, author_names: 'John Doe') }
+
+    it 'is valid' do
+      expect(book).to be_valid
+    end
+  end
+
+  context 'with invalid attributes' do
+    let(:book) { build(:book, author_names: 'x' * 71) }
+
+    it 'is invalid' do
+      expect(book).to be_invalid
     end
   end
 end
