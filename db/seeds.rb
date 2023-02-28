@@ -2,6 +2,9 @@
 
 # require 'csv'
 
+# Создаем админа
+# User.create!(email: 'admin@mail.com', password: 'secret', password_confirmation: 'secret')
+
 # Создаем жанры
 # scifi = Genre.create(name_en: 'Sci-Fi', name_ru: 'Фантастика')
 # horror = Genre.create(name_en: 'Horror', name_ru: 'Ужасы')

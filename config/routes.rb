@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
+  devise_for :users
+
   get '/about', to: 'static_pages#about'
   get '/contacts', to: 'static_pages#contacts'
   get '/help', to: 'static_pages#help'

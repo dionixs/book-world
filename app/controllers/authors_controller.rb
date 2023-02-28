@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class AuthorsController < ApplicationController
+  before_action :authenticate_user!, only: %i[new create edit update]
   before_action :set_author, only: %i[show edit update destroy]
 
   # GET /authors or /authors.json

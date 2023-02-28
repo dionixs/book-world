@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!, only: %i[new create edit update]
   before_action :set_book!, only: %i[index new show create edit update destroy]
   before_action :set_review!, except: %i[index new create]
   before_action :build_review, only: %i[create]
@@ -20,7 +21,7 @@ class ReviewsController < ApplicationController
     respond_to do |format|
       if @review.save
         format.html do
-          flash[:success] = 'Review was successfully created.'
+          flash[:notice] = 'Review was successfully created.'
           redirect_to book_path(@book, anchor: "review-#{@review.id}")
         end
         format.json { render json: review_as_json(@review), status: :ok }
@@ -37,7 +38,7 @@ class ReviewsController < ApplicationController
     respond_to do |format|
       if @review.update(review_params)
         format.html do
-          flash[:success] = 'Review was successfully updated.'
+          flash[:notice] = 'Review was successfully updated.'
           redirect_to book_path(@book, anchor: "review-#{@review.id}")
         end
         format.json { render json: review_as_json(@review), status: :ok }
