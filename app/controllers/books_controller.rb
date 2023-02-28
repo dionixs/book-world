@@ -10,14 +10,14 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render json: @books }
+      format.json { render :index }
     end
   end
 
   def show
     respond_to do |format|
       format.html
-      format.json { render json: @book }
+      format.json { render :show }
     end
   end
 
@@ -31,7 +31,7 @@ class BooksController < ApplicationController
     respond_to do |format|
       if @book.save
         format.html { redirect_to @book, success: 'Book was successfully created.' }
-        format.json { render json: @book, status: :created, location: @book }
+        format.json { render :show, status: :created }
       else
         format.html { render :new }
         format.json { render json: @book.errors, status: :unprocessable_entity }
@@ -45,7 +45,7 @@ class BooksController < ApplicationController
     respond_to do |format|
       if @book.update(book_params)
         format.html { redirect_to @book, success: 'Book was successfully updated.' }
-        format.json { render json: @book, status: :ok }
+        format.json { render :show, status: :ok }
       else
         format.html { render :edit }
         format.json { render json: @book.errors, status: :unprocessable_entity }
@@ -66,10 +66,10 @@ class BooksController < ApplicationController
 
   def set_reviews
     @reviews = @book.reviews.order created_at: :desc
-    @pagy, @reviews  = pagy(@reviews, items: 3)
+    @pagy, @reviews = pagy(@reviews, items: 3)
   end
 
   def book_params
-    params.require(:book).permit(:title, :author, :description, :rating, :cover)
+    params.require(:book).permit(:title, :description, :rating, :cover, :author_names)
   end
 end
