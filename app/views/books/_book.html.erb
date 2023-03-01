@@ -14,7 +14,7 @@
 
     <div class="card-body d-flex flex-column">
       <%= link_to book_path(book), title: "#{book.title}", class: 'text-decoration-none' do %>
-        <h5 class="card-title text-center"><%= book.title %></h5>
+        <h5 class="card-title text-center"><%= truncate(book.title, length: 29) %></h5>
       <% end %>
 
       <%= link_to author_path(book.author), title: "#{book_author_name(book)}", class: 'text-decoration-none' do %>
