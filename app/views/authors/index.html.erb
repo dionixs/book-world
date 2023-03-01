@@ -3,18 +3,7 @@
 <h1 class="mb-4">Authors</h1>
 
 <div class="row">
-  <% @authors.each do |author| %>
-    <div id="<%= dom_id author %>" class="col-md-2">
-      <%= link_to author_path(author), class: "author-link", title: author.name do %>
-        <div class="author-card mb-4">
-          <%= image_tag author_photo(author), class: "card-img-top", title: author.name %>
-          <div class="author-card-body">
-            <h5 class="author-card-title"><%= author.name %></h5>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+  <%= render partial: 'authors/author', collection: @authors %>
 </div>
 
 <div class="mt-3 mb-4 text-center">

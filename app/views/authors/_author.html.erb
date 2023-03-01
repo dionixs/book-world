@@ -1,32 +1,10 @@
-<div id="<%= dom_id author %>">
-  <p>
-    <strong>Name:</strong>
-    <%= author.name %>
-  </p>
-
-  <p>
-    <strong>Bio:</strong>
-    <%= author.bio %>
-  </p>
-
-  <p>
-    <strong>Birth date:</strong>
-    <%= author.birth_date %>
-  </p>
-
-  <p>
-    <strong>Death date:</strong>
-    <%= author.death_date %>
-  </p>
-
-  <p>
-    <strong>Place of birth:</strong>
-    <%= author.place_of_birth %>
-  </p>
-
-  <p>
-    <strong>Place of death:</strong>
-    <%= author.place_of_death %>
-  </p>
-
+<div id="<%= dom_id author %>" class="col-md-2">
+  <%= link_to author_path(author), class: "author-link", title: author.name do %>
+    <div class="author-card mb-4">
+      <%= image_tag author_photo(author), class: "card-img-top", title: author.name %>
+      <div class="author-card-body">
+        <h5 class="author-card-title"><%= author.name %></h5>
+      </div>
+    </div>
+  <% end %>
 </div>
