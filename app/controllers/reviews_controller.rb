@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 class ReviewsController < ApplicationController
+  include ActionView::RecordIdentifier
+
   before_action :authenticate_user!, only: %i[new create edit update]
   before_action :set_book!, only: %i[index new show create edit update destroy]
   before_action :set_review!, except: %i[index new create]
   before_action :build_review, only: %i[create]
   before_action :set_reviews, only: %i[index create]
-  before_action :check_user_reviewed_book, only: [:new, :create]
+  before_action :check_user_reviewed_book, only: %i[new create]
 
   def index
     @pagy, @reviews = pagy(@reviews, items: 10)
@@ -23,7 +25,7 @@ class ReviewsController < ApplicationController
       if @review.save
         format.html do
           flash[:notice] = 'Review was successfully created.'
-          redirect_to book_path(@book, anchor: "review-#{@review.id}")
+          redirect_to book_path(@book, anchor: dom_id(@review))
         end
         format.json { render json: review_as_json(@review), status: :ok }
       else
@@ -40,7 +42,7 @@ class ReviewsController < ApplicationController
       if @review.update(review_params)
         format.html do
           flash[:notice] = 'Review was successfully updated.'
-          redirect_to book_path(@book, anchor: "review-#{@review.id}")
+          redirect_to book_path(@book, anchor: dom_id(@review))
         end
         format.json { render json: review_as_json(@review), status: :ok }
       else
@@ -86,8 +88,8 @@ class ReviewsController < ApplicationController
   end
 
   def check_user_reviewed_book
-    if @book.reviewed_by_user?(current_user)
-      redirect_to @book, alert: 'You have already reviewed this book.'
-    end
+    return unless @book.reviewed_by_user?(current_user)
+
+    redirect_to @book, alert: 'You have already reviewed this book.'
   end
 end
