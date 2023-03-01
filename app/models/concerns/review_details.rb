@@ -16,9 +16,9 @@ module ReviewDetails
     end
 
     def user_can_only_review_book_once
-      if Review.exists?(user_id: user_id, book_id: book_id)
-        errors.add(:base, message: "You can only review a book once")
-      end
+      return unless Review.exists?(user_id:, book_id:)
+
+      errors.add(:base, message: 'You can only review a book once')
     end
   end
 end
