@@ -1,9 +1,13 @@
-<h1>New author</h1>
+<% provide(:title, 'New author') %>
 
-<%= render "form", author: @author %>
+<h1 class="text-center">New author</h1>
 
-<br>
+<div class="col-lg-8 mx-auto">
 
-<div>
-  <%= link_to "Back to authors", authors_path %>
+  <%= render "form", author: @author %>
+
+  <div class="mt-2">
+    <%= link_to "Back to authors", authors_path %>
+  </div>
+
 </div>
