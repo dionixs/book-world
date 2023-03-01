@@ -11,7 +11,7 @@
           <%= link_to book_path(@book), data: { turbo: true, turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm card-delete-btn" do %>
             <span class="material-icons">delete</span>
           <% end %>
-          <%= image_tag(cover(@book), width: 300, alt: "#{@book.title}", class: "img-fluid") %>
+          <%= image_tag(book_cover(@book), width: 300, alt: "#{@book.title}", class: "img-fluid") %>
 
           <div class="d-grid gap-2 book-card-button">
             <button class="btn btn-primary btn-half-width mt-3" type="button">Want to Read</button>

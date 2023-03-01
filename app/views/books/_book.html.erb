@@ -8,7 +8,7 @@
         <span class="material-icons">delete</span>
       <% end %>
       <%= link_to book_path(book), title: "#{book.title}" do %>
-        <%= image_tag(cover(book), alt: "Book Cover", class: "cover card-img-top") %>
+        <%= image_tag(book_cover(book), alt: "Book Cover", class: "cover card-img-top") %>
       <% end %>
     </div>
 

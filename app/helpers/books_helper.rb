@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module BooksHelper
+  include ImageHelper
 
   def stars_for_rating(rating)
     (1..5).map do |i|
@@ -12,10 +13,6 @@ module BooksHelper
         content_tag(:i, nil, class: 'bi bi-star fs-4 me-1')
       end
     end.join.html_safe
-  end
-
-  def cover(obj)
-    obj.cover.attached? ? obj.cover : 'default_cover.jpg'
   end
 
   def gen_book_title
