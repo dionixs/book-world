@@ -16,7 +16,7 @@ module ApplicationHelper
   def summary(object, attribute, options = {})
     length = options[:length] || 200
     plain_text = plain_text(object, attribute)
-    truncate(plain_text, length: length)
+    truncate(plain_text, length:)
   end
 
   def plain_text(object, attribute)
@@ -25,10 +25,11 @@ module ApplicationHelper
 
   def flash_class(level)
     case level.to_sym
-      when :notice then "alert alert-info"
-      when :success then "alert alert-success"
-      when :error then "alert alert-danger"
-      when :alert then "alert alert-danger"
+    when :notice then 'alert alert-info'
+    when :success then 'alert alert-success'
+    when :error then 'alert alert-danger'
+    when :alert then 'alert alert-danger'
+    else 'alert'
     end
   end
 end
