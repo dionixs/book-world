@@ -6,6 +6,10 @@ module BookDetails
 
   included do
 
+    def book_author_names(book)
+      book.authors.pluck(:name).join(', ')
+    end
+
     def reviewed_by_user?(user)
       reviews.exists?(user: user)
     end
