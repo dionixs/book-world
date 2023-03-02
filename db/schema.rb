@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_02_091926) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_02_093858) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,7 +55,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_02_091926) do
   end
 
   create_table "authors", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.text "bio"
     t.date "birth_date"
     t.date "death_date"
@@ -84,7 +84,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_02_091926) do
   end
 
   create_table "books", force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "rating", precision: 3, scale: 2, default: "0.0"
@@ -107,7 +107,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_02_091926) do
     t.bigint "book_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "title"
+    t.string "title", null: false
     t.bigint "user_id", null: false
     t.index ["book_id"], name: "index_reviews_on_book_id"
     t.index ["created_at"], name: "index_reviews_on_created_at"
