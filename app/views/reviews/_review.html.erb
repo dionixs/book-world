@@ -12,7 +12,7 @@
         </div>
         <div class="card-text mb-3">
           <small class="text-muted">
-            Автор отзыва, <time datetime="<%= formatted_created_at(review)%>", title="<%= formatted_created_at(review)%>" >
+            <%= review.user.username %>, <time datetime="<%= formatted_created_at(review)%>", title="<%= formatted_created_at(review)%>" >
             <%= formatted_created_at(review) %>
           </time>
           </small>
