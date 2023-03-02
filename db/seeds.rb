@@ -3,7 +3,7 @@
 # require 'csv'
 
 # Создаем админа
-# User.create!(email: 'admin@mail.com', password: 'secret', password_confirmation: 'secret')
+# User.create!(username: 'admin', email: 'admin@mail.com', password: 'secret', password_confirmation: 'secret')
 
 # Создаем жанры
 # scifi = Genre.create(name_en: 'Sci-Fi', name_ru: 'Фантастика')
