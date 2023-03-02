@@ -19,7 +19,7 @@ class Book < ApplicationRecord
 
   has_one_attached :cover
 
-  validates :title, presence: true, length: { minimum: 1, maximum: 70 }
+  validates :title, presence: true, allow_blank: false, length: { minimum: 1, maximum: 70 }
   validates :author_names, presence: true, length: { minimum: 3, maximum: 100 }
   validates :rating, numericality: { greater_than_or_equal_to: 0.0, less_than_or_equal_to: 5.0 }
   validates :description, length: { maximum: 3000 }
