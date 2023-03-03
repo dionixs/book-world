@@ -7,7 +7,7 @@
       <%= f.input :title, required: true, minlength: 1, maxlength: 70, placeholder: gen_book_title %>
       <%= f.input :author_names, required: true, label: "Author or authors (comma-separated)",
                                  minlength: 3, maxlength: 50, placeholder: gen_book_author,
-                                 input_html: { value: book_author_names(@book) } %>
+                                 input_html: { value: @book.book_author_names } %>
       <%#= f.input :genre, collection: Book.genres, required: false %>
       <%= f.input :description, required: false, as: :text, input_html: { 'rows': 15, 'cols': 10 }, maxlength: 3000, placeholder: gen_book_description %>
     </div>
