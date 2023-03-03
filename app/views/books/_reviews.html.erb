@@ -9,7 +9,7 @@
     <%= render partial: 'reviews/review', collection: reviews, locals: { book: book } %>
 
     <div class="d-flex justify-content-center mt-5 mb-5">
-      <%== pagy_bootstrap_nav(@pagy) %>
+      <%= pagination(@pagy) %>
     </div>
   <% end %>
 </div>

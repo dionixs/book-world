@@ -3,6 +3,12 @@
 module ApplicationHelper
   include Pagy::Frontend
 
+  def pagination(obj)
+    # rubocop:disable Rails/OutputSafety
+    raw(pagy_bootstrap_nav(obj)) if obj.pages > 1
+    # rubocop:enable Rails/OutputSafety
+  end
+
   # Returns the full title on a per-page basis.
   def full_title(page_title = '')
     base_title = 'BookWorld'
