@@ -25,13 +25,25 @@
     </ul>
     <ul class="nav">
       <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= current_user.username %>
-          <%#= link_to 'Sign out', destroy_user_session_path,
-                    class: 'btn btn-primary px-2',
-                    data: { turbo: true, turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+        <li class="dropdown mt-2">
+          <%= link_to current_user.username, '#',
+                      class: 'nav-link px-2 dropdown-toggle',
+                      data: { turbo: true, "bs-toggle": 'dropdown'} %>
+          <ul class="dropdown-menu">
+            <li>
+              <%= link_to 'Edit profile', edit_user_registration_path(current_user),
+                          class: 'dropdown-item' %>
+            </li>
+
+            <li><hr class="dropdown-divider"></li>
+
+            <li>
+              <%= link_to 'Log Out', destroy_user_session_path,
+                          class: 'dropdown-item', data: { turbo: true, turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+            </li>
+          </ul>
         </li>
-        <% else %>
+      <% else %>
         <li class="nav-item px-2">
           <%= link_to 'Login', new_user_session_path, class: 'btn btn-success px-2' %>
         </li>

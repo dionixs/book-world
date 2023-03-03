@@ -225,13 +225,13 @@ __metadata:
   linkType: hard
 
 "@rails/actiontext@npm:^7.0.4-2":
-  version: 7.0.4
-  resolution: "@rails/actiontext@npm:7.0.4"
+  version: 7.0.4-2
+  resolution: "@rails/actiontext@npm:7.0.4-2"
   dependencies:
     "@rails/activestorage": ">= 7.0.0-alpha1"
   peerDependencies:
     trix: ^1.3.1
-  checksum: 028c877a4d859c5272f1f981a899ec3a8b74222a5f2e50b9b398c950680b8ee302bc0f6ab67428e7839e2d18a8557eb2c62f1e229654c29701393989bad9f9ed
+  checksum: b33622f27a2b6e8acc2c6c7150664884e2a68ab8c64ba039ccca026233a0cacc584f1cae4649fee7e7f0c1c84c16ded09548c02b131655490e0618793eac43c9
   languageName: node
   linkType: hard
 
@@ -882,9 +882,9 @@ __metadata:
   linkType: hard
 
 "lru-cache@npm:^7.7.1":
-  version: 7.17.0
-  resolution: "lru-cache@npm:7.17.0"
-  checksum: 28c2a98ad313b8d61beac1f08257b6f0ca990e39d24a9bc831030b6e209447cfb11c6d9d1a774282189bfc9609d1dfd17ebe485228dd68f7b96b6b9b7740894e
+  version: 7.18.1
+  resolution: "lru-cache@npm:7.18.1"
+  checksum: ab0ec1360c552f1ffa54b1eaf0026126c5116a07bee156b92d1e971f4c8c88e9160f0fad4ab6fed4e0fdea84f25a4590ece085bc57ed9ab1d90b17f0b138c556
   languageName: node
   linkType: hard
 
