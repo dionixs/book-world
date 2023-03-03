@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 
 module BookDetails
-
   extend ActiveSupport::Concern
 
   included do
-
     def book_author_names
       authors.pluck(:name).join(', ')
     end

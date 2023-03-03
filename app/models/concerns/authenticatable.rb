@@ -11,7 +11,7 @@ module Authenticatable
     end
 
     def validate_username
-      return unless User.where(email: username).exists?
+      return unless User.exists?(email: username)
 
       errors.add(:username, :invalid)
     end

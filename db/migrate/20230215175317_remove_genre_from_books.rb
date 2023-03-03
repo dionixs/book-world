@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RemoveGenreFromBooks < ActiveRecord::Migration[7.0]
   def change
     remove_column :books, :genre, :string

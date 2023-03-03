@@ -3,7 +3,5 @@
 class BookDecorator < ApplicationDecorator
   delegate_all
 
-  def author_name
-    author.name
-  end
+  delegate :name, to: :author, prefix: true
 end

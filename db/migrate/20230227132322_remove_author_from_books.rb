@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class RemoveAuthorFromBooks < ActiveRecord::Migration[7.0]
-
   def up
     if Book.any?
       Book.all.each do |book|

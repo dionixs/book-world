@@ -1,13 +1,11 @@
 # frozen_string_literal: true
 
 module Coverable
-
   extend ActiveSupport::Concern
 
   include AttachableImage
 
   included do
-
     private
 
     def add_default_cover

@@ -1,19 +1,17 @@
 # frozen_string_literal: true
 
 module AttachableImage
-
   SUPPORTED_IMAGE_TYPES = %w[image/png image/jpg image/jpeg].freeze
 
   extend ActiveSupport::Concern
 
   included do
-
     private
 
     def add_default_image(attr, filename)
       return if send(attr).attached?
 
-      send(attr).attach(io: File.open(Rails.root.join('app', 'assets', 'images', filename)),
+      send(attr).attach(io: Rails.root.join('app', 'assets', 'images', filename).open,
                         filename:, content_type: 'image/jpeg')
     end
 

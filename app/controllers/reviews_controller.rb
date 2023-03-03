@@ -15,13 +15,15 @@ class ReviewsController < ApplicationController
     @reviews = @reviews.decorate
   end
 
+  def show
+    @review = Review.find(params[:id]).decorate
+  end
+
   def new
     @review = @book.reviews.build
   end
 
-  def show
-    @review = Review.find(params[:id]).decorate
-  end
+  def edit; end
 
   def create
     respond_to do |format|
@@ -32,20 +34,17 @@ class ReviewsController < ApplicationController
         end
         format.json { render json: review_as_json(@review), status: :ok }
       else
-        format.html { render :new, status: :unprocessable_entity}
+        format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  def edit; end
-
   def update
     respond_to do |format|
       if @review.update(review_params)
         format.html do
-          flash[:notice] = 'Review was successfully updated.'
-          redirect_to book_path(@book, anchor: dom_id(@review))
+          redirect_to book_path(@book, anchor: dom_id(@review)), notice: 'Review was successfully updated.'
         end
         format.json { render json: review_as_json(@review), status: :ok }
       else

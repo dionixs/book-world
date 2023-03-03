@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Genre, type: :model do
-
   describe 'associations' do
     it { should have_many(:book_genres) }
     it { should have_many(:books).through(:book_genres) }

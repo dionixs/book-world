@@ -7,9 +7,8 @@ class Book < ApplicationRecord
 
   attr_accessor :author_names
 
-  after_commit :add_default_cover, on: %i[create]
-
   before_save :find_or_create_authors
+  after_commit :add_default_cover, on: %i[create]
 
   has_many :book_authors
   has_many :authors, through: :book_authors

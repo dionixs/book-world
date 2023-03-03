@@ -24,7 +24,7 @@ class ChangeBookDescriptionFromActionTextToPlainText < ActiveRecord::Migration[7
         book.update_attribute(:description, simple_format(book.old_description))
       end
     end
-    
+
     remove_column :books, :old_description
   end
 end

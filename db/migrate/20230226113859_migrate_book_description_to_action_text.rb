@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class MigrateBookDescriptionToActionText < ActiveRecord::Migration[7.0]
-
   include ActionView::Helpers::TextHelper
 
   def up

@@ -27,6 +27,8 @@ class BooksController < ApplicationController
     @book = Book.new
   end
 
+  def edit; end
+
   def create
     @book = Book.new(book_params)
 
@@ -40,8 +42,6 @@ class BooksController < ApplicationController
       end
     end
   end
-
-  def edit; end
 
   def update
     respond_to do |format|

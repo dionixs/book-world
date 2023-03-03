@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 
 module Authorable
-
   extend ActiveSupport::Concern
 
   included do
-
     def author
       authors.first
     end
@@ -21,7 +19,7 @@ module Authorable
     private
 
     def find_or_create_authors
-      return unless author_names.present?
+      return if author_names.blank?
 
       names = author_names.split(',').map(&:strip)
 

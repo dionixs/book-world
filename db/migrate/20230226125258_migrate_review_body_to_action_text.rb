@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class MigrateReviewBodyToActionText < ActiveRecord::Migration[7.0]
-
   include ActionView::Helpers::TextHelper
 
   def up

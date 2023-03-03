@@ -1,9 +1,9 @@
 # frozen_string_literal: true
+
 require 'rails_helper'
 require 'shoulda/matchers'
 
 RSpec.describe Book, type: :model do
-
   let(:book) { create(:book) }
 
   describe 'associations' do
@@ -21,15 +21,15 @@ RSpec.describe Book, type: :model do
   end
 
   describe 'custom validations' do
-
     it 'should set the default cover' do
-      book = Book.new(title: 'The Great Gatsby', description: 'A novel about decadence and excess in 1920s New York', rating: 4)
+      book = Book.new(title: 'The Great Gatsby', description: 'A novel about decadence and excess in 1920s New York',
+                      rating: 4)
       book.valid?
       expect(book.cover.attached?).to eq(false)
     end
 
     it 'should validate correct cover type' do
-      book.cover.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'test.txt')), filename: 'test.txt',
+      book.cover.attach(io: Rails.root.join('spec', 'fixtures', 'test.txt').open, filename: 'test.txt',
                         content_type: 'text/plain')
       expect(book).not_to be_valid
       expect(book.errors[:cover]).to include('must be a PNG, JPG, or JPEG file')

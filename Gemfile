@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -50,7 +52,7 @@ gem 'draper'
 # gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
@@ -75,12 +77,15 @@ gem 'down'
 
 group :development, :test do
   gem 'byebug'
-  gem 'debug', platforms: %i[ mri mingw x64_mingw ]
+  gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'rspec-rails'
   gem 'rubocop'
+  gem 'rubocop-i18n', '~> 3.0', require: false
+  gem 'rubocop-performance', '~> 1.16', require: false
+  gem 'rubocop-rails', '~> 2.18', require: false
 end
 
 group :test do
@@ -100,4 +105,3 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
-

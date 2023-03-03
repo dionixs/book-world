@@ -6,5 +6,3 @@ json.array!(@books) do |book|
     json.authors book.authors.map { |author| { id: author.id, name: author.name } }
   end
 end
-
-

@@ -6,7 +6,6 @@ module AuthorImageable
   include AttachableImage
 
   included do
-
     private
 
     def add_default_photo

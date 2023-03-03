@@ -4,7 +4,6 @@ module ReviewDetails
   extend ActiveSupport::Concern
 
   included do
-
     private
 
     def body_length

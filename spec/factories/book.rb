@@ -8,7 +8,7 @@ FactoryBot.define do
     description { Faker::Lorem.paragraph }
 
     after :build do |book|
-      book.cover.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'cover.jpg')),
+      book.cover.attach(io: Rails.root.join('spec', 'fixtures', 'cover.jpg').open,
                         filename: 'cover.jpg', content_type: 'image/jpeg')
     end
 

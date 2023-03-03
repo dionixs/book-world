@@ -11,7 +11,7 @@ class Review < ApplicationRecord
   has_rich_text :body
 
   validates :title, presence: true, length: { minimum: 1, maximum: 70 }
-  validates_presence_of :body
+  validates :body, presence: true
   validate :body_length
   validate :user_can_only_review_book_once, on: :create
 end
