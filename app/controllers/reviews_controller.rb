@@ -12,13 +12,16 @@ class ReviewsController < ApplicationController
 
   def index
     @pagy, @reviews = pagy(@reviews, items: 10)
+    @reviews = @reviews.decorate
   end
 
   def new
     @review = @book.reviews.build
   end
 
-  def show; end
+  def show
+    @review = Review.find(params[:id]).decorate
+  end
 
   def create
     respond_to do |format|

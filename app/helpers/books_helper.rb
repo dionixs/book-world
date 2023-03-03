@@ -32,8 +32,4 @@ module BooksHelper
       link_to name, author_path(id), class: 'link-dark', title: name
     end.join(', ').html_safe
   end
-
-    def book_author_name(book)
-    book.author&.name
-  end
 end

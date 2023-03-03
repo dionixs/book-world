@@ -8,6 +8,7 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
     @pagy, @books = pagy(@books)
+    @books = @books.decorate
 
     respond_to do |format|
       format.html
@@ -69,6 +70,7 @@ class BooksController < ApplicationController
   def set_reviews
     @reviews = @book.reviews.order created_at: :desc
     @pagy, @reviews = pagy(@reviews, items: 3)
+    @reviews = @reviews.decorate
   end
 
   def book_params
