@@ -14,6 +14,8 @@ class User < ApplicationRecord
   validates :username, format: { with: /^[a-zA-Z0-9_.]*$/, multiline: true }
   validate :validate_username
   validate :password_complexity
+  validates :first_name, length: { maximum: 30 }
+  validates :last_name, length: { maximum: 50 }
   validates :tos_agreement, acceptance: { allow_nil: false, on: :create }
 
   def self.find_first_by_auth_conditions(warden_conditions)
