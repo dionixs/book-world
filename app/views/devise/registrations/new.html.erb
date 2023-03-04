@@ -21,6 +21,9 @@
       <%= f.input :password_confirmation,
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
+      <%= f.input :tos_agreement, as: :boolean,
+         label: "I agree to #{link_to 'Terms of Service',
+           terms_path, target: '_blank'}".html_safe %>
     </div>
 
     <div class="form-actions">
