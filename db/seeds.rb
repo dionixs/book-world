@@ -1,9 +1,14 @@
 # frozen_string_literal: true
 
-# require 'csv'
+require 'csv'
 
 # Создаем админа
-# User.create!(username: 'admin', email: 'admin@mail.com', password: 'secret', password_confirmation: 'secret')
+# if Rails.env.development?
+#   AdminUser.create!(
+#     username: 'admin', email: 'admin@mail.com',
+#     password: 'topsecret', password_confirmation: 'topsecret'
+#   )
+# end
 
 # Создаем жанры
 # scifi = Genre.create(name_en: 'Sci-Fi', name_ru: 'Фантастика')
@@ -60,15 +65,12 @@
 # csv&.each do |row|
 #   book = Book.new
 #   book.title = row['title']
-#   book.author= row['author']
+#   book.author_names = row['author']
 #   book.description = row['description']
 #
 #   url = row['cover_url']
 #
-#   file = Down.download(url)
-#   filename = File.basename(url)
-#
-#   book.cover.attach(io: file, filename: "#{filename}.jpeg", content_type: 'image/jpeg')
+#   book.download_cover(url)
 #
 #   if book.save
 #     puts "#{book.title} - #{book.author} saved"
