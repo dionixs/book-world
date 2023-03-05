@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
+  get '/admin/import_books', to: 'admin/books#import', as: 'import'
+
   devise_for :users
 
   get '/about', to: 'static_pages#about'
