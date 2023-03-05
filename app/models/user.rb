@@ -3,6 +3,7 @@
 class User < ApplicationRecord
   include Authenticatable
   include PasswordComplexityValidator
+  # include Accessible
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
