@@ -4,6 +4,7 @@ module Authorable
   extend ActiveSupport::Concern
 
   included do
+
     def author
       authors.first
     end

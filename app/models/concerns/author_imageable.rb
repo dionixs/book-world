@@ -4,8 +4,14 @@ module AuthorImageable
   extend ActiveSupport::Concern
 
   include AttachableImage
+  include ImageValidatable
 
   included do
+
+    def download_photo(image_url)
+      download_image(:photo, image_url)
+    end
+
     private
 
     def add_default_photo

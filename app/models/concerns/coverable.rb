@@ -4,8 +4,14 @@ module Coverable
   extend ActiveSupport::Concern
 
   include AttachableImage
+  include ImageValidatable
 
   included do
+
+    def download_cover(image_url)
+      download_image(:cover, image_url)
+    end
+
     private
 
     def add_default_cover
