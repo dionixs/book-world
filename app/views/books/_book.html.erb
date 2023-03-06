@@ -17,8 +17,8 @@
         <h5 class="card-title text-center"><%= truncate(book.title, length: 29) %></h5>
       <% end %>
 
-      <%= link_to author_path(book.author), title: "#{book.author_name}", class: 'text-decoration-none' do %>
-        <p class="card-text text-center"><%= book.author_name %></p>
+      <%= link_to author_path(book.first_author), title: "#{book.author_names}", class: 'text-decoration-none' do %>
+        <p class="card-text text-center"><%= book.short_author_name %></p>
       <% end %>
 
       <div class="mt-auto">

@@ -3,5 +3,12 @@
 class BookDecorator < ApplicationDecorator
   delegate_all
 
-  delegate :name, to: :author, prefix: true
+  def short_author_name
+    author_name = authors.first&.name
+    if author_name.present?
+      author_name.length > 20 ? "#{author_name[0..19]}..." : author_name
+    else
+      'Unknown'
+    end
+  end
 end

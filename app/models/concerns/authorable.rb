@@ -5,12 +5,12 @@ module Authorable
 
   included do
 
-    def author
-      authors.first.name
+    def first_author
+      authors.first
     end
 
-    def all_author_names
-      authors.map(&:name)
+    def author_names
+      authors.pluck(:name).join(', ')
     end
 
     def author_names_with_ids
