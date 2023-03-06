@@ -5,9 +5,6 @@ class Book < ApplicationRecord
   include BookDetails
   include Coverable
 
-  attr_accessor :author_names
-
-  before_save :find_or_create_authors
   after_commit :add_default_cover, on: %i[create]
 
   has_many :book_authors

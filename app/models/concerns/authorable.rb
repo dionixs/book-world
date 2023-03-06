@@ -9,20 +9,16 @@ module Authorable
       authors.first
     end
 
-    def author_names
-      authors.pluck(:name).join(', ')
-    end
-
     def author_names_with_ids
       authors.pluck(:name, :id)
     end
 
-    private
+    def author_names
+      authors.pluck(:name).join(',')
+    end
 
-    def find_or_create_authors
-      return if author_names.blank?
-
-      names = author_names.split(',').map(&:strip)
+    def author_names=(names)
+      names = names.split(',').map(&:strip)
 
       self.authors = names.map do |name|
         Author.find_or_create_by(name:)
