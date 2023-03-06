@@ -9,9 +9,9 @@ ActiveAdmin.register Book do
     column :title
     column :authors
     column :description
-    column :cover
-    column :published_at
     column :rating
+    column :created_at
+    column :updated_at
     actions
   end
 end
