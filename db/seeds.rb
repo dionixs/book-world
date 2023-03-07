@@ -3,12 +3,12 @@
 require 'csv'
 
 # Создаем админа
-# if Rails.env.development?
-#   AdminUser.create!(
-#     username: 'admin', email: 'admin@mail.com',
-#     password: 'topsecret', password_confirmation: 'topsecret'
-#   )
-# end
+if Rails.env.development?
+  AdminUser.create!(
+    username: 'admin', email: 'admin@mail.com',
+    password: 'topsecret', password_confirmation: 'topsecret'
+  )
+end
 
 # Создаем жанры
 # scifi = Genre.create(name_en: 'Sci-Fi', name_ru: 'Фантастика')

@@ -8,7 +8,9 @@ class MigrateReviewBodyToActionText < ActiveRecord::Migration[7.0]
 
     if Review.any?
       Review.all.each do |review|
+        # rubocop:disable Rails/SkipsModelValidations
         review.update_attribute(:body, simple_format(review.old_body))
+        # rubocop:enable Rails/SkipsModelValidations
       end
     end
     remove_column :reviews, :old_body
@@ -19,7 +21,9 @@ class MigrateReviewBodyToActionText < ActiveRecord::Migration[7.0]
 
     if Review.any?
       Review.all.each do |review|
+        # rubocop:disable Rails/SkipsModelValidations
         review.update_attribute(:old_body, review.body.to_plain_text)
+        # rubocop:enable Rails/SkipsModelValidations
         review.body.delete
       end
     end

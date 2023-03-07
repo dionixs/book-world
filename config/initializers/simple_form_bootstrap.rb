@@ -11,6 +11,7 @@
 # Dir[Rails.root.join('lib/components/**/*.rb')].each { |f| require f }
 
 # Use this setup block to configure all options available in SimpleForm.
+# rubocop:disable Metrics/BlockLength
 SimpleForm.setup do |config|
   # Default class for buttons
   config.button_class = 'btn'
@@ -87,7 +88,8 @@ SimpleForm.setup do |config|
 
   # vertical input for inline radio buttons and check boxes
   config.wrappers :vertical_collection_inline, item_wrapper_class: 'form-check form-check-inline',
-                                               item_label_class: 'form-check-label', tag: 'fieldset', class: 'mb-3' do |b|
+                  item_label_class: 'form-check-label',
+                  tag: 'fieldset', class: 'mb-3' do |b|
     b.use :html5
     b.optional :readonly
     b.wrapper :legend_tag, tag: 'legend', class: 'col-form-label pt-0' do |ba|
@@ -367,3 +369,4 @@ SimpleForm.setup do |config|
     select: :vertical_select
   }
 end
+# rubocop:enable Metrics/BlockLength

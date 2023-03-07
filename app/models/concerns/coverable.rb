@@ -7,7 +7,6 @@ module Coverable
   include ImageValidatable
 
   included do
-
     def download_cover(image_url)
       download_image(:cover, image_url)
     end

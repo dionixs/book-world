@@ -3,7 +3,7 @@
 class ReviewsController < ApplicationController
   include ActionView::RecordIdentifier
 
-  before_action :authenticate_user!, only: %i[new create edit update]
+  before_action :authenticate_user!, only: %i[new create edit update destroy]
   before_action :set_book!, only: %i[index new show create edit update destroy]
   before_action :set_review!, except: %i[index new create]
   before_action :build_review, only: %i[create]
@@ -25,6 +25,7 @@ class ReviewsController < ApplicationController
 
   def edit; end
 
+  # rubocop:disable Metrics/MethodLength
   def create
     respond_to do |format|
       if @review.save
@@ -40,6 +41,9 @@ class ReviewsController < ApplicationController
     end
   end
 
+  # rubocop:enable Metrics/MethodLength
+
+  # rubocop:disable Metrics/MethodLength
   def update
     respond_to do |format|
       if @review.update(review_params)
@@ -53,6 +57,8 @@ class ReviewsController < ApplicationController
       end
     end
   end
+
+  # rubocop:enable Metrics/MethodLength
 
   def destroy
     review = @book.reviews.find(params[:id])

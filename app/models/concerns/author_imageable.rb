@@ -7,7 +7,6 @@ module AuthorImageable
   include ImageValidatable
 
   included do
-
     def download_photo(image_url)
       download_image(:photo, image_url)
     end

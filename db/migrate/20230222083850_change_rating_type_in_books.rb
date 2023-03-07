@@ -6,7 +6,9 @@ class ChangeRatingTypeInBooks < ActiveRecord::Migration[7.0]
 
     if Book.any?
       Book.all.each do |book|
+        # rubocop:disable Rails/SkipsModelValidations
         book.update_column(:new_rating, book.rating)
+        # rubocop:enable Rails/SkipsModelValidations
       end
     end
 
@@ -19,7 +21,9 @@ class ChangeRatingTypeInBooks < ActiveRecord::Migration[7.0]
 
     if Book.any?
       Book.all.each do |book|
+        # rubocop:disable Rails/SkipsModelValidations
         book.update_column(:new_rating, book.rating)
+        # rubocop:enable Rails/SkipsModelValidations
       end
     end
 

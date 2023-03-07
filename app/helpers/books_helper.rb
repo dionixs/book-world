@@ -4,6 +4,7 @@ module BooksHelper
   include ImageHelper
 
   def stars_for_rating(rating)
+    # rubocop:disable Rails/OutputSafety
     (1..5).map do |i|
       if rating >= i
         content_tag(:i, nil, class: 'bi bi-star-fill text-warning fs-4 me-1')
@@ -13,6 +14,7 @@ module BooksHelper
         content_tag(:i, nil, class: 'bi bi-star fs-4 me-1')
       end
     end.join.html_safe
+    # rubocop:enable Rails/OutputSafety
   end
 
   def gen_book_title
@@ -28,8 +30,10 @@ module BooksHelper
   end
 
   def author_links(book)
+    # rubocop:disable Rails/OutputSafety
     book.author_names_with_ids.map do |name, id|
       link_to name, author_path(id), class: 'link-dark', title: name
     end.join(', ').html_safe
+    # rubocop:enable Rails/OutputSafety
   end
 end

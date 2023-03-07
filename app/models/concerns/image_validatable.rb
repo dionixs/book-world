@@ -1,13 +1,11 @@
 # frozen_string_literal: true
 
 module ImageValidatable
-
   SUPPORTED_IMAGE_TYPES = %w[image/png image/jpg image/jpeg].freeze
 
   extend ActiveSupport::Concern
 
   included do
-
     private
 
     def correct_image_type(attr)
