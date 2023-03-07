@@ -4,7 +4,12 @@ module Authorable
   extend ActiveSupport::Concern
 
   included do
+
     attr_accessor :author_names
+
+    def author
+      author_names_with_separator(', ')
+    end
 
     def first_author
       authors.first
@@ -15,7 +20,7 @@ module Authorable
     end
 
     def author_names
-      authors.pluck(:name).join(',')
+      author_names_with_separator(',')
     end
 
     def author_names=(names)
@@ -34,6 +39,10 @@ module Authorable
       return unless author_names.blank? || author_names.split(',').count < 1
 
       errors.add(:author_names, 'must contain at least one author name')
+    end
+
+    def author_names_with_separator(separator)
+      authors.pluck(:name).join(separator)
     end
   end
 end

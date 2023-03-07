@@ -7,7 +7,7 @@ ActiveAdmin.register Book do
     selectable_column
     id_column
     column :title
-    column :authors
+    column :author
     column :description
     column :rating
     column :created_at
