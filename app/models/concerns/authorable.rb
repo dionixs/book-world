@@ -15,6 +15,10 @@ module Authorable
       authors.first
     end
 
+    def author?
+      authors.present?
+    end
+
     def author_names_with_ids
       authors.pluck(:name, :id)
     end
@@ -24,8 +28,6 @@ module Authorable
     end
 
     def author_names=(names)
-      return unless valid?(:at_least_one_author)
-
       names = names.split(',').map(&:strip)
 
       self.authors = names.map do |name|
@@ -34,12 +36,6 @@ module Authorable
     end
 
     private
-
-    def at_least_one_author
-      return unless author_names.blank? || author_names.split(',').count < 1
-
-      errors.add(:author_names, 'must contain at least one author name')
-    end
 
     def author_names_with_separator(separator)
       authors.pluck(:name).join(separator)
