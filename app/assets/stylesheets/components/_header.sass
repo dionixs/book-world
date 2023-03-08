@@ -1,115 +1,115 @@
 #header
-    background: #483e45
-    height: 65px
-    margin: 0 0 -65px
-    color: #eaeaea
-    position: fixed
-    font-size: 14px
-    width: 100%
-    min-width: 980px
-    z-index: 3
-    display: block
+  background: #483e45
+  height: 65px
+  margin: 0 0 -65px
+  color: #eaeaea
+  position: fixed
+  font-size: 14px
+  width: 100%
+  min-width: 980px
+  z-index: 3
+  display: block
 
 .nav
-    display: flex
-    justify-content: space-around
+  display: flex
+  justify-content: space-around
 
 // Logo
 .header-logo
-    display: block
-    margin: 17px 40px 0 0
-    text-decoration: none
+  display: block
+  margin: 17px 40px 0 0
+  text-decoration: none
 
-    &__text
-        font-size: 20px
-        font-weight: bold
+  &__text
+    font-size: 20px
+    font-weight: bold
 
 // Navbar
 .header-nav
-    font-size: 14px
-    margin: 24px 24px 0 0
+  font-size: 14px
+  margin: 24px 24px 0 0
 
-    &__link
-        color: #eaeaea
-        text-decoration: none
-        margin: 0 15px 0 0
+  &__link
+    color: #eaeaea
+    text-decoration: none
+    margin: 0 15px 0 0
 
-        &:hover
-            color: #f7bf05
+    &:hover
+      color: #f7bf05
 
 // Search
 .header-search
-    width: 291px
-    margin: 14px 0 0
+  width: 291px
+  margin: 14px 0 0
+  position: relative
+
+  form
     position: relative
 
-    form
-        position: relative
+    input
+      border: none
+      outline: none
+      background-color: rgb(111, 101, 108)
+      position: relative
+      width: 100%
+      box-sizing: border-box
+      padding: 10px
+      color: #bdbdbd
+      font-size: 14px
+      font-weight: 400
+      text-align: left
 
-        input
-            border: none
-            outline: none
-            background-color: rgb(111, 101, 108)
-            position: relative
-            width: 100%
-            box-sizing: border-box
-            padding: 10px
-            color: #bdbdbd
-            font-size: 14px
-            font-weight: 400
-            text-align: left
-
-    i.search-w
-        height: 16px
-        width: 16px
-        background: url('../images/header/search.png') 0 0 no-repeat
-        position: absolute
-        right: 10px
-        top: 10px
-        cursor: pointer
+  i.search-w
+    height: 16px
+    width: 16px
+    background: url('../images/header/search.png') 0 0 no-repeat
+    position: absolute
+    right: 10px
+    top: 10px
+    cursor: pointer
 
 .header-btn-icon.shuffle-btn
-    padding: 0
-    border-radius: 2px
-    margin-left: 10px
-    margin-top: 20px
+  padding: 0
+  border-radius: 2px
+  margin-left: 10px
+  margin-top: 20px
 
 .shuffle
-    color: white
+  color: white
 
-    &:hover
-        color: #f7bf05
+  &:hover
+    color: #f7bf05
 
 .header--login
-    &-new
-        margin-top: 16px
-        height: 10px
+  &-new
+    margin-top: 16px
+    height: 10px
 
-    &-btn-new
-        color: #fff
-        font-size: 14px
-        display: inline-block
-        margin: 0 10px 0 5px
-        line-height: 17px
-        text-decoration: none
+  &-btn-new
+    color: #fff
+    font-size: 14px
+    display: inline-block
+    margin: 0 10px 0 5px
+    line-height: 17px
+    text-decoration: none
 
-        &:hover
-            color: #f7bf05
+    &:hover
+      color: #f7bf05
 
-    &-btn-signup
-        font-size: 13px
-        color: #fff
-        display: inline-block
-        border-radius: 2px
-        padding: 8px 20px
-        background-color: #7aad41
-        text-decoration: none
+  &-btn-signup
+    font-size: 13px
+    color: #fff
+    display: inline-block
+    border-radius: 2px
+    padding: 8px 20px
+    background-color: #7aad41
+    text-decoration: none
 
-        &:hover
-            color: white
-            background-color: #7fcb29
+    &:hover
+      color: white
+      background-color: #7fcb29
 
 @media (min-width: 601px) and (max-width: 1200px)
-    .header-search, .shuffle-btn
-        display: none
+  .header-search, .shuffle-btn
+    display: none
 
