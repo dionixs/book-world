@@ -1,11 +1,12 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
-
 @import 'tom-select/dist/css/tom-select.bootstrap5';
-@import "./config/_fonts.scss";
-@import './config/_actiontext.css';
 
-@import "./layouts/_header.scss";
+@import 'config/fonts';
+
+@import 'components/actiontext';
+@import 'components/header';
+@import 'components/main';
 
 @import "./layouts/_book.sass";
 @import "./layouts/_books.sass";
