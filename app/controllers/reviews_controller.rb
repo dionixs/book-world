@@ -63,7 +63,7 @@ class ReviewsController < ApplicationController
   def destroy
     review = @book.reviews.find(params[:id])
     review.destroy
-    redirect_to book_path(@book), success: 'Review was successfully destroyed.'
+    redirect_to book_path(@book), notice: 'Review was successfully destroyed.'
   end
 
   private
