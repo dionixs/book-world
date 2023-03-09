@@ -1,0 +1,16 @@
+ru:
+  home:
+    section:
+      search:
+        title: Найди свою книгу
+        form:
+          input:
+            placeholder: Введите название книги...
+            submit: Найти книгу
+        want_more: Хотите узнать больше?
+        about:
+          item:
+            interesting_books: "<span>Находите</span><br>интересные книги"
+            collect_library: "<span>Собирайте</span><br>свою библиотеку"
+            rate_and_discuss: "<span>Оценивайте</span><br>и обсуждайте"
+            follow_friends_reading: "<span>Следите за тем,</span><br>что читают друзья"

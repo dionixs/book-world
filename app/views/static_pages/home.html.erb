@@ -1,84 +1,14 @@
 <div class="search-block clearfix visible-lg visible-md">
   <div class="container">
     <div class="section-search">
-      <span class="header--title">Найди свою книгу</span>
+      <span class="header--title"><%= t('home.section.search.title') %></span>
 
-      <div class="search-form">
-        <form action="/search/" class="ng-pristine ng-valid">
-          <div class="d-flex justify-content-center align-items-center">
-            <div class="search-block--text-input">
-              <span class="twitter-typeahead" style="position: relative; display: inline-block;">
-                <input class="tt-hint" type="text" autocomplete="off" spellcheck="off" disabled="">
-                <input id="search_query" name="q" class="tt-query" type="text"
-                       placeholder="Введите название книги..." autocomplete="off" spellcheck="false">
-              </span>
-            </div>
-            <input class="btn-orange-big-index-20" type="submit" value="Найти книгу">
-          </div>
-        </form>
-      </div>
-
-      <div class="about-service">
-        <div class="about-service--item ">
-          <div class="service-name">
-            <div class="icon">
-              <span class="material-icons">
-                search
-              </span>
-            </div>
-
-            <div class="text">
-              <span>Находите</span><br>интересные книги
-            </div>
-          </div>
-        </div>
-
-        <div class="about-service--item bibl">
-          <div class="service-name">
-            <div class="icon">
-              <span class="material-icons">
-                library_books
-              </span>
-            </div>
-
-            <div class="text">
-              <span>Собирайте</span><br>свою библиотеку
-            </div>
-          </div>
-        </div>
-
-        <div class="about-service--item rate">
-          <div class="service-name">
-            <div class="icon">
-              <span class="material-icons">
-                chat
-              </span>
-            </div>
-            <div class="text">
-              <span>Оценивайте</span><br>и обсуждайте
-            </div>
-          </div>
-        </div>
-
-        <div class="about-service--item track">
-          <div class="service-name">
-            <div class="icon">
-              <span class="material-icons">
-                groups
-              </span>
-            </div>
-
-            <div class="text">
-              <span>Следите за тем,</span><br>что читают друзья
-            </div>
-          </div>
-        </div>
-      </div>
+      <%= render partial: 'static_pages/home/search_form' %>
+      <%= render partial: 'static_pages/home/about_service' %>
 
       <%= tag.div class: 'want-more' do %>
-        <%= link_to 'Хотите узнать больше?', about_path, class: "btn-transp-big-20" %>
+        <%= link_to t('home.section.search.want_more'), about_path, class: "btn-transp-big-20" %>
       <% end %>
-
     </div>
   </div>
 </div>

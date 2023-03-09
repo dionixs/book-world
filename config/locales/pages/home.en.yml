@@ -1,0 +1,16 @@
+en:
+  home:
+    section:
+      search:
+        title: Find Your Book
+        form:
+          input:
+            placeholder: Enter the title of the book...
+            submit: Find a book
+        want_more: Want to know more?
+        about:
+          item:
+            interesting_books: "<span>Find</span><br>interesting books"
+            collect_library: "<span>Collect</span><br>your library"
+            rate_and_discuss: "<span>Rate</span><br>and discuss"
+            follow_friends_reading: "<span>Follow</span><br>friends' reading"
