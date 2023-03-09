@@ -36,4 +36,8 @@ module BooksHelper
     end.join(', ').html_safe
     # rubocop:enable Rails/OutputSafety
   end
+
+  def book_editable?
+    controller_name == "books" && action_name.in?(%w[edit update])
+  end
 end
