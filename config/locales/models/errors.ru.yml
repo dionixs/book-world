@@ -1,0 +1,7 @@
+ru:
+  errors:
+    messages:
+      cover_unsupported_image: "должна быть файлом PNG, JPG или JPEG"
+      cover_oversize_image: "должна иметь размер не более 5МБ"
+      author_unsupported_image: "должно быть файлом PNG, JPG или JPEG"
+      author_oversize_image: "должно иметь размер не более 5МБ"

@@ -7,7 +7,7 @@
 			<%= f.input :title, required: true, minlength: 1, maxlength: 70,
 									placeholder: gen_book_title %>
 
-			<%= f.input :author_names, label: "Authors",
+			<%= f.input :author_names,
 									input_html: { value: @book.author_names,
 																autocomplete: "off",
 																required: true } %>
@@ -18,13 +18,18 @@
 		</div>
 
 		<div class="form-actions d-grid gap-2 d-md-block">
-			<%= f.button :submit, class: 'btn btn-success' %>
 
-			<% if params[:action] == "edit" || params[:action] == "update" %>
-				<%= link_to "Delete", @book, class: 'btn btn-danger', data: { turbo: true, turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+			<%= f.button :submit, t("activerecord.form.#{action_name}_book"),
+									 class: 'btn btn-success' %>
+
+			<% if book_editable? %>
+				<%= link_to t('activerecord.form.delete_book'), @book, class: 'btn btn-danger',
+										data: { turbo: true, turbo_method: :delete,
+														turbo_confirm: 'Are you sure?' } %>
+
 			<% end %>
 
-			<%= link_to 'Back', books_path, class: 'btn btn-secondary' %>
+			<%= link_to t('activerecord.form.back'), books_path, class: 'btn btn-secondary' %>
 		</div>
 	<% end %>
 </div>

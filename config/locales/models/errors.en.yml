@@ -1,0 +1,7 @@
+en:
+  errors:
+    messages:
+      cover_unsupported_image: "must be a PNG, JPG, or JPEG file"
+      cover_oversize_image: "size must be less than 5MB"
+      photo_unsupported_image: "must be a PNG, JPG, or JPEG file"
+      photo_oversize_image: "size must be less than 5MB"

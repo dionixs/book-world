@@ -33,11 +33,11 @@ module ImageValidatable
     end
 
     def unsupported_image_error(attr)
-      errors.add(attr, 'must be a PNG, JPG, or JPEG file')
+      errors.add(attr, I18n.t("errors.messages.#{attr}_unsupported_image"))
     end
 
     def oversize_image_error(attr)
-      errors.add(attr, 'size must be less than 5MB')
+      errors.add(attr, I18n.t("errors.messages.#{attr}_oversize_image"))
     end
   end
 end

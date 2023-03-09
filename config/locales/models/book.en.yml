@@ -1,0 +1,16 @@
+en:
+  activerecord:
+    models:
+      book: Book
+    attributes:
+      book:
+        title: Title
+        author_names: Author or authors
+        description: Description
+        rating: Rating
+        cover: Cover
+    form:
+      new_book: Create a book
+      edit_book: Update a book
+      back: Back
+      delete_book: Delete a book

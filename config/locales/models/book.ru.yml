@@ -1,0 +1,16 @@
+ru:
+  activerecord:
+    models:
+      book: Книга
+    attributes:
+      book:
+        title: Название
+        author_names: Автор или авторы
+        description: Описание
+        rating: Рейтинг
+        cover: Обложка
+    form:
+      new_book: Добавить книгу
+      edit_book: Обновить книгу
+      back: Назад
+      delete_book: Удалить книгу
