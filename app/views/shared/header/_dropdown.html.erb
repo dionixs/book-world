@@ -1,0 +1,18 @@
+<div class="dropdown">
+  <%= link_to current_user.username, '#',
+              class: 'nav-link px-2 dropdown-toggle mt-3',
+              data: { turbo: true, "bs-toggle": 'dropdown' } %>
+  <ul class="dropdown-menu">
+    <li>
+      <%= link_to 'Edit profile', edit_user_registration_path,
+                  class: 'dropdown-item' %>
+    </li>
+    <li>
+      <hr class="dropdown-divider">
+    </li>
+    <li>
+      <%= link_to 'Log Out', destroy_user_session_path,
+                  class: 'dropdown-item', data: { turbo: true, turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+    </li>
+  </ul>
+</div>

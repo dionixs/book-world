@@ -1,53 +1,12 @@
 <header id="header" class="cf sticky-top">
   <div class="container">
     <div class="nav">
-      <%= tag.div class: 'header-logo' do %>
-        <%= link_to root_path, class: 'navbar-brand d-flex' do %>
-          <%= image_tag("logo.png", class: 'bi me-2', size: "32x32", title: 'BookWorld') %>
-          <%= tag.span 'BookWorld', class: 'header-logo__text', title: 'BookWorld' %>
-        <% end %>
-      <% end %>
-
-      <%= tag.nav class: 'header-nav' do %>
-        <%= link_to 'Книги', books_path, class: "header-nav__link", title: 'Книги' %>
-        <%= link_to 'Авторы', authors_path, class: "header-nav__link", title: 'Авторы' %>
-        <%= link_to 'Жанры', '#', class: "header-nav__link", title: 'Жанры' %>
-        <%= link_to 'Обсуждения', '#', class: "header-nav__link", title: 'Обсуждения' %>
-        <%= link_to 'Читатели', '#', class: "header-nav__link", title: 'Читатели' %>
-      <% end %>
-
-      <div class="header-search ng-scope">
-        <form action="/search/" class="dropdown-triger ng-pristine ng-valid">
-          <input type="text" placeholder="Поиск автора или книги..." name="q" autocomplete="off" data-ng-click="openDropDown()" data-ng-model="q" data-ng-change="search()" data-ng-init="q=''" data-ng-model-options="{debounce: 300}" class="ng-pristine ng-untouched ng-valid">
-          <a rel="nofollow" href="/search/?q="><i class="icon_sprite search-w "></i></a>
-        </form>
-      </div>
-
-      <a rel="nofollow" class="shuffle-btn header-btn-icon" href="/books/i_am_lucky/">
-        <span class="shuffle shuffle-btn__icon material-icons">shuffle</span>
-      </a>
+      <%= render partial: 'shared/header/logo' %>
+      <%= render partial: 'shared/header/nav' %>
+      <%= render partial: 'shared/header/search' %>
 
       <% if user_signed_in? %>
-        <div class="dropdown">
-          <%= link_to current_user.username, '#',
-                      class: 'nav-link px-2 dropdown-toggle mt-3',
-                      data: { turbo: true, "bs-toggle": 'dropdown' } %>
-          <ul class="dropdown-menu">
-            <li>
-              <%= link_to 'Edit profile', edit_user_registration_path,
-                          class: 'dropdown-item' %>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <%= link_to 'Log Out', destroy_user_session_path,
-                          class: 'dropdown-item', data: { turbo: true, turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
-            </li>
-          </ul>
-        </div>
+        <%= render partial: 'shared/header/dropdown' %>
       <% else %>
         <div class="header--login-new">
           <%= link_to 'Войти', new_user_session_path, class: 'header--login-btn-new' %>
