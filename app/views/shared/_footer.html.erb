@@ -83,10 +83,33 @@
       <div class="d-flex justify-content-between py-4 my-4 border-top">
         <p>&copy; 2023 Company, Inc. All rights reserved.</p>
 
-        <select class="selectpicker" data-width="fit">
-          <option>English</option>
-          <option>Russian</option>
-        </select>
+        <ul class="nav col-12 col-lg-auto mb-2 mb-md-0">
+          <li class="dropdown">
+            <%= link_to '#', class: 'nav-link px-2 dropdown-toggle text-white',
+                        data: { "bs-toggle": 'dropdown' } do %>
+              <%= tag.div '', class: "flag #{I18n.locale}-flag mt-1" %>
+              <%= t I18n.locale %>
+            <% end %>
+
+            <ul class="dropdown-lang-menu dropdown-menu">
+              <% I18n.available_locales.each do |locale| %>
+                <li>
+                  <% if I18n.locale == locale %>
+                    <%= tag.span t(locale), class: 'dropdown-item' %>
+                  <% else %>
+                    <%= link_to t(locale), url_for(locale: locale),
+                                class: 'dropdown-item' %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </li>
+        </ul>
+
+        <!--        <select class="selectpicker" data-width="fit">-->
+        <!--          <option>English</option>-->
+        <!--          <option>Russian</option>-->
+        <!--        </select>-->
       </div>
     </div>
   </div>
