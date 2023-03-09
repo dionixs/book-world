@@ -38,4 +38,10 @@ module ApplicationHelper
     else 'alert'
     end
   end
+
+  def icon_tag(icon_name)
+    content_tag(:span, class: 'material-icons') do
+      icon_name.to_s
+    end
+  end
 end
