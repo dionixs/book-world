@@ -26,6 +26,7 @@ module BookWorld
     config.load_defaults 7.0
 
     config.i18n.available_locales = %i[en ru]
+    config.i18n.default_locale = :ru
 
     config.time_zone = 'Moscow'
     # config.eager_load_paths << Rails.root.join("extras")
