@@ -14,4 +14,5 @@ class Review < ApplicationRecord
   validates :body, presence: true
   validate :body_length
   validate :user_can_only_review_book_once, on: :create
+  validate :validate_images
 end

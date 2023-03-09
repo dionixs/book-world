@@ -8,6 +8,7 @@ import "trix"
 import "@rails/actiontext"
 
 // Components
+// import "./components/_trix-editor-overrides"
 import './components/_select'
 
 // Pages

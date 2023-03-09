@@ -1,10 +1,10 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 @import 'tom-select/dist/css/tom-select.bootstrap5';
+@import './components/_actiontext.css';
 
 @import 'config/fonts';
 
-@import 'components/actiontext';
 @import 'components/header';
 @import 'components/main';
 
