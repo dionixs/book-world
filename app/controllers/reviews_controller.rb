@@ -30,7 +30,7 @@ class ReviewsController < ApplicationController
     respond_to do |format|
       if @review.save
         format.html do
-          flash[:notice] = 'Review was successfully created.'
+          flash[:notice] = t('.create')
           redirect_to book_path(@book, anchor: dom_id(@review))
         end
         format.json { render json: review_as_json(@review), status: :ok }
@@ -48,7 +48,7 @@ class ReviewsController < ApplicationController
     respond_to do |format|
       if @review.update(review_params)
         format.html do
-          redirect_to book_path(@book, anchor: dom_id(@review)), notice: 'Review was successfully updated.'
+          redirect_to book_path(@book, anchor: dom_id(@review)), notice: t('.update')
         end
         format.json { render json: review_as_json(@review), status: :ok }
       else
@@ -63,7 +63,7 @@ class ReviewsController < ApplicationController
   def destroy
     review = @book.reviews.find(params[:id])
     review.destroy
-    redirect_to book_path(@book), notice: 'Review was successfully destroyed.'
+    redirect_to book_path(@book), notice: t('.destroy')
   end
 
   private
@@ -98,6 +98,6 @@ class ReviewsController < ApplicationController
   def check_user_reviewed_book
     return unless @book.reviewed_by_user?(current_user)
 
-    redirect_to @book, alert: 'You have already reviewed this book.'
+    redirect_to @book, alert: t('.check_user_reviewed_book')
   end
 end

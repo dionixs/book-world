@@ -1,0 +1,14 @@
+en:
+  authors:
+    create: Author was successfully created.
+    update: Author was successfully updated.
+    destroy: Author was successfully destroyed.
+  books:
+    create: Book was successfully created.
+    update: Book was successfully updated.
+    destroy: Book was successfully destroyed.
+  reviews:
+    create: Review was successfully created.
+    update: Review was successfully updated.
+    destroy: Review was successfully destroyed.
+    check_user_reviewed_book: You have already reviewed this book!
