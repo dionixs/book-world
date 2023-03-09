@@ -1,0 +1,21 @@
+en:
+  header:
+    logo_text: BookWorld
+    nav:
+      link:
+        books: Books
+        authors: Authors
+        genres: Genres
+        discussions: Discussions
+        readers: Readers
+    search:
+      form:
+        input:
+          placeholder: Search for an author or book...
+          link: Start search
+    shuffle:
+      link: Random Book
+    dropdown:
+      item:
+        edit: Settings
+        log_out: Log Out

@@ -1,10 +1,15 @@
 <div class="header-search ng-scope">
   <form action="/search/" class="dropdown-triger ng-pristine ng-valid">
-    <input type="text" placeholder="Поиск автора или книги..." name="q" autocomplete="off" data-ng-click="openDropDown()" data-ng-model="q" data-ng-change="search()" data-ng-init="q=''" data-ng-model-options="{debounce: 300}" class="ng-pristine ng-untouched ng-valid">
-    <a rel="nofollow" href="/search/?q="><i class="icon_sprite search-w "></i></a>
+    <input type="text" placeholder="<%= t('header.search.form.input.placeholder') %>"
+           name="q" autocomplete="off"
+           class="ng-pristine ng-untouched ng-valid">
+    <a rel="nofollow" href="/search/?q=" title="<%= t('header.search.form.input.link') %>">
+      <i class="icon_sprite search-w "></i>
+    </a>
   </form>
 </div>
 
-<a rel="nofollow" class="shuffle-btn header-btn-icon" href="/books/i_am_lucky/">
+<a rel="nofollow" class="shuffle-btn header-btn-icon"
+   href="/books/i_am_lucky/" title="<%= t('header.shuffle.link') %>">
   <span class="shuffle shuffle-btn__icon material-icons">shuffle</span>
 </a>

@@ -1,0 +1,21 @@
+ru:
+  header:
+    logo_text: BookWorld
+    nav:
+      link:
+        books: Книги
+        authors: Авторы
+        genres: Жанры
+        discussions: Обсуждения
+        readers: Читатели
+    search:
+      form:
+        input:
+          placeholder: Поиск автора или книги...
+          link: Начать поиск
+    shuffle:
+      link: Случайная книга
+    dropdown:
+      item:
+        edit: Настройки
+        log_out: Выйти
