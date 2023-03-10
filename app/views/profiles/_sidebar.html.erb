@@ -1,0 +1,26 @@
+<aside class="profile-settings--sidebar cf">
+  <div class="ps--avatar-settings cf">
+    <%= link_to '#', class: 'ps--avatar' do %>
+      <%= image_tag('default_avatar.png', alt: 'Имя Пользователя') %>
+    <% end %>
+
+    <form class="form--avatar" action="/user/avatar-upload/" method="POST" name="avatar" enctype="multipart/form-data">
+      <input class="profile-settings-file" data-image-upload="" data-selector=".ps--avatar img" id="id_avatar" name="avatar" type="file">
+      <a class="profile--btn-green">Сменить аватар</a>
+    </form>
+  </div>
+
+  <ul class="ps--nav">
+    <li>
+      <%= link_to 'Профиль', edit_profile_path, class: active_controller == 'profiles' ? 'active' : '' %>
+    </li>
+    <li>
+      <%= link_to 'Интересы', '#', class: active_controller == 'interests' ? 'active' : '' %>
+    </li>
+    <li>
+      <%= link_to 'Аккаунт', edit_user_registration_path, class: active_controller == 'registrations' ? 'active' : '' %>
+    </li>
+  </ul>
+
+  <a href="#" class="btn-gray-blue"><i>←</i>Вернуться в профиль</a>
+</aside>

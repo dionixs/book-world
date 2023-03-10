@@ -7,8 +7,6 @@ ActiveAdmin.register User do
     selectable_column
     id_column
     column :username
-    column :full_name
-    column :last_name
     column :email
     column :created_at
     column :updated_at

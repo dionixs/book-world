@@ -4,19 +4,24 @@ class User < ApplicationRecord
   include Authenticatable
   include PasswordComplexityValidator
   # include Accessible
+  include UserDetails
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_one :profile, dependent: :destroy
+
+  after_create :create_profile
+
   validates :username, presence: true, length: { minimum: 3, maximum: 25 },
-                       uniqueness: { case_sensitive: false,
-                                     message: 'An account associated with %<value>s already exists' },
-                       exclusion: { in: %w[admin root superuser] }
+            uniqueness: { case_sensitive: false,
+                          message: 'An account associated with %<value>s already exists' },
+            exclusion: { in: %w[admin root superuser] }
   validates :username, format: { with: /^[a-zA-Z0-9_.]*$/, multiline: true }
+
   validate :validate_username
   validate :password_complexity
-  validates :first_name, length: { maximum: 30 }
-  validates :last_name, length: { maximum: 50 }
+
   validates :tos_agreement, acceptance: { allow_nil: false, on: :create }
 
   def self.find_first_by_auth_conditions(warden_conditions)

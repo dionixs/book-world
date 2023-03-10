@@ -38,6 +38,6 @@ module BooksHelper
   end
 
   def book_editable?
-    controller_name == "books" && action_name.in?(%w[edit update])
+    controller_name == 'books' && action_name.in?(%w[edit update])
   end
 end

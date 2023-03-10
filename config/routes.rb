@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     get '/admin/import_books', to: 'admin/books#import', as: 'import'
 
     devise_for :users
+    resource :profile, only: %i[edit update]
 
     get '/about', to: 'static_pages#about'
     get '/contacts', to: 'static_pages#contacts'
