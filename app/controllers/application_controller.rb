@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
   include Pagy::Backend
   include Internationalization
 
+  def current_user
+    UserDecorator.decorate(super) unless super.nil?
+  end
+
   protected
 
   def configure_permitted_parameters
