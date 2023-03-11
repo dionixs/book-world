@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-require 'csv'
+# require 'csv'
 
 # Создаем админа
-if Rails.env.development?
-  AdminUser.create!(
-    username: 'admin', email: 'admin@mail.com',
-    password: 'topsecret', password_confirmation: 'topsecret'
-  )
-end
+# if Rails.env.development?
+#   AdminUser.create!(
+#     username: 'admin', email: 'admin@mail.com',
+#     password: 'topsecret', password_confirmation: 'topsecret'
+#   )
+# end
 
 # Создаем жанры
 # scifi = Genre.create(name_en: 'Sci-Fi', name_ru: 'Фантастика')
@@ -93,4 +93,9 @@ end
 #   else
 #     puts 'Review failed to save'
 #   end
+# end
+
+# Set Gravatar Hash
+# User.find_each do |u|
+#   u.profile.send(:set_gravatar_hash)
 # end

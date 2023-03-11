@@ -1,13 +1,11 @@
+# frozen_string_literal: true
+
 class UserDecorator < ApplicationDecorator
   delegate_all
 
-  # Define presentation-specific methods here. Helpers are accessed through
-  # `helpers` (aka `h`). You can override attributes, for example:
-  #
-  #   def created_at
-  #     helpers.content_tag :span, class: 'time' do
-  #       object.created_at.strftime("%a %m/%d/%y")
-  #     end
-  #   end
+  def gravatar(size: 30, css_class: '')
+    h.image_tag "https://www.gravatar.com/avatar/#{profile.gravatar_hash}.jpg?d=retro&s=#{size}&r=PG",
+                class: css_class, alt: username
+  end
 
 end

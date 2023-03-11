@@ -1,8 +1,10 @@
 <aside class="profile-settings--sidebar cf">
   <div class="ps--avatar-settings cf">
     <%= link_to '#', class: 'ps--avatar' do %>
-      <%= image_tag('default_avatar.png', alt: 'Имя Пользователя') %>
+      <%= current_user.gravatar(size: 80) %>
     <% end %>
+
+    <span class="d-block mb-2"><%= current_user.username %></span>
 
     <form class="form--avatar" action="/user/avatar-upload/" method="POST" name="avatar" enctype="multipart/form-data">
       <input class="profile-settings-file" data-image-upload="" data-selector=".ps--avatar img" id="id_avatar" name="avatar" type="file">

@@ -1,7 +1,8 @@
 <div class="dropdown">
-  <%= link_to current_user.username, '#',
-              class: 'nav-link px-2 dropdown-toggle mt-3',
-              data: { turbo: true, "bs-toggle": 'dropdown' } %>
+  <%= link_to '#', class: 'nav-link px-2 dropdown-toggle text-white mt-2',
+              data: { turbo: true, "bs-toggle": 'dropdown' } do %>
+    <%= current_user.gravatar %>
+  <% end %>
   <ul class="dropdown-menu">
     <li>
       <%= link_to t('header.dropdown.item.edit'),
