@@ -1,7 +1,7 @@
 <div class="dropdown">
   <%= link_to '#', class: 'nav-link px-2 dropdown-toggle text-white mt-2',
               data: { turbo: true, "bs-toggle": 'dropdown' } do %>
-    <%= current_user.gravatar %>
+    <%= current_user.avatar_or_gravatar %>
   <% end %>
   <ul class="dropdown-menu">
     <li>

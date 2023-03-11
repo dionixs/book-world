@@ -6,15 +6,16 @@ Rails.application.routes.draw do
     ActiveAdmin.routes(self)
 
     resources :authors
-
     resources :books do
       resources :reviews
     end
 
     get '/admin/import_books', to: 'admin/books#import', as: 'import'
 
-    devise_for :users
-    resource :profile, only: %i[edit update]
+    devise_for :users, controllers: { registrations: 'users/registrations' }
+    resource :profile, only: %i[edit update] do
+      resource :avatar, only: %i[update destroy]
+    end
 
     get '/about', to: 'static_pages#about'
     get '/contacts', to: 'static_pages#contacts'
