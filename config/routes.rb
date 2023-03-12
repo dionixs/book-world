@@ -5,16 +5,24 @@ Rails.application.routes.draw do
     devise_for :admin_users, ActiveAdmin::Devise.config
     ActiveAdmin.routes(self)
 
+    get '/admin/import_books', to: 'admin/books#import', as: 'import'
+
+    devise_for :users, path: 'user',
+               controllers: { registrations: 'users/registrations' },
+               path_names: {
+                 sign_in: 'login', sign_out: 'logout',
+                 password: 'password_reset', edit: 'settings/account'
+               }
+
+    resource :profile, only: %i[edit update],
+             path: '/user/settings/profile',
+             path_names: { edit: '' } do
+      resource :avatar, only: %i[update destroy]
+    end
+
     resources :authors
     resources :books do
       resources :reviews
-    end
-
-    get '/admin/import_books', to: 'admin/books#import', as: 'import'
-
-    devise_for :users, controllers: { registrations: 'users/registrations' }
-    resource :profile, only: %i[edit update] do
-      resource :avatar, only: %i[update destroy]
     end
 
     get '/about', to: 'static_pages#about'
