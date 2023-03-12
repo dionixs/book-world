@@ -4,11 +4,15 @@
 @import './components/_actiontext.css';
 
 @import 'config/fonts';
+@import 'config/variables';
 
 @import 'components/header';
 @import 'components/footer';
+
+// Global styles for all pages
 @import 'components/main';
 
+// Pages
 @import 'pages/home';
 @import 'pages/profile';
 
