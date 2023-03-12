@@ -1,27 +1,62 @@
 <% provide(:title, 'Log in') %>
 
-<h2 class="text-center">Log in</h2>
+<section class="section-login">
+  <div class="container">
+    <div class="ui-auth-block">
+      <h2 class="ui-auth-block__title">
+        Авторизация
+      </h2>
 
-<div class="col-lg-8 mx-auto">
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-inputs">
-      <%= f.input :login,
-                  required: false,
-                  autofocus: true,
-                  input_html: { autocomplete: "username email" },
-                  label: 'Email or Username' %>
-      <%= f.input :password,
-                  required: false,
-                  input_html: { autocomplete: "current-password" } %>
-      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      <div class="social">
+        <div class="social-buttons ui-social-buttons">
+          <%= link_to '#', class: "google" do %>
+            <%= image_tag(url_for("/images/btn_google_signin_dark_normal_web.png")) %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="ui-auth-section">
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-inputs">
+            <div class="ui-auth-field">
+              <%= f.input :login,
+                          required: false, autofocus: true,
+                          label_html: { class: 'ui-auth-field__label' },
+                          input_html: { autocomplete: "username email",
+                                        class: 'generic-ui-input',
+                                        placeholder: 'Your email or username' },
+                          label: 'Email or Username:' %>
+            </div>
+
+            <div class="ui-auth-field">
+              <%= f.input :password,
+                          required: false, label: 'Password:',
+                          wrapper_html: { class: 'user_login' },
+                          label_html: { class: 'ui-auth-field__label' },
+                          input_html: { autocomplete: "current-password",
+                                        class: 'generic-ui-input',
+                                        placeholder: 'Your password' } %>
+              <div class="ui-auth-field__checkbox">
+                <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+              </div>
+            </div>
+
+            <div class="ui-auth-form-buttons">
+              <%= f.button :submit, "Log in", class: 'btn btn-green' %>
+
+              <div class="ui-auth-form__links">
+                <%= render "devise/shared/links" %>
+              </div>
+            </div>
+
+          </div>
+        <% end %>
+      </div>
     </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, "Log in", class: 'btn btn-success' %>
-    </div>
-  <% end %>
-
-  <div class="mt-2">
-    <%= render "devise/shared/links" %>
   </div>
-</div>
+</section>
+
+
+
+
+
