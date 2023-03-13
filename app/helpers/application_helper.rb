@@ -3,6 +3,13 @@
 module ApplicationHelper
   include Pagy::Frontend
 
+  FLASH_CLASSES = {
+    notice: 'alert alert-info',
+    success: 'alert alert-success',
+    error: 'alert alert-danger',
+    alert: 'alert alert-danger'
+  }.freeze
+
   def pagination(obj)
     # rubocop:disable Rails/OutputSafety
     raw(pagy_bootstrap_nav(obj)) if obj.pages > 1
@@ -30,13 +37,7 @@ module ApplicationHelper
   end
 
   def flash_class(level)
-    case level.to_sym
-    when :notice then 'alert alert-info'
-    when :success then 'alert alert-success'
-    when :error then 'alert alert-danger'
-    when :alert then 'alert alert-danger'
-    else 'alert'
-    end
+    FLASH_CLASSES.fetch(level.to_sym, 'alert alert-danger')
   end
 
   def icon_tag(icon_name)
