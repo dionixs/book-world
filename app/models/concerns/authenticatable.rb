@@ -16,6 +16,10 @@ module Authenticatable
       errors.add(:username, :invalid)
     end
 
+    def taken_username_message
+      I18n.t('.activerecord.errors.models.user.attributes.username.taken_username_message', value: username)
+    end
+
     def self.find_first_by_auth_conditions(warden_conditions)
       conditions = warden_conditions.dup
       if (login = conditions.delete(:login))

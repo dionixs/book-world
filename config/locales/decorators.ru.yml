@@ -1,0 +1,5 @@
+ru:
+  decorators:
+    book:
+      unknown: Неизвестен
+      title: Заголовок

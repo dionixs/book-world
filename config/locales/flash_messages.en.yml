@@ -1,4 +1,12 @@
 en:
+  avatars:
+    update:
+      success: Avatar was successfully uploaded.
+      message: Avatar was successfully uploaded.
+      alert: The file is corrupted or is not an image!
+    destroy:
+      notice: Avatar was successfully removed.
+      message: Avatar was successfully removed.
   authors:
     create: Author was successfully created.
     update: Author was successfully updated.
@@ -7,6 +15,9 @@ en:
     create: Book was successfully created.
     update: Book was successfully updated.
     destroy: Book was successfully destroyed.
+  profiles:
+    update:
+      notice: Profile updated successfully.
   reviews:
     create: Review was successfully created.
     update: Review was successfully updated.

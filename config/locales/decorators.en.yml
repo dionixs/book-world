@@ -1,0 +1,5 @@
+en:
+  decorators:
+    book:
+      unknown: Unknown
+      title: Title

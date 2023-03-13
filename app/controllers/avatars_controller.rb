@@ -7,11 +7,11 @@ class AvatarsController < ApplicationController
   def update
     respond_to do |format|
       if @profile.update(avatar: profile_params[:avatar])
-        format.html { redirect_to edit_profile_path, notice: 'Avatar was successfully uploaded.' }
-        format.json { render json: { success: true, message: 'Avatar was successfully uploaded.' } }
+        format.html { redirect_to edit_profile_path, notice: t('.update.success') }
+        format.json { render json: { success: true, message: t('.update.message') } }
       else
-        format.html { redirect_to edit_profile_path, alert: 'Файл поврежден или не является изображением!' }
-        format.json { render json: { success: false, message: 'Файл поврежден или не является изображением!' } }
+        format.html { redirect_to edit_profile_path, alert: t('.update.alert') }
+        format.json { render json: { success: false, message: t('.update.alert') } }
       end
     end
   end
@@ -19,8 +19,8 @@ class AvatarsController < ApplicationController
   def destroy
     @profile.avatar.purge
     respond_to do |format|
-      format.html { redirect_to edit_profile_path, notice: 'Avatar was successfully removed.' }
-      format.json { render json: { success: true, message: 'Avatar was successfully removed.' } }
+      format.html { redirect_to edit_profile_path, notice: t('.destroy.notice') }
+      format.json { render json: { success: true, message: t('.destroy.message') } }
     end
   end
 

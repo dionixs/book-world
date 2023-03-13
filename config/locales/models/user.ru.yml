@@ -1,0 +1,18 @@
+ru:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            username:
+              taken_username_message: "связанное с %{value}, уже существует"
+
+    models:
+      user: Пользователь
+    attributes:
+      user:
+        email: Email
+        username: Имя пользователя
+        password: Пароль
+        password_confirmation: Подтверждения пароля
+        tos_agreement: Правила

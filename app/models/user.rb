@@ -16,10 +16,12 @@ class User < ApplicationRecord
   after_create :create_profile
   after_update :update_gravatar_hash
 
-  validates :username, length: { minimum: 3, maximum: 25 },
+  validates :username,
+            length: { minimum: 3, maximum: 25 },
             uniqueness: { case_sensitive: false,
-                          message: 'An account associated with %<value>s already exists' },
+                          message: :taken_username_message },
             exclusion: { in: %w[admin root superuser] }
+
   validates :username, format: { with: /^[a-zA-Z0-9_.]*$/, multiline: true }
   validate :validate_username
 

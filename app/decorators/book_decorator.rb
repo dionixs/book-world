@@ -8,7 +8,7 @@ class BookDecorator < ApplicationDecorator
     if author_name.present?
       author_name.length > 20 ? "#{author_name[0..19]}..." : author_name
     else
-      'Unknown'
+      I18n.t('.decorators.book.unknown')
     end
   end
 end
