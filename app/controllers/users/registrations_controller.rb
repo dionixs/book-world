@@ -2,7 +2,7 @@
 
 module Users
   class RegistrationsController < Devise::RegistrationsController
-    before_action :set_profile, only: %i[edit]
+    before_action :set_profile, only: %i[edit update]
 
     private
 
