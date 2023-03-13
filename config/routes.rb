@@ -7,14 +7,16 @@ Rails.application.routes.draw do
 
     get '/admin/import_books', to: 'admin/books#import', as: 'import'
 
-    devise_for :users, path: 'user',
+    devise_for :users,
+               path: 'user',
                controllers: { registrations: 'users/registrations' },
                path_names: {
                  sign_in: 'login', sign_out: 'logout',
                  password: 'password_reset', edit: 'settings/account'
                }
 
-    resource :profile, only: %i[edit update],
+    resource :profile,
+             only: %i[edit update],
              path: '/user/settings/profile',
              path_names: { edit: '' } do
       resource :avatar, only: %i[update destroy]
