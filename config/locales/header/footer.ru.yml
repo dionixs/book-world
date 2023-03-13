@@ -1,0 +1,30 @@
+ru:
+  footer:
+    title:
+      sections: Разделы
+      discussions: Обсуждения
+      about_us: О проекте
+    nav:
+      what_to_read: Что почитать
+      popular_books: Популярные книги
+      rating_of_books: Рейтинг книг
+      book_collections: Подборки книг
+      new_books: Книжные новинки
+      popular_authors: Популярные авторы
+      random_books: Случайная книга
+      book_converter: Конвертер книг
+      topics: Топики
+      reviews: Рецензии
+      games: Игры
+      flood: Флудилка
+      about: Описание сервиса
+      faq: Вопрос-ответ
+      feedback: Обратная связь
+      help: Помощь
+      contacts: Контакты
+      terms: Правила
+    form:
+      title: Подпишитесь на нашу рассылку
+      subtitle: Ежемесячные дайджесты и самое важное из мира книг — в вашей почте
+      button: Подписаться
+    all_rights_reserved: Все права защищены.

@@ -1,0 +1,31 @@
+en:
+  footer:
+    title:
+      sections: Sections
+      discussions: Discussions
+      about_us: About Us
+    nav:
+      what_to_read: What to read
+      popular_books: Popular Books
+      rating_of_books: Rating of books
+      book_collections: Book collections
+      new_books: New books
+      popular_authors: Popular Authors
+      random_books: Random Book
+      book_converter: Ebook Converter
+      topics: Topics
+      reviews: Reviews
+      games: Games
+      flood: Flood
+      about: About
+      faq: Faq
+      feedback: Feedback
+      help: Help
+      contacts: Contacts
+      terms: Terms
+    form:
+      title: Subscribe to our newsletter
+      subtitle: Monthly digests and the most important things from the world of books - in your mail
+      button: Subscribe
+    all_rights_reserved: Inc. All rights reserved.
+
