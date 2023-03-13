@@ -15,4 +15,5 @@ ru:
         username: Имя пользователя
         password: Пароль
         password_confirmation: Подтверждения пароля
+        current_password: Текущий пароль
         tos_agreement: Правила

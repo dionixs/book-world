@@ -2,3 +2,6 @@ en:
   en: English
   ru: Russian
   name: BookWorld
+  error:
+    messages:
+      alert: 'Please correct the following errors:'
