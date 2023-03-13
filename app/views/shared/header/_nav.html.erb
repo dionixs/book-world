@@ -1,7 +1,12 @@
 <%= tag.nav class: 'header-nav' do %>
-  <%= link_to t('header.nav.link.books'), books_path, class: "header-nav__link", title: t('header.nav.link.books') %>
-  <%= link_to t('header.nav.link.authors'), authors_path, class: "header-nav__link", title: t('header.nav.link.authors') %>
-  <%= link_to t('header.nav.link.genres'), '#', class: "header-nav__link", title: t('header.nav.link.genres') %>
-  <%= link_to t('header.nav.link.discussions'), '#', class: "header-nav__link", title: t('header.nav.link.discussions') %>
-  <%= link_to t('header.nav.link.readers'), '#', class: "header-nav__link", title: t('header.nav.link.readers') %>
+  <%= nav_tab t('header.nav.link.books'), books_path, class: "header-nav__link",
+              title: t('header.nav.link.books') %>
+  <%= nav_tab t('header.nav.link.authors'), authors_path, class: "header-nav__link",
+              title: t('header.nav.link.authors') %>
+  <%= nav_tab t('header.nav.link.genres'), '#', class: "header-nav__link",
+              title: t('header.nav.link.genres') %>
+  <%= nav_tab t('header.nav.link.discussions'), '#', class: "header-nav__link",
+              title: t('header.nav.link.discussions') %>
+  <%= nav_tab t('header.nav.link.readers'), '#', class: "header-nav__link",
+              title: t('header.nav.link.readers') %>
 <% end %>
