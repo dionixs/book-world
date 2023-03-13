@@ -1,38 +1,63 @@
 <% provide(:title, 'Sign up') %>
 
-<h2 class="text-center">Sign up</h2>
+<section class="section-sign-up">
+  <div class="container">
+    <div class="ui-auth-block">
+      <h2 class="ui-auth-block__title">
+        Регистрация
+      </h2>
 
-<div class="col-lg-8 mx-auto">
-  <%= simple_form_for(resource, as: resource_name, url: user_registration_path) do |f| %>
-    <%= f.error_notification %>
+      <%= render partial: 'devise/shared/social' %>
 
-    <div class="form-inputs">
-      <%= f.input :username,
-                 required: true,
-                 autofocus: true %>
-      <%= f.input :email,
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "email" }%>
-      <%= f.input :password,
-                  required: true,
-                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :password_confirmation,
-                  required: true,
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :tos_agreement, as: :boolean,
-         label: "I agree to #{link_to 'Terms of Service',
-           terms_path, target: '_blank'}".html_safe %>
+      <div class="ui-auth-section">
+        <%= simple_form_for(resource, as: resource_name, url: user_registration_path) do |f| %>
+
+          <div class="ui-auth__error_notification">
+            <%#= f.error_notification %>
+          </div>
+
+
+          <div class="form-inputs">
+            <div class="ui-auth-field">
+              <%= f.input :username, label_html: { class: 'ui-auth-field__label' },
+                          input_html: { class: 'generic-ui-input' },
+                          required: true,
+                          autofocus: true %>
+            </div>
+            <div class="ui-auth-field">
+              <%= f.input :email, label_html: { class: 'ui-auth-field__label' },
+                          required: true,
+                          autofocus: true,
+                          input_html: { autocomplete: "email", class: 'generic-ui-input' } %>
+            </div>
+            <div class="ui-auth-field">
+              <%= f.input :password, required: true,
+                          label_html: { class: 'ui-auth-field__label' },
+                          hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                          input_html: { autocomplete: "new-password", class: 'generic-ui-input' } %>
+            </div>
+            <div class="ui-auth-field">
+              <%= f.input :password_confirmation, required: true,
+                          label_html: { class: 'ui-auth-field__label' },
+                          input_html: { autocomplete: "new-password", class: 'generic-ui-input' } %>
+            </div>
+            <div class="ui-auth-field__terms">
+              <%= f.input :tos_agreement, as: :boolean,
+                          label: "I agree to #{link_to 'Terms of Service',
+                                                       terms_path, target: '_blank'}".html_safe %>
+            </div>
+          </div>
+
+          <div class="ui-auth-form-buttons">
+            <%= f.button :submit, "Sign up", class: 'btn btn-green' %>
+
+            <div class="ui-auth-form__links">
+              <%= render "devise/shared/links" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, "Sign up", class: 'btn btn-primary' %>
-    </div>
-  <% end %>
-
-    <div class="mt-2">
-        <%= render "devise/shared/links" %>
-    </div>
-</div>
+  </div>
+</section>
 

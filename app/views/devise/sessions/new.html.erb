@@ -7,13 +7,7 @@
         Авторизация
       </h2>
 
-      <div class="social">
-        <div class="social-buttons ui-social-buttons">
-          <%= link_to '#', class: "google" do %>
-            <%= image_tag(url_for("/images/btn_google_signin_dark_normal_web.png")) %>
-          <% end %>
-        </div>
-      </div>
+      <%= render partial: 'devise/shared/social' %>
 
       <div class="ui-auth-section">
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -31,7 +25,6 @@
             <div class="ui-auth-field">
               <%= f.input :password,
                           required: false, label: 'Password:',
-                          wrapper_html: { class: 'user_login' },
                           label_html: { class: 'ui-auth-field__label' },
                           input_html: { autocomplete: "current-password",
                                         class: 'generic-ui-input',
