@@ -21,16 +21,15 @@ module ReviewDetails
     end
 
     def validate_images
-      if body.present? && body.embeds.present?
-        body.embeds.each do |embed|
-          if !embed.blob.image? || !%w[image/jpeg image/png image/gif].include?(embed.blob.content_type)
-            errors.add(:body, "Only JPEG, PNG and GIF images are allowed")
-          elsif embed.blob.byte_size > 5.megabytes
-            errors.add(:body, "The image #{embed.blob.filename} cannot be larger than 5MB")
-          end
+      return unless body.present? && body.embeds.present?
+
+      body.embeds.each do |embed|
+        if !embed.blob.image? || %w[image/jpeg image/png image/gif].exclude?(embed.blob.content_type)
+          errors.add(:body, 'Only JPEG, PNG and GIF images are allowed')
+        elsif embed.blob.byte_size > 5.megabytes
+          errors.add(:body, "The image #{embed.blob.filename} cannot be larger than 5MB")
         end
       end
     end
-
   end
 end

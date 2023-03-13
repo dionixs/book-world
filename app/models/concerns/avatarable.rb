@@ -1,14 +1,12 @@
 # frozen_string_literal: true
 
 module Avatarable
-
   extend ActiveSupport::Concern
 
   include AttachableImage
   include ImageValidatable
 
   included do
-
     private
 
     def set_gravatar_hash

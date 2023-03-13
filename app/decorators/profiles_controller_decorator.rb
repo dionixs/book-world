@@ -2,5 +2,4 @@
 
 class ProfilesControllerDecorator < ApplicationDecorator
   delegate_all
-
 end

@@ -2,7 +2,9 @@
 
 module Users
   class RegistrationsController < Devise::RegistrationsController
+    # rubocop:disable Rails/LexicallyScopedActionFilter
     before_action :set_profile, only: %i[edit update]
+    # rubocop:enable Rails/LexicallyScopedActionFilter
 
     private
 

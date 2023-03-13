@@ -4,7 +4,6 @@ module Authorable
   extend ActiveSupport::Concern
 
   included do
-
     attr_accessor :author_names
 
     def author

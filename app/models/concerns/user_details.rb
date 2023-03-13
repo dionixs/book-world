@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module UserDetails
-
   extend ActiveSupport::Concern
 
   included do
