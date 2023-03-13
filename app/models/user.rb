@@ -16,7 +16,7 @@ class User < ApplicationRecord
   after_create :create_profile
   after_update :update_gravatar_hash
 
-  validates :username, presence: true, length: { minimum: 3, maximum: 25 },
+  validates :username, length: { minimum: 3, maximum: 25 },
             uniqueness: { case_sensitive: false,
                           message: 'An account associated with %<value>s already exists' },
             exclusion: { in: %w[admin root superuser] }
@@ -26,15 +26,4 @@ class User < ApplicationRecord
   validate :password_complexity
 
   validates :tos_agreement, acceptance: { allow_nil: false, on: :create }
-
-  def self.find_first_by_auth_conditions(warden_conditions)
-    conditions = warden_conditions.dup
-    if (login = conditions.delete(:login))
-      where(conditions).where(['lower(username) = :value OR lower(email) = :value', { value: login.downcase }]).first
-    elsif conditions[:username].nil?
-      where(conditions).first
-    else
-      where(username: conditions[:username]).first
-    end
-  end
 end

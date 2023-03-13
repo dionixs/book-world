@@ -10,6 +10,11 @@
 #   )
 # end
 
+# Создаем пользователя
+# User.create!(username: 'testuser', email: 'test@mail.com',
+#              password: 'topsecret', password_confirmation: 'topsecret',
+#              tos_agreement: true)
+
 # Создаем жанры
 # scifi = Genre.create(name_en: 'Sci-Fi', name_ru: 'Фантастика')
 # horror = Genre.create(name_en: 'Horror', name_ru: 'Ужасы')
