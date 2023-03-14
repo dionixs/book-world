@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 ActiveAdmin.register_page 'Import Books' do
-  content do
+  menu label: I18n.t('active_admin.menu.books')
+
+  content title: I18n.t('active_admin.resources.books.import') do
     render 'admin/import_books'
   end
 
@@ -10,6 +12,6 @@ ActiveAdmin.register_page 'Import Books' do
 
     BookImportService.new(file).import
 
-    redirect_to admin_books_path, notice: 'Books imported successfully.'
+    redirect_to admin_books_path, I18n.t('books.import')
   end
 end

@@ -7,8 +7,14 @@ en:
       alert: 'Please correct the following errors:'
   active_admin:
     menu:
+      admin_user: Admin Users
       users: Users
+      book: "Books"
+      genre: "Genres"
+      books: "Import Books"
     resources:
+      admin_user:
+        index: Admin Users
       user:
         index: List of users
         new_model: 'Create User'

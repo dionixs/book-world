@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 ActiveAdmin.register AdminUser do
+  menu label: I18n.t('active_admin.menu.admin_user')
+
   permit_params :email, :password, :password_confirmation
 
-  index do
+  index title: I18n.t('active_admin.resources.admin_user.index') do
     selectable_column
     id_column
     column :email

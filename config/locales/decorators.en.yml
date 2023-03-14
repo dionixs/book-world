@@ -3,3 +3,11 @@ en:
     book:
       unknown: Unknown
       title: Title
+  active_admin:
+    resources:
+      book:
+        index: "List of Books"
+      genre:
+        index: "List of Genres"
+      books:
+        import: "Import Books"

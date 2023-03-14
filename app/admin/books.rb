@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 ActiveAdmin.register Book do
+  menu label: I18n.t('active_admin.menu.book')
+
   permit_params :title, :rating, :description
 
-  index do
+  index title: I18n.t('active_admin.resources.book.index') do
     selectable_column
     id_column
     column :title
