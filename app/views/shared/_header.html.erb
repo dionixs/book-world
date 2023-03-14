@@ -9,8 +9,8 @@
         <%= render partial: 'shared/header/dropdown' %>
       <% else %>
         <div class="header--login-new">
-          <%= link_to 'Войти', new_user_session_path, class: 'header--login-btn-new' %>
-          <%= link_to 'Регистрация', new_user_registration_path, class: 'header--login-btn-signup fancybox' %>
+          <%= link_to t('header.buttons.login'), new_user_session_path, class: 'header--login-btn-new' %>
+          <%= link_to t('header.buttons.signup'), new_user_registration_path, class: 'header--login-btn-signup fancybox' %>
         </div>
       <% end %>
     </div>

@@ -1,15 +1,15 @@
 <div class="mb-4 text-center">
-  <h4>What do you think?</h4>
+  <h4><%= t('review.index.what_do_you_think') %></h4>
 
   <div class="d-flex justify-content-center align-items-center">
     <div class="rate">
       <%= stars_for_rating(0) %>
       <br>
-      <span>Rate this book</span>
+      <span><%= t('review.index.rate_this_book') %></span>
     </div>
 
     <div class="new-review-btn">
-      <%= link_to 'Write a Review', new_book_review_path(book), class: 'btn btn-dark' %>
+      <%= link_to t('review.new.title'), new_book_review_path(book), class: 'btn btn-dark' %>
     </div>
   </div>
 </div>

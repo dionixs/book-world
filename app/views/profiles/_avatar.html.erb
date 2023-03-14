@@ -10,12 +10,12 @@
     <%= form.file_field :avatar, class: 'profile-settings-file', id: 'avatar-file',
                         data: { image_upload: true },
                         onchange: 'this.form.submit();' %>
-    <%= form.button 'Сменить аватар', id: 'submit-avatar',
+    <%= form.button t('profile.edit.avatar.change_avatar'), id: 'submit-avatar',
                     class: 'profile--btn-green' %>
   <% end %>
 
   <% if profile.avatar.attached? %>
-    <%= link_to 'Удалить аватар', profile_avatar_path,
+    <%= link_to t('profile.edit.avatar.delete_avatar'), profile_avatar_path,
                 data: { turbo: true, turbo_method: :delete, turbo_confirm: 'Are you sure?' },
                 class: 'ps--avatar-delete btn btn-danger profile--btn-red' %>
   <% end %>

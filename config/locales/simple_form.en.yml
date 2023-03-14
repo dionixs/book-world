@@ -14,3 +14,15 @@ en:
       defaults:
         email: 'Email'
         password: 'Password'
+    buttons:
+      save: 'Save changes'
+      edit: 'Edit'
+      back: 'Back'
+      delete: 'Delete'
+      turbo_confirm_delete: 'Are you sure?'
+      login: 'Log in'
+      sign_up: 'Sign up'
+      forgot: 'Forgot your password?'
+      confirmations: "Didn't receive confirmation instructions?"
+      unlocks: "Didn't receive unlock instructions?"
+      omniauth: "Sign in with %{value}"

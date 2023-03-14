@@ -1,6 +1,6 @@
-<% provide(:title, 'Edit Review') %>
+<% provide(:title, t('review.edit.title')) %>
 
-<h1 class="text-center">Edit Review</h1>
+<h1 class="text-center"><%= t('review.edit.title') %></h1>
 
 <div class="col-lg-8 mx-auto">
   <%= render partial: 'review_form', locals: { book: @book, review: @review } %>

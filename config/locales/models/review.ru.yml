@@ -1,0 +1,7 @@
+ru:
+  activerecord:
+    models:
+      review: Рецензия
+    attributes:
+      book:
+        title: Заголовок рецензии

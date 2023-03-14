@@ -3,15 +3,21 @@
 
   <ul class="ps--nav">
     <li>
-      <%= link_to 'Профиль', edit_profile_path, class: active_controller == 'profiles' ? 'active' : '' %>
+      <%= link_to t('profile.edit.sidebar.link.profile'), edit_profile_path,
+                  class: active_controller == 'profiles' ? 'active' : '' %>
     </li>
     <li>
-      <%= link_to 'Интересы', '#', class: active_controller == 'interests' ? 'active' : '' %>
+      <%= link_to t('profile.edit.sidebar.link.interests'), '#',
+                  class: active_controller == 'interests' ? 'active' : '' %>
     </li>
     <li>
-      <%= link_to 'Аккаунт', edit_user_registration_path, class: active_controller == 'registrations' ? 'active' : '' %>
+      <%= link_to t('profile.edit.sidebar.link.account'), edit_user_registration_path,
+                  class: active_controller == 'registrations' ? 'active' : '' %>
     </li>
   </ul>
 
-  <a href="#" class="btn-gray-blue"><i>←</i>Вернуться в профиль</a>
+  <a href="#" class="btn-gray-blue">
+    <i>←</i>
+    <%= t('profile.edit.sidebar.button') %>
+  </a>
 </aside>

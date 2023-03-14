@@ -1,0 +1,7 @@
+en:
+  activerecord:
+    models:
+      review: Review
+    attributes:
+      book:
+        title: Title

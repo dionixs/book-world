@@ -1,10 +1,10 @@
-<% provide(:title, 'Log in') %>
+<% provide(:title, t('login.title')) %>
 
 <section class="section-login">
   <div class="container">
     <div class="ui-auth-block">
       <h2 class="ui-auth-block__title">
-        Авторизация
+        <%= t('login.title') %>
       </h2>
 
       <%= render partial: 'devise/shared/social' %>
@@ -18,24 +18,24 @@
                           label_html: { class: 'ui-auth-field__label' },
                           input_html: { autocomplete: "username email",
                                         class: 'generic-ui-input',
-                                        placeholder: 'Your email or username' },
-                          label: 'Email or Username:' %>
+                                        placeholder: t('login.input.login.placeholder') },
+                          label: t('login.input.login.label') %>
             </div>
 
             <div class="ui-auth-field">
               <%= f.input :password,
-                          required: false, label: 'Password:',
+                          required: false, label: t('login.input.password.label'),
                           label_html: { class: 'ui-auth-field__label' },
                           input_html: { autocomplete: "current-password",
                                         class: 'generic-ui-input',
-                                        placeholder: 'Your password' } %>
+                                        placeholder: t('login.input.password.placeholder') } %>
               <div class="ui-auth-field__checkbox">
-                <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                <%= f.input :remember_me, as: :boolean, label: t('login.input.remember_me.label') if devise_mapping.rememberable? %>
               </div>
             </div>
 
             <div class="ui-auth-form-buttons">
-              <%= f.button :submit, "Log in", class: 'btn btn-green' %>
+              <%= f.button :submit, t('simple_form.buttons.login'), class: 'btn btn-green' %>
 
               <div class="ui-auth-form__links">
                 <%= render "devise/shared/links" %>

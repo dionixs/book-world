@@ -1,0 +1,66 @@
+ru:
+  login:
+    title: Авторизация
+    input:
+      login:
+        placeholder: Ваш email или логин
+        label: 'Email или логин:'
+      password:
+        placeholder: 'Ваш пароль'
+        label: 'Пароль:'
+      remember_me:
+        label: Запомнить меня
+  signup:
+    title: Регистрация
+    input:
+      password:
+        hint: "%{value} символов минимум"
+      tos_agreement:
+        label: 'Я согласен с'
+        link: 'Правилами сайта'
+  settings:
+    title: Настройки аккаунта
+    form:
+      title: Аккаунт
+      description: Настройки аккаунта
+      confirm: 'В настоящее время ждем подтверждения для: '
+      input:
+        username:
+          placeholder: Имя пользователя
+        email:
+          placeholder: Электронная почта
+        password:
+          hint: 'оставьте это поле пустым, если вы не хотите менять пароль'
+          placeholder: Пароль
+        password_confirmation:
+          placeholder: Подтверждение пароля
+        current_password:
+          hint: нам нужен ваш текущий пароль для подтверждения изменений
+          placeholder: Текущий пароль
+    delete:
+      title: Удаление аккаунта
+      button:
+        delete: Удалить мой аккаунт
+  reset:
+    new:
+      title: Забыли пароль?
+      form:
+        input:
+          username:
+            placeholder: 'E-mail / Имя пользователя'
+            label: 'E-mail / Имя пользователя:'
+      buttons:
+        reset: Сброс пароля
+    edit:
+      title: Изменить пароль
+      form:
+        input:
+          new_password:
+            placeholder: Новый пароль
+            label: Новый пароль
+            hint: "%{value} символов минимум"
+          confirm_new_password:
+            placeholder: Подтверждение нового пароля
+            label: Подтверждение нового пароля
+      button:
+        change: Изменить пароль

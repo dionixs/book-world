@@ -1,6 +1,6 @@
-<% provide(:title, 'Write a Review') %>
+<% provide(:title, t('review.new.title')) %>
 
-<h1 class="text-center">Write a Review</h1>
+<h1 class="text-center"><%= t('review.new.title') %></h1>
 
 <div class="col-lg-8 mx-auto">
   <%= render partial: 'review_form', locals: { book: @book, review: @review } %>

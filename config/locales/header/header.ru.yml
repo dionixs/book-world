@@ -15,6 +15,9 @@ ru:
           link: Начать поиск
     shuffle:
       link: Случайная книга
+    buttons:
+      login: Войти
+      signup: Регистрация
     dropdown:
       item:
         edit: Настройки

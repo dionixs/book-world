@@ -15,6 +15,9 @@ en:
           link: Start search
     shuffle:
       link: Random Book
+    buttons:
+      login: Login
+      signup: Sign up
     dropdown:
       item:
         edit: Settings

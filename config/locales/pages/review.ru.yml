@@ -1,0 +1,20 @@
+ru:
+  review:
+    new:
+      title: Написать рецензию
+    index:
+      title: "Рецензии на книгу %{value}"
+      reviews_not_found: Рецензии не найдены
+      what_do_you_think: Каково ваше мнение о книге?
+      rate_this_book: Оцените эту книгу
+    edit:
+      title: Редактировать рецензию
+    form:
+      title: 'Написать рецензию:'
+      input:
+        title:
+          placeholder: Заголовок рецензии
+          label: 'Заголовок рецензии:'
+        body:
+          placeholder: Рецензия
+          label: 'Рецензия:'

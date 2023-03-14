@@ -1,0 +1,67 @@
+en:
+  login:
+    title: Log in
+    input:
+      login:
+        placeholder: Your email or username
+        label: 'Email or Username:'
+      password:
+        placeholder: 'Your password'
+        label: 'Password:'
+      remember_me:
+        label: Remember me
+  signup:
+    title: Sign up
+    input:
+      password:
+        hint: "%{value} characters minimum"
+      tos_agreement:
+        label: 'I agree to'
+        link: 'Terms of Service'
+  settings:
+    title: Account settings
+    form:
+      title: Account
+      description: Account settings
+      confirm: 'Currently waiting confirmation for: '
+      input:
+        username:
+          placeholder: Username
+        email:
+          placeholder: Email
+        password:
+          hint: "leave it blank if you don't want to change it"
+          placeholder: Password
+        password_confirmation:
+          placeholder: Password confirmation
+        current_password:
+          hint: we need your current password to confirm your changes
+          placeholder: Current password
+    delete:
+      title: Deleting an account
+      button:
+        delete: Cancel my account
+  reset:
+    new:
+      title: Forgot your password?
+      form:
+        input:
+          username:
+            placeholder: 'E-mail / Username'
+            label: 'E-mail / Username:'
+      buttons:
+        reset: Reset password
+    edit:
+      title: Change your password
+      form:
+        input:
+          new_password:
+            placeholder: New password
+            label: New password
+            hint: "%{value} characters minimum"
+          confirm_new_password:
+            placeholder: Confirm your new password
+            label: Confirm your new password
+      button:
+        change: Change my password
+

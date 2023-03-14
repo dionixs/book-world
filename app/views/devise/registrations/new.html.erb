@@ -1,10 +1,10 @@
-<% provide(:title, 'Sign up') %>
+<% provide(:title, t('signup.title')) %>
 
 <section class="section-sign-up">
   <div class="container">
     <div class="ui-auth-block">
       <h2 class="ui-auth-block__title">
-        Регистрация
+        <%= t('signup.title') %>
       </h2>
 
       <%= render partial: 'devise/shared/social' %>
@@ -33,7 +33,7 @@
             <div class="ui-auth-field">
               <%= f.input :password, required: true,
                           label_html: { class: 'ui-auth-field__label' },
-                          hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                          hint: (t('signup.input.password.hint', value: @minimum_password_length) if @minimum_password_length),
                           input_html: { autocomplete: "new-password", class: 'generic-ui-input' } %>
             </div>
             <div class="ui-auth-field">
@@ -43,13 +43,13 @@
             </div>
             <div class="ui-auth-field__terms">
               <%= f.input :tos_agreement, as: :boolean,
-                          label: "I agree to #{link_to 'Terms of Service',
-                                                       terms_path, target: '_blank'}".html_safe %>
+                          label: "#{t('signup.input.tos_agreement.label')} #{link_to t('signup.input.tos_agreement.link'),
+                                                                                     terms_path, target: '_blank'}".html_safe %>
             </div>
           </div>
 
           <div class="ui-auth-form-buttons">
-            <%= f.button :submit, "Sign up", class: 'btn btn-green' %>
+            <%= f.button :submit, t('simple_form.buttons.sign_up'), class: 'btn btn-green' %>
 
             <div class="ui-auth-form__links">
               <%= render "devise/shared/links" %>

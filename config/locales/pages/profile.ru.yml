@@ -1,0 +1,28 @@
+ru:
+  profile:
+    edit:
+      title: Настройки профиля
+      form:
+        title: Профиль
+        description: Основные настройки профиля
+        input:
+          first_name:
+            label: 'Имя:'
+            placeholder: Имя
+          last_name:
+            label: 'Фамилия:'
+            placeholder: Фамилия
+          bio:
+            label: 'О себе:'
+            placeholder: Вашим подписчикам будет интересно узнать о вас...
+          button:
+            submit: Сохранить изменения
+      sidebar:
+        link:
+          profile: Профиль
+          interests: Интересы
+          account: Настройки
+        button: Вернуться в профиль
+      avatar:
+        change_avatar: Изменить аватар
+        delete_avatar: Удалить аватар

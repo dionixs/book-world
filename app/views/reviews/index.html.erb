@@ -1,4 +1,4 @@
-<% provide(:title, "All Reviews for #{@book.title}") %>
+<% provide(:title, t('review.index.title', value: @book.title)) %>
 
 <div class="pt-3">
   <div class="row">
@@ -7,16 +7,16 @@
     </div>
     <div class="col-md-8">
       <% if @reviews.empty? %>
-        <h2 class="text-center mb-4">Reviews not found</h2>
+        <h2 class="text-center mb-4"><%= t('review.index.reviews_not_found') %></h2>
 
         <%= render partial: 'books/book_review_section', locals: { book: @book, review: @review } %>
-      <%  else  %>
-        <%= render partial: 'review', collection: @reviews, locals: { book: @book }  %>
+      <% else %>
+        <%= render partial: 'review', collection: @reviews, locals: { book: @book } %>
 
         <div class="d-flex justify-content-center mt-5 mb-5">
           <%= pagination(@pagy) %>
         </div>
-      <%  end %>
+      <% end %>
     </div>
   </div>
 </div>

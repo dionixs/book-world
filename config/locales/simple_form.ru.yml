@@ -14,3 +14,15 @@ ru:
       defaults:
         email: 'Электронная почта'
         password: 'Пароль'
+    buttons:
+      save: 'Сохранить изменения'
+      edit: 'Редактировать'
+      back: 'Назад'
+      delete: 'Удалить'
+      turbo_confirm_delete: 'Вы уверены?'
+      login: 'Войти'
+      sign_up: 'Регистрация'
+      forgot: 'Забыли пароль?'
+      confirmations: 'Не получили инструкции для подтверждения?'
+      unlocks: "Не получили инструкцию по разблокировке?"
+      omniauth: "Войти с помощью %{value}"

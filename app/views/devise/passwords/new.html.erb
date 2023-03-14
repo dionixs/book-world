@@ -1,10 +1,10 @@
-<% provide(:title, 'Forgot your password?') %>
+<% provide(:title, t('reset.new.title')) %>
 
 <section class="section-sign-up">
   <div class="container">
     <div class="ui-auth-block">
       <h2 class="ui-auth-block__title">
-        Восстановление пароля
+        <%= t('reset.new.title') %>
       </h2>
 
       <div class="ui-auth-section">
@@ -16,13 +16,15 @@
 
           <div class="ui-auth-field ui-auth-field__reset">
             <%= f.input :username, label_html: { class: 'ui-auth-field__label' },
-                        required: true, autofocus: true, label: 'E-mail / Имя пользователя:',
-                        placeholder: 'E-mail / Имя пользователя',
+                        required: true, autofocus: true,
+                        label: t('reset.new.form.input.username.label'),
+                        placeholder: t('reset.new.form.input.username.placeholder'),
                         input_html: { autocomplete: "email", class: 'generic-ui-input' } %>
           </div>
 
           <div class="ui-auth-form-buttons">
-            <%= f.button :submit, "Reset password", class: 'btn btn-green btn-reset' %>
+            <%= f.button :submit, t('reset.new.buttons.reset'),
+                         class: 'btn btn-green btn-reset' %>
             <div class="ui-auth-form__links">
               <%= render "devise/shared/links" %>
             </div>

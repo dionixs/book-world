@@ -1,0 +1,20 @@
+en:
+  review:
+    new:
+      title: Write a Review
+    index:
+      title: "All Reviews for %{value}"
+      reviews_not_found: Reviews not found
+      what_do_you_think: What do you think?
+      rate_this_book: Rate this book
+    edit:
+      title: Edit Review
+    form:
+      title: 'Write a Review:'
+      input:
+        title:
+          placeholder: Your review title
+          label: 'Review title:'
+        body:
+          placeholder: Your review
+          label: Review

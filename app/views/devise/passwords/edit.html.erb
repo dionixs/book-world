@@ -1,10 +1,10 @@
-<% provide(:title, 'Change your password') %>
+<% provide(:title, t('reset.edit.title')) %>
 
 <section class="section-sign-up">
   <div class="container">
     <div class="ui-auth-block">
       <h2 class="ui-auth-block__title">
-        Change your password
+        <%= t('reset.edit.title') %>
       </h2>
 
       <div class="ui-auth-section">
@@ -18,22 +18,26 @@
 
           <div class="ui-auth-field">
             <%= f.input :password,
-                        label: "New password",
+                        label: t('reset.edit.form.input.new_password.label'),
                         required: true,
                         autofocus: true, label_html: { class: 'ui-auth-field__label' },
-                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                        input_html: { autocomplete: "new-password", class: 'generic-ui-input' } %>
+                        hint: (t('reset.edit.form.input.new_password.hint', value: @minimum_password_length) if @minimum_password_length),
+                        input_html: { autocomplete: "new-password",
+                                      placeholder: t('reset.edit.form.input.new_password.placeholder'),
+                                      class: 'generic-ui-input' } %>
           </div>
 
           <div class="ui-auth-field">
             <%= f.input :password_confirmation,
-                        label: "Confirm your new password",
+                        label: t('reset.edit.form.input.confirm_new_password.placeholder'),
                         required: true, label_html: { class: 'ui-auth-field__label' },
-                        input_html: { autocomplete: "new-password", class: 'generic-ui-input' } %>
+                        input_html: { autocomplete: "new-password",
+                                      placeholder: t('reset.edit.form.input.confirm_new_password.placeholder'),
+                                      class: 'generic-ui-input' } %>
           </div>
 
           <div class="ui-auth-form-buttons">
-            <%= f.button :submit, "Change my password", class: 'btn btn-primary' %>
+            <%= f.button :submit, t('reset.new.buttons.reset'), class: 'btn btn-primary' %>
             <div class="ui-auth-form__links">
               <%= render "devise/shared/links" %>
             </div>

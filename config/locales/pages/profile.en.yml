@@ -1,0 +1,28 @@
+en:
+  profile:
+    edit:
+      title: Profile settings
+      form:
+        title: Profile
+        description: Main profile settings
+        input:
+          first_name:
+            label: 'First Name:'
+            placeholder: First Name
+          last_name:
+            label: 'Last Name:'
+            placeholder: Last Name
+          bio:
+            label: 'About Me:'
+            placeholder: Your subscribers will be interested to know about you...
+          button:
+            submit: Save
+      sidebar:
+        link:
+          profile: Profile
+          interests: Interests
+          account: Account
+        button: Back to Profile
+      avatar:
+        change_avatar: Change avatar
+        delete_avatar: Delete avatar
