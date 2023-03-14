@@ -11,6 +11,8 @@ en:
         cover: Cover
     form:
       new_book: Create a book
+      create_book: Create a book
       edit_book: Update a book
+      update_book: Update a book
       back: Back
       delete_book: Delete a book

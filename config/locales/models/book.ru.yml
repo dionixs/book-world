@@ -11,6 +11,8 @@ ru:
         cover: Обложка
     form:
       new_book: Добавить книгу
+      create_book: Добавить книгу
       edit_book: Обновить книгу
+      update_book: Обновить книгу
       back: Назад
       delete_book: Удалить книгу

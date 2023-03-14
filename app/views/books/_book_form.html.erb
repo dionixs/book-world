@@ -8,11 +8,14 @@
 									placeholder: gen_book_title %>
 
 			<%= f.input :author_names,
+									label: 'Author:',
 									input_html: { value: @book.author_names,
 																autocomplete: "off",
 																required: true } %>
 
-			<%#= f.input :genre, collection: Book.genres, required: false %>
+			<%= f.input :genre_ids, collection: Genre.all,
+									label_method: "name_#{I18n.locale}".to_sym, value_method: :id,
+									include_blank: false, input_html: { multiple: true } %>
 
 			<%= f.input :description, required: false, as: :text, input_html: { 'rows': 15, 'cols': 10 }, maxlength: 3000, placeholder: gen_book_description %>
 		</div>
