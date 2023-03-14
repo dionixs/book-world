@@ -10,6 +10,7 @@ en:
       users: Users
     resources:
       user:
+        index: List of users
         new_model: 'Create User'
         edit_model: 'Edit User'
         delete_model: 'Delete User'

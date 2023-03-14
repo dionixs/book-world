@@ -10,7 +10,7 @@ ActiveAdmin.register User do
     %w[admin users]
   end
 
-  index title: 'List of users' do
+  index title: I18n.t('active_admin.resources.user.index') do
     selectable_column
     id_column
     column :username
