@@ -59,12 +59,17 @@ BookWorld - это приложение аналог сайта LiveLib. Пре�
 - Docker
 - Elasticsearch
 - JavaScript
-- gems: devise, simpleform, carrierwave, rspec-rails, factory-bot-rails, CanCan 
+- gems: devise, simpleform, carrierwave, rspec-rails, factory-bot-rails, CanCan
 
 #### Возможности
+
 - [ ] Сделать генератор обложек, для книг, у которых они отсутствуют
 - [ ] Сделать мобильную версию
 
+Добавить жанры:  
+`rake db:add_genres`
+
 #### Демо
+
 Последняя актуальная версия приложения крутится [здесь](https://example.com/)
 
