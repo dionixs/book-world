@@ -1,0 +1,352 @@
+﻿id,name_en,name_ru,parent_id
+1,Business books,Бизнес-книги,NULL
+2,Economy,Экономика,1
+3,Management,Менеджмент,1
+4,Banking,Банковское дело,1
+5,"Accounting, taxation, audit","Бухучет, налогообложение, аудит",1
+6,Office work,Делопроизводство,1
+7,Foreign business literature,Зарубежная деловая литература,1
+8,"Securities, investments","Ценные бумаги, инвестиции",1
+9,Real estate,Недвижимость,1
+10,Sales,Продажи,1
+11,Finance,Финансы,1
+12,"Oratory, rhetoric","Ораторское искусство, риторика",1
+13,Personal finance,Личные финансы,1
+14,Industry publications,Отраслевые издания,1
+15,Small business,Малый бизнес,1
+16,Personal effectiveness,Личная эффективность,1
+17,State and municipal administration,Государственное и муниципальное управление,1
+18,Negotiation,Переговоры,1
+19,Corporate culture,Корпоративная культура,1
+20,Time management,Тайм-менеджмент,1
+21,Startups and business creation,Стартапы и создание бизнеса,1
+22,Management and personnel,Менеджмент и кадры,1
+23,Work with clients,Работа с клиентами,1
+24,Political management,Политическое управление,1
+25,Classic literature,Классическая литература,NULL
+26,Foreign classics,Зарубежная классика,25
+27,Classical prose,Классическая проза,25
+28,Russian classics,Русская классика,25
+29,Ancient literature,Старинная литература,25
+30,20th century literature,Литература 20 века,25
+31,"Myths, legends, epic","Мифы, легенды, эпос",25
+32,Soviet literature,Советская литература,25
+33,Folklore,Фольклор,25
+34,19th century literature,Литература 19 века,25
+35,Ancient literature,Античная литература,25
+36,European ancient literature,Европейская старинная литература,25
+37,18th century literature,Литература 18 века,25
+38,Foreign ancient literature,Зарубежная старинная литература,25
+39,Ancient eastern literature,Древневосточная литература,25
+40,Old russian literature,Древнерусская литература,25
+41,Foreign literature,Зарубежная литература,NULL
+43,Modern foreign literature,Современная зарубежная литература,41
+44,Foreign romance novels,Зарубежные любовные романы,41
+45,Foreign detectives,Зарубежные детективы,41
+46,Foreign children's books,Зарубежные детские книги,41
+47,Foreign fiction,Зарубежная фантастика,41
+48,Foreign fantasy,Зарубежное фэнтези,41
+49,Foreign literature about culture and art,Зарубежная литература о культуре и искусстве,41
+50,Foreign poetry,Зарубежная поэзия,41
+51,Foreign dramaturgy,Зарубежная драматургия,41
+52,Foreign applied literature,Зарубежная прикладная литература,41
+53,Foreign educational literature,Зарубежная образовательная литература,41
+54,Foreign journalism,Зарубежная публицистика,41
+55,Foreign psychology,Зарубежная психология,41
+56,Foreign computer literature,Зарубежная компьютерная литература,41
+57,Foreign religious and esoteric literature,Зарубежная религиозная и эзотерическая литература,41
+58,Foreign humor,Зарубежный юмор,41
+59,Foreign adventure,Зарубежные приключения,41
+61,Foreign fighters,Зарубежные боевики,41
+62,Foreign religious literature,Зарубежная религиозная литература,41
+63,Foreign reference literature,Зарубежная справочная литература,41
+64,Foreign esoteric literature,Зарубежная эзотерическая литература,41
+65,Russian literature,Русская литература,NULL
+66,Modern russian literature,Современная русская литература,65
+67,Russian literature for children,Русская литература для детей,65
+68,Domestic detectives,Отечественные детективы,65
+70,Domestic fiction,Отечественная фантастика,65
+71,Russian fantasy,Русское фэнтези,65
+72,Domestic male detective,Отечественный мужской детектив,65
+73,Patriotic poetry,Отечественная поэзия,65
+74,Domestic female detective,Отечественный женский детектив,65
+75,Domestic poetry for children,Отечественная поэзия для детей,65
+76,Tales of domestic writers,Сказки отечественных писателей,65
+77,Domestic romance novels,Отечественные любовные романы,65
+79,Domestic memoirs,Отечественные мемуары,65
+80,Domestic dramaturgy,Отечественная драматургия,65
+81,Russian classics for children,Русская классика для детей,65
+82,Domestic militant,Отечественный боевик,65
+83,Classic domestic detective,Классический отечественный детектив,65
+84,Modern domestic detective,Современный отечественный детектив,65
+85,Domestic humor and satire,Отечественный юмор и сатира,65
+86,Historical domestic prose,Историческая отечественная проза,65
+88,Domestic prose for children,Отечественная проза для детей,65
+89,Children's books,Детские книги,NULL
+90,Children's cognitive and developing literature,Детская познавательная и развивающая литература,89
+91,Books for preschoolers,Книги для дошкольников,89
+92,Fairy tales,Сказки,89
+95,Children's prose,Детская проза,89
+96,Children's poems,Детские стихи,89
+99,Children's adventures,Детские приключения,89
+100,Children's fantasy,Детская фантастика,89
+101,Children's detectives,Детские детективы,89
+102,Books for children,Книги для детей,89
+104,Extracurricular reading,Внеклассное чтение,89
+105,Primers,Буквари,89
+107,Detectives,Детективы,NULL
+110,Modern detectives,Современные детективы,107
+112,Classic detectives,Классические детективы,107
+113,Thrillers,Триллеры,107
+115,Historical detectives,Исторические детективы,107
+116,Police detectives,Полицейские детективы,107
+117,Ironic detectives,Иронические детективы,107
+118,Spy detectives,Шпионские детективы,107
+119,Cool detective,Крутой детектив,107
+121,Political detectives,Политические детективы,107
+123,Retro detective,Ретро-детектив,107
+124,Fantasy,Фэнтези,NULL
+127,Romantic fantasy,Романтическое фэнтези,124
+128,Urban fantasy,Городское фэнтези,124
+129,Humorous fantasy,Юмористическое фэнтези,124
+130,Combat fantasy,Боевое фэнтези,124
+131,Heroic fantasy,Героическое фэнтези,124
+132,Books about wizards,Книги про волшебников,124
+133,Fallouts,Попаданцы,124
+134,Books about vampires,Книги про вампиров,124
+135,Historical fantasy,Историческое фэнтези,124
+136,Fantasy about dragons,Фэнтези про драконов,124
+137,Detective fantasy,Детективное фэнтези,124
+138,Erotic fantasy,Эротическое фэнтези,124
+139,Dark fantasy,Темное фэнтези,124
+140,Science fiction,Научная фантастика,NULL
+143,Fighting fiction,Боевая фантастика,140
+144,Historical fiction,Историческая фантастика,140
+145,Heroic fiction,Героическая фантастика,140
+146,Space fantasy,Космическая фантастика,140
+147,Love-fiction novels,Любовно-фантастические романы,140
+148,Detective fiction,Детективная фантастика,140
+149,Social fiction,Социальная фантастика,140
+150,Cyberpunk,Киберпанк,140
+152,Humorous fiction,Юмористическая фантастика,140
+153,Steampunk,Стимпанк,140
+154,Alternative history,Альтернативная история,140
+155,Modern prose,Современная проза,NULL
+158,Counterculture,Контркультура,155
+159,War books,Книги о войне,155
+160,Adventures,Приключения,NULL
+161,Historical adventures,Исторические приключения,160
+162,Travel books,Книги о путешествиях,160
+163,Westerns,Вестерны,160
+164,Sea adventures,Морские приключения,160
+166,Adventure books,Книги о приключениях,160
+167,"Horror, mysticism","Ужасы, мистика",NULL
+168,Mysticism,Мистика,167
+169,Horror,Ужасы,167
+170,Nonfiction literature,Публицистическая литература,NULL
+171,Biographies and memoirs,Биографии и мемуары,170
+172,Documental literature,Документальная литература,170
+173,"Military affairs, special services","Военное дело, спецслужбы",170
+174,Publicistics,Публицистика,170
+176,Aphorisms and quotes,Афоризмы и цитаты,170
+178,Articles,Статьи,170
+179,Interview,Интервью,170
+180,Reviews,Рецензии,170
+181,Books for teenagers,Книги для подростков,NULL
+182,Love novels,Любовные романы,NULL
+183,Contemporary romance novels,Современные любовные романы,182
+185,Short romance novels,Короткие любовные романы,182
+186,Action-packed romance novels,Остросюжетные любовные романы,182
+187,Historical romance novels,Исторические любовные романы,182
+190,Erotic novels,Эротические романы,182
+191,"Action, action literature","Боевики, остросюжетная литература",NULL
+194,Militants,Боевики,191
+196,Crime fighters,Криминальные боевики,191
+199,Psychology books,Книги по психологии,NULL
+200,General psychology,Общая психология,199
+201,Practical psychology,Практическая психология,199
+202,Applied psychology,Прикладная психология,199
+203,Popular about psychology,О психологии популярно,199
+204,"Self-development, personal growth","Саморазвитие, личностный рост",199
+205,Classics of psychology,Классики психологии,199
+206,"Family, marriage, sexology","Семья, брак, сексология",199
+207,Social psychology,Социальная психология,199
+208,Industry psychology,Отраслевая психология,199
+209,Psychotherapy,Психотерапия,199
+210,Child psychology,Детская психология,199
+211,Fundamentals of psychology,Основы психологии,199
+212,Psychology of management,Психология управления,199
+214,Psychoanalysis,Психоанализ,199
+215,Age-related psychology,Возрастная психология,199
+216,Psychological practice,Психологическая практика,199
+217,History of psychology,История психологии,199
+218,Psychological consultation,Психологическая консультация,199
+219,Neuropsychology,Нейропсихология,199
+220,Socionics,Соционика,199
+221,Nlp,НЛП,199
+222,Psychological trainings,Психологические тренинги,199
+223,Clinical psychology,Клиническая психология,199
+224,States and phenomena of the psyche,Состояния и явления психики,199
+225,Psychology textbooks,Учебники по психологии,199
+226,Statistics in psychology,Статистика в психологии,199
+227,"Novels, stories","Повести, рассказы",NULL
+228,Stories,Рассказы,227
+229,Collections,Сборники,227
+230,Essay,Эссе,227
+231,Tale,Повести,227
+232,Essays,Очерки,227
+233,Fanfic,Фанфик,227
+234,Poetry and dramaturgy,Поэзия и драматургия,NULL
+235,Poetry,Поэзия,234
+240,Dramaturgy,Драматургия,234
+241,Science and education,Наука и образование,NULL
+242,Humanities and social sciences,Гуманитарные и общественные науки,241
+243,Philology,Филология,241
+244,Technical science,Технические науки,241
+245,Linguistics,Языкознание,241
+246,Natural sciences,Естественные науки,241
+247,History,История,241
+248,School textbooks,Школьные учебники,241
+249,"Medicine, healthcare","Медицина, здравоохранение",241
+251,Culturology,Культурология,241
+252,Philosophy,Философия,241
+253,Russian history,История России,241
+254,The world history,Всемирная история,241
+255,Other educational literature,Прочая образовательная литература,241
+256,Popular science literature,Научно-популярная литература,241
+257,Literary criticism,Литературоведение,241
+259,Agriculture and forestry,Сельское и лесное хозяйство,241
+263,Ethnography,Этнография,241
+268,Philosophy books,Книги по философии,241
+269,History of philosophy,История философии,241
+272,Ancient world history,История Древнего мира,241
+276,Archaeology,Археология,241
+278,History of the middle ages,История Средних веков,241
+281,Aesthetics,Эстетика,241
+283,New time,Новое время,241
+284,Ethics,Этика,241
+285,Logic,Логика,241
+286,Recent history,Новейшая история,241
+288,General history,Общая история,241
+290,Social philosophy,Социальная философия,241
+291,Textbooks and manuals for universities,Учебники и пособия для вузов,241
+293,Warfare,Военное дело,241
+296,Monographs,Монографии,241
+297,Primitive society,Первобытное общество,241
+300,Manuals (teaching aids),Методички (учебно-методические пособия),241
+301,Scientific works,Научные труды,241
+306,Problem books,Задачники,241
+307,Metaphysics,Метафизика,241
+309,"Home, family, hobbies and leisure","Дом, семья, хобби и досуг",NULL
+310,Cooking,Кулинария,309
+311,Do it yourself,Сделай сам,309
+312,The art of photography,Искусство фотографии,309
+313,"Sports, fitness","Спорт, фитнес",309
+314,Art,Изобразительное искусство,309
+315,"Hobbies, hobbies","Хобби, увлечения",309
+316,Parenting,Воспитание детей,309
+317,Entertainment,Развлечения,309
+318,"Needlework, crafts","Рукоделие, ремесла",309
+319,Garden,Сад и огород,309
+320,Self improvement,Самосовершенствование,309
+321,Fashion & style,Мода и стиль,309
+322,Nature and animals,Природа и животные,309
+323,Pets,Домашние животные,309
+324,"Recreation, tourism","Отдых, туризм",309
+326,Interiors,Интерьеры,309
+327,Cars and traffic rules,Автомобили и ПДД,309
+328,Hunting,Охота,309
+329,Fishing,Рыбалка,309
+330,Applied literature,Прикладная литература,309
+331,"Comics, manga, graphic novels","Комиксы, манга, графические романы",NULL
+332,Esoterics,Эзотерика,NULL
+333,"Esotericism, occultism","Эзотерика, оккультизм",332
+334,"Divination, interpretation of dreams","Гадание, толкование снов",332
+335,"Magic, sorcery","Магия, колдовство",332
+336,Practical esoteric,Практическая эзотерика,332
+337,Yoga,Йога,332
+338,Astrology,Астрология,332
+339,"Spiritualism, prophecy and divination","Спиритизм, пророчества и предсказания",332
+340,Modern religious movements,Современные религиозные течения,332
+341,Mysterious phenomena,Таинственные явления,332
+342,Parapsychology,Парапсихология,332
+343,Feng shui,Фэн-шуй,332
+344,Secret societies,Тайные общества,332
+346,Culture and art,Культура и искусство,NULL
+348,Music,Музыка,346
+349,Art criticism,Искусствоведение,346
+351,"Cinematography, theater","Кинематограф, театр",346
+353,Architecture,Архитектура,346
+354,Criticism,Критика,346
+355,A television,Телевидение,346
+356,Museums and collections,Музеи и коллекции,346
+357,"Opera, ballet","Опера, балет",346
+358,Design,Дизайн,346
+359,Art history,История искусств,346
+360,Notes,Ноты,346
+361,Circus,Цирк,346
+362,Dancing,Танцы,346
+363,Humorous literature,Юмористическая литература,NULL
+364,Humorous prose,Юмористическая проза,363
+365,Jokes,Анекдоты,363
+366,Humor and satire,Юмор и сатира,363
+367,Humorous poems,Юмористические стихи,363
+370,Religion,Религия,NULL
+371,Orthodoxy,Православие,370
+372,"Religious studies, history of religions","Религиоведение, история религий",370
+373,"Religions, beliefs, cults","Религии, верования, культы",370
+374,Religious texts,Религиозные тексты,370
+375,Christianity,Христианство,370
+376,Spiritual literature,Духовная литература,370
+377,Islam,Ислам,370
+378,Buddhism,Буддизм,370
+379,Catholicism,Католицизм,370
+380,Judaism,Иудаизм,370
+381,Hinduism,Индуизм,370
+382,Christian art,Христианское искусство,370
+383,Protestantism,Протестантизм,370
+385,"Dictionaries, reference books","Словари, справочники",NULL
+386,Guides,Путеводители,385
+387,Dictionaries,Словари,385
+388,Guides,Руководства,385
+389,Reference books,Справочники,385
+390,Encyclopedias,Энциклопедии,385
+391,Self-taught,Самоучители,385
+392,Reference literature,Справочная литература,385
+394,Beauty and health,Красота и здоровье,NULL
+395,Folk and alternative medicine,Народная и нетрадиционная медицина,394
+397,Health,Здоровье,394
+398,Weight loss and diets,Похудение и диеты,394
+399,Cosmetics and cosmetology,Косметика и косметология,394
+400,"Hairstyles, hair care","Прически, уход за волосами",394
+401,Healthy and proper nutrition,Здоровое и правильное питание,394
+402,Alternative medicine,Альтернативная медицина,394
+403,Books in foreign languages,Книги на иностранных языках,NULL
+404,Books in english,Книги на английском,403
+405,Books in french,Книги на французском,403
+406,Books in belarusian,Книги на белорусском,403
+407,Books in spanish,Книги на испанском,403
+408,Books in italian,Книги на итальянском,403
+409,Books in german,Книги на немецком,403
+410,Books in japanese,Книги на японском,403
+411,Computer literature,Компьютерная литература,NULL
+412,Programming,Программирование,411
+413,Os and memory,ОС и сети,411
+414,Programs,Программы,411
+415,Internet,Интернет,411
+416,Database,Базы данных,411
+417,Computer hardware,Компьютерное железо,411
+419,Computer reference literature,Компьютерная справочная литература,411
+420,Books about computers,Книги о компьютерах,411
+421,Periodicals,Периодические издания,NULL
+422,Journal,Журналы,421
+423,Newspapers,Газеты,421
+424,Almanacs,Альманахи,421
+425,Educational literature,Учебная литература,NULL
+427,Other educational literature,Прочая учебная литература,425
+429,Historical novel,Исторический роман,NULL
+430,Magic realism,Магический реализм,NULL
+431,Realism,Реализм,NULL
+432,Historical prose,Историческая проза,NULL
+433,Artbooks,Артбуки,NULL
+434,Proverbs,Притчи,NULL

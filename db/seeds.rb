@@ -104,3 +104,24 @@
 # User.find_each do |u|
 #   u.profile.send(:set_gravatar_hash)
 # end
+
+# Добавляем жанры
+# csv_text = File.read(Rails.root.join('lib', 'seeds', 'genres.csv'))
+#
+# csv = CSV.parse(csv_text, headers: true)
+#
+# csv&.each do |row|
+#   name_en = row['name_en']
+#   name_ru = row['name_ru']
+#   parent_id = row['parent_id']
+#
+#   if parent_id == 'NULL'
+#     genre = Genre.create!(name_ru:, name_en:)
+#   else
+#     begin
+#       Genre.find_or_create_by!(name_ru:, name_en:, parent_id: parent_id.to_i)
+#     rescue ActiveRecord::RecordNotUnique => e
+#       Rails.logger.debug { "Record already exists: #{e.message}" }
+#     end
+#   end
+# end
