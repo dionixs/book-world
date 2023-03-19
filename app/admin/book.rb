@@ -8,10 +8,28 @@ ActiveAdmin.register_page 'Import Books' do
   end
 
   page_action :import, method: :post do
-    file = params[:file].tempfile
+    if params[:file].nil?
+      flash[:error] = 'File not found'
+      redirect_to admin_import_books_path
+      return
+    end
 
-    BookImportService.new(file).import
+    filepath = params[:file].tempfile.path
 
-    redirect_to admin_books_path, I18n.t('books.import')
+    if !File.exist?(filepath) || File.empty?(filepath)
+      flash[:error] = 'File does not exist or is empty'
+      redirect_to admin_import_books_path
+      return
+    end
+
+    unless File.extname(filepath) == '.csv'
+      flash[:error] = 'Invalid file format. Please upload a CSV file.'
+      redirect_to admin_import_books_path
+      return
+    end
+
+    ImportBooksJob.perform_later(filepath)
+
+    redirect_to admin_books_path, notice: I18n.t('books.import')
   end
 end
