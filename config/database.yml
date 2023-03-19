@@ -10,14 +10,14 @@ default: &default
 
 development:
   <<: *default
-  database: BookWorld_development
+  database: <%= ENV["DATABASE_DEVELOPMENT_NAME"] %>
 
 test:
   <<: *default
-  database: BookWorld_test
+  database: <%= ENV["DATABASE_TEST_NAME"] %>
 
 production:
   <<: *default
-  database: BookWorld_production
-  username: BookWorld
+  database: <%= ENV["DATABASE_USERNAME"] %>
+  username: <%= ENV["DATABASE_USERNAME_PRODUCTION"] %>
   password: <%= ENV["DATABASE_PASSWORD"] %>
