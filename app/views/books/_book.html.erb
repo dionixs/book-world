@@ -18,7 +18,7 @@
       <% end %>
 
       <% if book.author? %>
-        <%= link_to author_path(book.first_author), title: "#{book.author_names}", class: 'text-decoration-none' do %>
+        <%= link_to author_path(book.first_author), title: "#{book.author_names.split(',').join(', ')}", class: 'text-decoration-none' do %>
           <p class="card-text text-center"><%= book.short_author_name %></p>
         <% end %>
       <% end %>
