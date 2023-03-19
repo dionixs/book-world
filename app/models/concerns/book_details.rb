@@ -8,6 +8,10 @@ module BookDetails
       authors.pluck(:name).join(', ')
     end
 
+    def genre
+      genres.pluck("name_#{I18n.locale}".to_sym).join(', ')
+    end
+
     def reviewed_by_user?(user)
       reviews.exists?(user:)
     end

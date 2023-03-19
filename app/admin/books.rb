@@ -10,6 +10,7 @@ ActiveAdmin.register Book do
     id_column
     column :title
     column :author
+    column :genre
     column :description
     column :rating
     column :created_at
