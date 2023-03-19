@@ -7,8 +7,6 @@ class Book < ApplicationRecord
 
   attr_writer :author
 
-  after_commit :add_default_cover, on: %i[create]
-
   has_many :book_authors, dependent: :destroy
   has_many :authors, through: :book_authors
   has_many :reviews, dependent: :destroy

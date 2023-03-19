@@ -13,10 +13,6 @@ module Coverable
 
     private
 
-    def add_default_cover
-      add_default_image(:cover, 'default_cover.jpg')
-    end
-
     def correct_cover_type
       correct_image_type(:cover)
     end
