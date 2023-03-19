@@ -1,9 +1,9 @@
 <div id="<%= dom_id author %>" class="col-md-2">
-  <%= link_to author_path(author), class: "author-link", title: author.name do %>
+  <%= link_to author_path(author), class: "author-link", title: author.short_name do %>
     <div class="author-card mb-4">
-      <%= image_tag author_photo(author), class: "card-img-top", title: author.name %>
+      <%= image_tag author_photo(author), class: "card-img-top", title: author.short_name %>
       <div class="author-card-body">
-        <h5 class="author-card-title"><%= author.name %></h5>
+        <h5 class="author-card-title"><%= author.short_name %></h5>
       </div>
     </div>
   <% end %>
