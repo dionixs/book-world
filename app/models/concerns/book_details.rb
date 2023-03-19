@@ -5,7 +5,7 @@ module BookDetails
 
   included do
     def book_author_names
-      authors.pluck(:name).join(', ')
+      authors.pluck(:short_name).join(', ')
     end
 
     def genre

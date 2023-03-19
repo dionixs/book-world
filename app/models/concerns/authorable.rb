@@ -19,7 +19,7 @@ module Authorable
     end
 
     def author_names_with_ids
-      authors.pluck(:name, :id)
+      authors.pluck(:short_name, :id)
     end
 
     def author_names
@@ -37,7 +37,7 @@ module Authorable
     private
 
     def author_names_with_separator(separator)
-      authors.pluck(:name).join(separator)
+      authors.pluck(:short_name).join(separator)
     end
   end
 end

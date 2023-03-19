@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_18_132436) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_19_100802) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -81,15 +81,25 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_18_132436) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "author_pseudonyms", force: :cascade do |t|
+    t.string "name"
+    t.bigint "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_author_pseudonyms_on_author_id"
+  end
+
   create_table "authors", force: :cascade do |t|
-    t.string "name", null: false
     t.text "bio"
     t.date "birth_date"
     t.date "death_date"
     t.string "place_of_birth"
-    t.string "place_of_death"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "short_name"
+    t.string "full_author_name"
+    t.string "photo_url"
+    t.string "seo_description"
   end
 
   create_table "book_authors", force: :cascade do |t|
@@ -179,6 +189,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_18_132436) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "author_pseudonyms", "authors"
   add_foreign_key "book_authors", "authors"
   add_foreign_key "book_authors", "books"
   add_foreign_key "book_genres", "books"
