@@ -12,6 +12,10 @@ module BookDetails
       genres.pluck("name_#{I18n.locale}".to_sym).join(', ')
     end
 
+    def self.without_authors
+      where.missing(:authors)
+    end
+
     def reviewed_by_user?(user)
       reviews.exists?(user:)
     end
