@@ -46,3 +46,8 @@
 erd.pdf
 
 /spec/fixtures/large_image.jpeg
+
+book_world.sql
+
+lib/seeds/books.csv
+lib/seeds/authors.csv
