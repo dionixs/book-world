@@ -1,0 +1,103 @@
+.grayback
+  background: none repeat scroll 0 0 #f8f8f8
+  padding-top: 10px
+
+.catalog
+  &-genre
+    &-list
+      display: flex
+      justify-content: space-around
+      font-size: 14px
+      padding-bottom: 20px
+      margin-top: 30px
+
+    &-aside
+      padding: 0
+
+      li
+        display: block
+        margin-bottom: 4px
+
+        a
+          display: inline-block
+          color: #1d1d1d
+          line-height: 16px
+          padding: 8px 12px
+          border-radius: 3px
+          text-decoration: none
+
+        span
+          background: #58687d
+          color: #fff
+          display: inline-block
+          line-height: 16px
+          padding: 8px 12px
+          border-radius: 3px
+
+    &-genres
+      display: flex
+      justify-content: space-between
+      border-left: 1px solid #d8d8d8
+
+      ul
+        margin-left: 50px
+        padding: 0
+
+        li
+          list-style: none
+          margin-bottom: 6px
+
+          a
+            font-size: 13px
+            color: #1d648d
+            text-decoration: underline
+
+          .active
+            color: #f56728
+            display: list-item
+            list-style-type: disc
+
+.catalog
+  &-book
+    &-list
+      &--item
+        width: 150px
+        display: inline-block
+        margin: 0 0 62px 52px
+        vertical-align: top
+        position: relative
+
+        .book--image
+          max-height: 250px
+          overflow: hidden
+          min-height: 212px
+          display: block
+          -webkit-box-shadow: 2px 0 4px 0 rgba(0, 0, 0, .3)
+          width: 100%
+
+        h3
+          font-size: 16px
+          font-weight: 700
+          line-height: 1.2
+          margin: 10px 0 5px
+          color: #1c0f0f
+
+        a
+          text-decoration: none
+
+        .book--author
+          margin: 0
+          font-size: 11px
+          color: #aeaeae
+          font-weight: 700
+          text-transform: uppercase
+
+          a
+            margin: 0
+            font-size: 11px
+            color: #aeaeae
+            font-weight: 700
+            text-transform: uppercase
+
+.book-hover--librarian-wrap
+  position: relative

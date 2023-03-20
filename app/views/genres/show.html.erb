@@ -1,4 +1,4 @@
-<% provide(:title, 'Каталог книг по жанрам') %>
+<% provide(:title, localized_genre_name(@genre)) %>
 
 <%= render partial: 'genres/catalog_genre_list', locals: { genres: @genres } %>
 
@@ -6,7 +6,7 @@
   <div class="container">
     <div class="wrapper">
       <div class="section-title-head">
-        <h1>Узнай, что почитать</h1>
+        <h1><%= localized_genre_name(@genre) %></h1>
       </div>
 
       <div class="catalog-book-list clearfix">
@@ -19,6 +19,3 @@
     </div>
   </div>
 </section>
-
-
-

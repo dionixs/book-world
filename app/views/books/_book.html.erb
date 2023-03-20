@@ -1,31 +1,19 @@
-<div class="col mb-3">
-  <div class="card card-book">
-    <div class="card-img">
-      <%= link_to edit_book_path(book), class: 'btn btn-secondary btn-sm card-edit-btn', title: 'Edit' do %>
-        <span class="material-icons">edit</span>
-      <% end %>
-      <%= link_to book_path(book), data: { turbo: true, turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm card-delete-btn" do %>
-        <span class="material-icons">delete</span>
-      <% end %>
-      <%= link_to book_path(book), title: "#{book.title}" do %>
-        <%= image_tag(book_cover(book), alt: "Book Cover", class: "cover card-img-top") %>
-      <% end %>
-    </div>
-
-    <div class="card-body d-flex flex-column">
-      <%= link_to book_path(book), title: "#{book.title}", class: 'text-decoration-none' do %>
-        <h5 class="card-title text-center"><%= truncate(book.title, length: 29) %></h5>
-      <% end %>
-
-      <% if book.author? %>
-        <%= link_to author_path(book.first_author), title: "#{book.author_names.split(',').join(', ')}", class: 'text-decoration-none' do %>
-          <p class="card-text text-center"><%= book.short_author_name %></p>
-        <% end %>
-      <% end %>
-
-      <div class="mt-auto">
-        <a href="#" class="btn btn-primary want_to_read_btn">Want to Read</a>
-      </div>
-    </div>
+<article class="catalog-book-list--item">
+  <div class="book-hover--librarian-wrap">
+    <%= link_to book_path(book), title: "#{book.title}" do %>
+      <%= image_tag(book_cover(book), alt: "#{book.title}", class: "book--image") %>
+    <% end %>
   </div>
-</div>
+  <%= link_to book_path(book), title: "#{book.title}" do %>
+    <h3><%= truncate(book.title, length: 35) %></h3>
+  <% end %>
+
+  <% if book.author? %>
+    <span class="book--author">
+    <%= link_to author_path(book.first_author), title: "#{book.author_names.split(',').join(', ')}", class: 'text-decoration-none' do %>
+              <%= book.short_author_name %>
+
+    <% end %>
+    </span>
+  <% end %>
+</article>

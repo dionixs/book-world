@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :books do
       resources :reviews
     end
+    resources :genres, only: %i[show]
 
     get '/about', to: 'static_pages#about'
     get '/contacts', to: 'static_pages#contacts'

@@ -1,0 +1,44 @@
+<section class="grayback">
+  <div class="clearfix ">
+    <div class="container">
+      <div class="catalog-genre-list clearfix">
+        <ul class="catalog-genre-aside">
+          <li>
+            <span>Популярное</span>
+          </li>
+          <li>
+            <a href="/books/">Каталог</a>
+          </li>
+          <li><a href="/books/top/">Рейтинг</a></li>
+          <li>
+            <a href="/recommendations/">Рекомендации</a>
+          </li>
+          <li>
+            <a href="/books/new/">Новинки</a>
+          </li>
+          <li>
+            <a href="/series/">Серии и циклы</a>
+          </li>
+          <li><a href="/collections/">Подборки</a></li>
+          <li><a href="/reviews/waiting/">Ждут рецензий</a></li>
+        </ul>
+        <div class="catalog-genre-genres clearfix">
+          <% genres.each_slice(10).with_index do |slice, index| %>
+            <ul>
+              <% if index == 0 %>
+                <li>
+                  <%= genre_tab 'Все', books_path %>
+                </li>
+              <% end %>
+              <% slice.each do |genre| %>
+                <%= tag.li do %>
+                  <%= genre_tab localized_genre_name(genre), genre_path(genre) %>
+                <% end %>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

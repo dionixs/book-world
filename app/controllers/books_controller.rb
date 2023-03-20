@@ -7,8 +7,9 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
-    @pagy, @books = pagy(@books)
+    @pagy, @books = pagy(@books, items: 30)
     @books = @books.decorate
+    @genres = Genre.where(parent_id: nil)
 
     respond_to do |format|
       format.html

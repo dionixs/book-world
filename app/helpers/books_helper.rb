@@ -2,6 +2,7 @@
 
 module BooksHelper
   include ImageHelper
+  include GenresHelper
 
   def stars_for_rating(rating)
     # rubocop:disable Rails/OutputSafety
