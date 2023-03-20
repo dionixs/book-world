@@ -30,12 +30,24 @@ module BooksHelper
     Faker::Lorem.paragraph
   end
 
+  # todo
   def author_links(book)
     # rubocop:disable Rails/OutputSafety
     book.author_names_with_ids.map do |name, id|
-      link_to name, author_path(id), class: 'link-dark', title: name
+      link_to author_path(id), class: 'link-dark', title: name do
+        name
+      end
     end.join(', ').html_safe
     # rubocop:enable Rails/OutputSafety
+  end
+
+  # todo
+  def genres_links(book)
+    book.genres_names_with_ids.map do |name, id|
+      link_to genre_path(id), class: 'link-dark', title: name do
+        name
+      end
+    end.join(', ').html_safe
   end
 
   def book_editable?

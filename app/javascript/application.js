@@ -12,5 +12,5 @@ import "./components/_trix-editor-overrides"
 import './components/_select'
 
 // Pages
-import './pages/_book';
+// import './pages/_book';
 import './pages/_review';
