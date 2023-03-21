@@ -20,4 +20,16 @@ class Author < ApplicationRecord
   def self.sorted_by_name
     order(:short_name)
   end
+
+  # todo
+  def genres
+    Genre.joins(books: :book_authors)
+         .where(book_authors: { author_id: id })
+         .distinct
+  end
+
+  # todo
+  def genres_names_with_ids
+    genres.pluck("name_#{I18n.locale}".to_sym, :id)
+  end
 end

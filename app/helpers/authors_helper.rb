@@ -22,4 +22,27 @@ module AuthorsHelper
       ('A'..'Z')
     end
   end
+
+  def birth_info(author, &)
+    return unless author.birth_date || author.place_of_birth
+
+    content_tag(:p, &)
+  end
+
+  def format_birth_date(author)
+    format_date(author.birth_date) if author.birth_date
+  end
+
+  def format_birth_place(author)
+    author.place_of_birth
+  end
+
+  # TODO
+  def genres_links(author)
+    author.genres_names_with_ids.map do |name, id|
+      link_to genre_path(id), class: 'link-dark', title: name do
+        name
+      end
+    end.join(', ').html_safe
+  end
 end

@@ -11,7 +11,9 @@ class AuthorsController < ApplicationController
   end
 
   # GET /authors/1 or /authors/1.json
-  def show; end
+  def show
+    @books = @author.books
+  end
 
   # GET /authors/new
   def new

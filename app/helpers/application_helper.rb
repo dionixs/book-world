@@ -57,4 +57,18 @@ module ApplicationHelper
       icon_name.to_s
     end
   end
+
+  def format_date(date)
+    case I18n.locale
+    when :ru
+      # rubocop:disable Style/FormatStringToken
+      date.strftime('%e %{month} %Y г.')
+          .gsub(/%\{month\}/, I18n.t('date.month_names')[date.month])
+      # rubocop:enable Style/FormatStringToken
+    when :en
+      date.strftime('%B %e, %Y')
+    else
+      date.to_s
+    end
+  end
 end
