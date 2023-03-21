@@ -21,4 +21,9 @@ class Book < ApplicationRecord
 
   validate :correct_cover_type
   validate :cover_size
+
+  def self.books_for_genre_and_subgenres(genre_ids)
+    book_ids = BookGenre.where(genre_id: genre_ids).pluck(:book_id).uniq
+    where(id: book_ids)
+  end
 end
