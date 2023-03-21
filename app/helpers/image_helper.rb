@@ -2,17 +2,15 @@
 
 module ImageHelper
   # TODO
-  def book_cover(obj, default_cover: '/images/defaults/default_cover.jpg',
-                 cover_method: :cover,
-                 cover_method_url: :cover_url)
-    return url_for(obj.send(cover_method_url)) if obj.send(cover_method_url) != ''
-
-    if obj.respond_to?(cover_method) && obj.send(cover_method).attached?
-      obj.send(cover_method)
+  def book_cover(obj, default_cover: '/images/defaults/default_cover.jpg')
+    if obj.cover.attached?
+      url_for(obj.photo)
+    elsif obj.cover_url.present?
+      obj.cover_url
     else
       url_for(default_cover)
     end
   end
 
-  alias author_photo book_cover
+  # alias author_photo book_cover
 end
