@@ -3,7 +3,7 @@
   <ul class="letters">
     <% initial_letters_range.each do |letter| %>
       <%= tag.li do %>
-        <%= link_to letter, by_initial_letter_authors_path(initial: letter) %>
+        <%= letter_tab letter, by_initial_letter_authors_path(initial: letter) %>
       <% end %>
     <% end %>
   </ul>
