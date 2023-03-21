@@ -22,10 +22,16 @@ Rails.application.routes.draw do
       resource :avatar, only: %i[update destroy]
     end
 
-    resources :authors
+    resources :authors do
+      collection do
+        get 'letter-:initial', to: 'authors#by_initial_letter', as: 'by_initial_letter'
+      end
+    end
+
     resources :books do
       resources :reviews
     end
+
     resources :genres, only: %i[show]
 
     get '/about', to: 'static_pages#about'

@@ -1,16 +1,16 @@
-<% provide(:title, 'Популярные авторы') %>
+<% provide(:title, "Авторы на букву \"#{@initial}\"") %>
 
 <section class="section section-authors">
   <div class="container">
     <div class="authors-wrapper">
       <div class="section-title-head">
-        <h1 class="">Популярные авторы</h1>
+        <h1 class="">Авторы на букву "<%= @initial %>"</h1>
       </div>
 
       <%= render partial: 'navigation' %>
 
       <h1 class="authors-title">
-        Популярные авторы
+        Авторы на букву "<%= @initial %>"
       </h1>
 
       <div class="authors">
@@ -23,5 +23,3 @@
     </div>
   </div>
 </section>
-
-

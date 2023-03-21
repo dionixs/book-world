@@ -59,6 +59,20 @@ class AuthorsController < ApplicationController
     end
   end
 
+  # TODO
+  def by_initial_letter
+    @initial = params[:initial].upcase
+
+    unless @initial.match?(/\A[а-яА-Яa-zA-Z]\z/)
+      not_found("Invalid initial letter: #{@initial}")
+      return
+    end
+
+    @authors = Author.by_initial_letter(@initial)
+    @pagy, @authors = pagy(@authors, items: 30)
+    @authors = @authors.sorted_by_name
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

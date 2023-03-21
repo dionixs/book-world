@@ -1,22 +1,59 @@
 .section
   &-authors
-    padding-top: 55px
+    padding-top: 4px
     padding-bottom: 40px
 
-.author
-  &-card
-    //height: auto
-    //min-height: 200px
-    //max-height: 200px
+.authors
+  &-wrapper
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+
+  &-list--item
+    width: 150px
+    display: inline-block
+    margin: 0 0 32px 52px
+    vertical-align: top
+    position: relative
+
+  &--image
+    width: 150px
+    height: 212px
     overflow: hidden
-    //position: relative
-    &-title
-      font-size: 16px
-      font-weight: bold
-      line-height: 1.2
-      color: #1c0f0f!important
-      margin: 10px 0 5px
-    //position: absolute
-    //bottom: 0
-  &-link
+    display: block
+
+  &-list-name
+    font-size: 16px
+    font-weight: 700
+    line-height: 1.2
+    margin: 10px 0 5px
+    color: #1c0f0f
+    display: block
     text-decoration: none
+
+  &-letters-filter
+    margin-left: 50px
+    margin-right: 50px
+    padding-bottom: 20px
+    font-size: 14px
+
+    ul
+      list-style: none
+      display: inline
+      font-size: 16px
+      padding-left: 15px
+
+      li
+        display: inline
+        text-transform: uppercase
+        padding: 0 6px
+
+        a
+          text-decoration: none
+          color: #1d648d
+
+  &-title
+    font-size: 16px
+    padding-top: 10px
+    padding-bottom: 20px
+    margin-left: 50px

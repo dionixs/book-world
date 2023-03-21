@@ -2,6 +2,7 @@
 
 class Author < ApplicationRecord
   include AuthorImageable
+  include AuthorQuery
 
   has_many :author_pseudonyms
 
@@ -14,4 +15,9 @@ class Author < ApplicationRecord
 
   validate :correct_photo_type
   validate :photo_size
+
+  # TODO
+  def self.sorted_by_name
+    order(:short_name)
+  end
 end
