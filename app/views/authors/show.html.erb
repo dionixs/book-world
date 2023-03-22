@@ -4,12 +4,12 @@
   <div class="container">
     <div class="d-flex author-wrapper">
       <div>
-        <%= image_tag author_photo(@author), class: "author-image", alt: @author.full_author_name %>
+        <%= image_tag author_photo(@author), class: "author-image", alt: @author.full_name %>
       </div>
 
       <div class="author-title">
         <h1 class="h1"><%= @author.short_name %></h1>
-        <h4><%= @author.full_author_name %></h4>
+        <h4><%= @author.full_name %></h4>
       </div>
     </div>
   </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_19_100802) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_22_080517) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -97,9 +97,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_19_100802) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "short_name"
-    t.string "full_author_name"
+    t.string "full_name"
     t.string "photo_url"
     t.string "seo_description"
+    t.index ["full_name"], name: "index_authors_on_full_name"
+    t.index ["short_name"], name: "index_authors_on_short_name"
   end
 
   create_table "book_authors", force: :cascade do |t|
@@ -127,6 +129,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_19_100802) do
     t.decimal "rating", precision: 3, scale: 2, default: "0.0"
     t.text "description"
     t.string "cover_url"
+    t.index ["description"], name: "index_books_on_description"
     t.index ["title"], name: "index_books_on_title"
   end
 

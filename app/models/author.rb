@@ -18,7 +18,7 @@ class Author < ApplicationRecord
   validate :photo_size
 
   pg_search_scope :search,
-                  against: %i[short_name full_author_name],
+                  against: %i[short_name full_name],
                   associated_against: { books: [:title] },
                   using: { tsearch: { prefix: true } }
 

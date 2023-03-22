@@ -25,7 +25,7 @@ class Book < ApplicationRecord
 
   pg_search_scope :search,
                   against: %i[title description],
-                  associated_against: { authors: %i[full_author_name short_name] },
+                  associated_against: { authors: %i[full_name short_name] },
                   using: { tsearch: { prefix: true } }
 
   def self.books_for_genre_and_subgenres(genre_ids)
