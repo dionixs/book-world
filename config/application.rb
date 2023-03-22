@@ -28,6 +28,9 @@ module BookWorld
     config.i18n.available_locales = %i[en ru]
     config.i18n.default_locale = :ru
 
+    # SQL schema format
+    config.active_record.schema_format = :sql
+
     config.time_zone = 'Moscow'
     # config.eager_load_paths << Rails.root.join("extras")
 
