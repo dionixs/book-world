@@ -63,7 +63,7 @@ class AuthorsController < ApplicationController
 
   # TODO
   def by_initial_letter
-    @initial = params[:initial].upcase
+    @initial = params[:initial]
 
     unless @initial.match?(/\A[а-яА-Яa-zA-Z]\z/)
       not_found("Invalid initial letter: #{@initial}")

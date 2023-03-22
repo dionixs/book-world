@@ -7,6 +7,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'activeadmin'
 gem 'activerecord-import'
 
+gem 'pg_search'
+
+# gem 'elasticsearch', '8.6.0'
+# gem 'elasticsearch-rails', '7.2.1'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.4', '>= 7.0.4.2'
 

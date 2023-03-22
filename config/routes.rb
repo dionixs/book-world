@@ -34,6 +34,8 @@ Rails.application.routes.draw do
 
     resources :genres, only: %i[show]
 
+    get '/search', to: 'search#search', as: :search
+
     get '/about', to: 'static_pages#about'
     get '/contacts', to: 'static_pages#contacts'
     get '/help', to: 'static_pages#help'

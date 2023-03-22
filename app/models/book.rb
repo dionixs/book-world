@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Book < ApplicationRecord
+  include PgSearch::Model
   include Authorable
   include BookDetails
   include Coverable
@@ -21,6 +22,11 @@ class Book < ApplicationRecord
 
   validate :correct_cover_type
   validate :cover_size
+
+  pg_search_scope :search,
+                  against: %i[title description],
+                  associated_against: { authors: %i[full_author_name short_name] },
+                  using: { tsearch: { prefix: true } }
 
   def self.books_for_genre_and_subgenres(genre_ids)
     book_ids = BookGenre.where(genre_id: genre_ids).pluck(:book_id).uniq

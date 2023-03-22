@@ -1,0 +1,19 @@
+<h1>Search Results for <%= @query %></h1>
+
+<% if @books.any? %>
+  <h2>Books</h2>
+  <ul>
+    <% @books.each do |book| %>
+      <li><%= link_to book.title, book_path(book) %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if @authors.any? %>
+  <h2>Authors</h2>
+  <ul>
+    <% @authors.each do |author| %>
+      <li><%= link_to author.short_name, author_path(author) %></li>
+    <% end %>
+  </ul>
+<% end %>

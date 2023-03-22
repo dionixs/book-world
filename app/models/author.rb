@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Author < ApplicationRecord
+  include PgSearch::Model
   include AuthorImageable
   include AuthorQuery
 
@@ -15,6 +16,11 @@ class Author < ApplicationRecord
 
   validate :correct_photo_type
   validate :photo_size
+
+  pg_search_scope :search,
+                  against: %i[short_name full_author_name],
+                  associated_against: { books: [:title] },
+                  using: { tsearch: { prefix: true } }
 
   # TODO
   def self.sorted_by_name
