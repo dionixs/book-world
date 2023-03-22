@@ -23,3 +23,7 @@ en:
         details: "%{model} Details"
         save: 'Save'
         para: Press cancel to return to the list without saving.
+  search:
+    subtitle:
+      one: 'match'
+      other: 'matches'

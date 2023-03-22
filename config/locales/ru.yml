@@ -29,3 +29,9 @@ ru:
         index: "Список жанров"
       books:
         import: "Импорт книг"
+  search:
+    subtitle:
+      one: 'совпадение'
+      few: 'совпадения'
+      many: 'совпадений'
+      other: 'совпадений'
