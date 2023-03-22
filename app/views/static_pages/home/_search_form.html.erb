@@ -1,16 +1,12 @@
 <div class="search-form">
-  <form action="/search/" class="ng-pristine ng-valid">
+  <%= form_tag(search_path, method: :get, class: "ng-pristine ng-valid") do %>
     <div class="d-flex justify-content-center align-items-center">
       <div class="search-block--text-input">
-        <span class="twitter-typeahead" style="position: relative; display: inline-block;">
-          <input class="tt-hint" type="text" autocomplete="off" spellcheck="off" disabled="">
-          <input id="search_query" name="q" class="tt-query" type="text"
-                 placeholder="<%= t('home.section.search.form.input.placeholder') %>"
-                 autocomplete="off" spellcheck="false">
-        </span>
+      <span class="twitter-typeahead" style="position: relative; display: inline-block;">
+        <%= text_field_tag :search, params[:search], class: "tt-hint tt-query", placeholder: t('home.section.search.form.input.placeholder'), autocomplete: "off", spellcheck: false %>
+      </span>
       </div>
-      <input class="btn-orange-big-index-20" type="submit"
-             value="<%= t('home.section.search.form.input.submit') %>">
+      <%= submit_tag t('home.section.search.form.input.submit'), class: "btn-orange-big-index-20" %>
     </div>
-  </form>
+  <% end %>
 </div>

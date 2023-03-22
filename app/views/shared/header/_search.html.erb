@@ -1,18 +1,10 @@
 <div class="header-search ng-scope">
   <%= form_tag(search_path, method: :get, class: 'dropdown-triger') do %>
-    <%= text_field_tag :q, params[:q], placeholder: t('header.search.form.input.placeholder'), autocomplete: "off", class: 'form-control' %>
-    <%= link_to search_path(q: params[:q]), rel: "nofollow", title: t('header.search.form.input.link') do %>
+    <%= text_field_tag :search, params[:search], placeholder: t('header.search.form.input.placeholder'), autocomplete: "off", class: 'form-control' %>
+    <%= link_to search_path(search: params[:search]), rel: "nofollow", title: t('header.search.form.input.link') do %>
       <i class="icon_sprite search-w"></i>
     <% end %>
   <% end %>
-  <!--  <form action="/search/" class="dropdown-triger ng-pristine ng-valid">-->
-  <!--    <input type="text" placeholder="<%#= t('header.search.form.input.placeholder') %>"-->
-  <!--           name="q" autocomplete="off"-->
-  <!--           class="ng-pristine ng-untouched ng-valid">-->
-  <!--    <a rel="nofollow" href="/search/?q=" title="<%#= t('header.search.form.input.link') %>">-->
-  <!--      <i class="icon_sprite search-w "></i>-->
-  <!--    </a>-->
-  <!--  </form>-->
 </div>
 
 <a rel="nofollow" class="shuffle-btn header-btn-icon"

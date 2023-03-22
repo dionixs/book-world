@@ -2,8 +2,9 @@
 
 class SearchController < ApplicationController
   def search
-    @query = params[:q]
-    @books = Book.search(@query)
-    @authors = Author.search(@query)
+    @query = params[:search]
+    @books = Book.search(@query).limit(100)
+    @books = @books.decorate
+    @authors = Author.search(@query).limit(6)
   end
 end
