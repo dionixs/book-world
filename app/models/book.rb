@@ -24,9 +24,13 @@ class Book < ApplicationRecord
   validate :cover_size
 
   pg_search_scope :search,
-                  against: %i[title description],
+                  against: { title: 'A', description: 'B' },
                   associated_against: { authors: %i[full_name short_name] },
-                  using: { tsearch: { prefix: true } }
+                  using: { tsearch: {
+                    dictionary: 'russian',
+                    tsvector_column: 'searchable',
+                    prefix: true
+                  } }
 
   def self.books_for_genre_and_subgenres(genre_ids)
     book_ids = BookGenre.where(genre_id: genre_ids).pluck(:book_id).uniq
