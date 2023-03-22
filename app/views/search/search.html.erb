@@ -1,19 +1,46 @@
-<h1>Search Results for <%= @query %></h1>
+<% provide(:title, "Результат поиска: #{@query}") %>
 
-<% if @books.any? %>
-  <h2>Books</h2>
-  <ul>
-    <% @books.each do |book| %>
-      <li><%= link_to book.title, book_path(book) %></li>
-    <% end %>
-  </ul>
-<% end %>
+<section class="search-results-title">
+  <div class="container">
+    <h1 class="search-main-title">Результат поиска:</h1>
+  </div>
+</section>
 
-<% if @authors.any? %>
-  <h2>Authors</h2>
-  <ul>
-    <% @authors.each do |author| %>
-      <li><%= link_to author.short_name, author_path(author) %></li>
-    <% end %>
-  </ul>
-<% end %>
+<section class="search-results-authors">
+  <div class="container">
+
+    <div class="wrapper clearfix">
+      <span class="search-results-subtitle">
+        Авторы (<%= @authors.size %> <%= I18n.translate 'search.subtitle', count: @authors.size %>)
+      </span>
+
+      <div class="catalog-book-list clearfix">
+
+        <% if @authors.any? %>
+          <% @authors.each do |author| %>
+            <article class="catalog-book-list--item item-author-result">
+              <figure>
+                <%= link_to author_path(author), class: 'author-link', title: author.short_name do %>
+                  <%= image_tag author_photo(author), class: 'book--image', alt: author.short_name %>
+                  <%= content_tag(:h3, author.short_name) %>
+                <% end %>
+              </figure>
+            </article>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="search-results-books">
+  <div class="container">
+    <span class="search-results-subtitle">
+      Книги (<%= @books.size %> <%= I18n.translate 'search.subtitle', count: @books.size %>)
+    </span>
+
+    <div class="catalog-book-list">
+      <%= render partial: 'books/book', collection: @books, cached: true %>
+    </div>
+  </div>
+</section>
