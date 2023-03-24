@@ -2,10 +2,13 @@
 
 # config valid for current version and patch releases of Capistrano
 
-lock "~> 3.11.2"
+lock '~> 3.11.2'
 
-set :application, "my_app_name"
-set :repo_url, "git@example.com:me/my_repo.git"
+set :application, 'book_world'
+set :repo_url, 'https://github.com/dionixs/BookWorld'
+set :branch, 'capistrano-deploy'
+set :deploy_to, "/home/deploy/#{fetch :application}"
+append :linked_files, 'config/master.key'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp

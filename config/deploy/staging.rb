@@ -53,3 +53,6 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+
+server ENV.fetch('SERVER').to_s, user: ENV.fetch('SERVER_USERNAME').to_s, roles: %w[app web]
+server ENV.fetch('SERVER').to_s, user: ENV.fetch('DATABASE_PRODUCTION_USERNAME').to_s, roles: %w[db]
