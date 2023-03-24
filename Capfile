@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-require "capistrano/rails"
-require "capistrano/rbenv"
-require "capistrano/passenger"
-
 # Load DSL and set up stages
 require "capistrano/setup"
 
 # Include default deployment tasks
 require "capistrano/deploy"
+
+require "capistrano/rails"
+require "capistrano/rbenv"
+require "capistrano/passenger"
 
 # Load the SCM plugin appropriate to your project:
 #

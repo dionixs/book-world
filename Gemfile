@@ -90,9 +90,9 @@ gem 'down'
 group :development, :test do
   gem 'byebug'
   gem 'capistrano', '3.11.2'
+  gem 'capistrano-passenger', '0.2.0'
   gem 'capistrano-rails', '1.4.0'
   gem 'capistrano-rbenv', '2.1.4 '
-  gem 'capistrano-passenger', '0.2.0'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
