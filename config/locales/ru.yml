@@ -1,7 +1,7 @@
 ru:
   en: Английский
   ru: Русский
-  name: BookWorld
+  name: Book World
   error:
     messages:
       alert: 'Пожалуйста, исправьте следующие ошибки:'
