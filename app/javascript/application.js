@@ -12,18 +12,16 @@ import "./components/_trix-editor-overrides"
 import './components/_select'
 
 // Pages
-// import './pages/_book';
 import './pages/_review';
 
-
 document.addEventListener("DOMContentLoaded", function () {
-  var anchors = document.querySelectorAll("a[href^='#']");
+  const anchors = document.querySelectorAll("a[href^='#']");
 
   anchors.forEach(function (anchor) {
-    var targetId = anchor.getAttribute("href");
+    const targetId = anchor.getAttribute("href");
 
     if (targetId.length > 1) {
-      var targetElement = document.querySelector(targetId);
+      const targetElement = document.querySelector(targetId);
 
       if (targetElement) {
         targetElement.classList.add("anchor-offset");
