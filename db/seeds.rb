@@ -6,7 +6,7 @@
 if Rails.env.development?
   AdminUser.create!(
     username: 'admin', email: 'admin@mail.com',
-    password: ENV["SUPER_ADMIN_PASSWORD"], password_confirmation: ENV["SUPER_ADMIN_PASSWORD"]
+    password: 'topsecret', password_confirmation: 'topsecret'
   )
 end
 
