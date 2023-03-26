@@ -42,5 +42,7 @@ module BookWorld
 
     # Custom Validations
     config.autoload_paths += %W["#{config.root}/app/validators/"]
+
+    config.assets.css_compressor = nil
   end
 end
