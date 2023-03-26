@@ -3,12 +3,12 @@
 # require 'csv'
 
 # Создаем админа
-if Rails.env.development?
-  AdminUser.create!(
-    username: 'admin', email: 'admin@mail.com',
-    password: 'topsecret', password_confirmation: 'topsecret'
-  )
-end
+# if Rails.env.development?
+#   AdminUser.create!(
+#     username: 'admin', email: 'admin@mail.com',
+#     password: 'topsecret', password_confirmation: 'topsecret'
+#   )
+# end
 
 # Создаем пользователя
 # User.create!(username: 'testuser', email: 'test@mail.com',
