@@ -6,7 +6,7 @@ class BooksController < ApplicationController
   before_action :set_reviews, only: %i[show]
 
   def index
-    @books = Book.all
+    @books = Book.includes([:cover_attachment]).includes(:authors).all
     @pagy, @books = pagy(@books, items: 30)
     @books = @books.decorate
     @genres = Genre.where(parent_id: nil)

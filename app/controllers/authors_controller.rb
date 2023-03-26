@@ -6,13 +6,13 @@ class AuthorsController < ApplicationController
 
   # GET /authors or /authors.json
   def index
-    @authors = Author.all
+    @authors = Author.includes([:photo_attachment]).all
     @pagy, @authors = pagy(@authors, items: 30)
   end
 
   # GET /authors/1 or /authors/1.json
   def show
-    @books = @author.books
+    @books = @author.books.includes([:cover_attachment])
   end
 
   # GET /authors/new
@@ -70,7 +70,7 @@ class AuthorsController < ApplicationController
       return
     end
 
-    @authors = Author.by_initial_letter(@initial)
+    @authors = Author.includes([:photo_attachment]).by_initial_letter(@initial)
     @pagy, @authors = pagy(@authors, items: 30)
     @authors = @authors.sorted_by_name
   end
