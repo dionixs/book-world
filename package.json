@@ -1,6 +1,7 @@
 {
   "name": "book-world",
   "dependencies": {
+    "@activeadmin/activeadmin": "^2.13.1",
     "@hotwired/stimulus": "^3.2.1",
     "@hotwired/turbo-rails": "^7.3.0",
     "@popperjs/core": "^2.11.7",
@@ -9,6 +10,7 @@
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.3",
     "esbuild": "^0.17.14",
+    "npm-run-all": "^4.1.5",
     "postcss": "^8.4.21",
     "postcss-cli": "^10.1.0",
     "sass": "^1.60.0",
@@ -20,10 +22,13 @@
     "maintained node versions"
   ],
   "scripts": {
-    "build:css": "yarn build:css:compressed && postcss ./app/assets/builds/application.css --replace --use autoprefixer --no-map",
-    "build:css:dev": "sass --style expanded ./app/assets/stylesheets/application.bootstrap.scss ./app/assets/builds/application.css --no-source-map --load-path=node_modules",
-    "build:css:compressed": "sass --style compressed ./app/assets/stylesheets/application.bootstrap.scss ./app/assets/builds/application.css --no-source-map --load-path=node_modules",
-    "build": "esbuild app/javascript/*.* --bundle --minify --outdir=app/assets/builds --public-path=assets"
+    "build:css:dev": "yarn build:css:application && yarn build:css:active_admin",
+    "build:css": "npm-run-all --parallel \"build:css:* {@}\" -- && postcss ./app/assets/builds/application.css --replace --use autoprefixer --no-map",
+    "build:css:application": "sass --style compressed ./app/assets/stylesheets/application.bootstrap.scss ./app/assets/builds/application.css --no-source-map --load-path=node_modules",
+    "build:css:active_admin": "sass --style compressed ./app/assets/stylesheets/active_admin/active_admin.scss ./app/assets/builds/active_admin.css --no-source-map --load-path=node_modules",
+    "build:js": "npm-run-all --parallel \"build:js:* {@}\" --",
+    "build:js:application": "esbuild app/javascript/application.js --bundle --minify --sourcemap --outfile=app/assets/builds/application.js",
+    "build:js:active_admin": "esbuild app/javascript/active_admin.js --bundle --minify --sourcemap --outfile=app/assets/builds/active_admin.js"
   },
   "packageManager": "yarn@3.4.1"
 }

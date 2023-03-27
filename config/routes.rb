@@ -2,7 +2,8 @@
 
 Rails.application.routes.draw do
   scope '(:locale)', locale: /#{I18n.available_locales.join('|')}/ do
-    # get '/admin/import_books', to: 'admin/books#import', as: 'import'
+    devise_for :admin_users, ActiveAdmin::Devise.config
+    ActiveAdmin.routes(self)
 
     devise_for :users,
                path: 'user',

@@ -5,6 +5,30 @@ ru:
   error:
     messages:
       alert: 'Пожалуйста, исправьте следующие ошибки:'
+  active_admin:
+    menu:
+      admin_user: Администраторы
+      users: Пользователи
+      book: "Книги"
+      genre: "Жанры"
+      books: "Импорт книг"
+    resources:
+      admin_user:
+        index: Список администраторов
+      user:
+        index: Список пользователей
+        new_model: 'Создать пользователя'
+        edit_model: 'Редактировать пользователя'
+        delete_model: 'Удалить пользователя'
+        details: "Подробности про пользователя"
+        save: 'Сохранить'
+        para: Нажмите отмену, чтобы вернуться к списку всех пользователей без сохранения.
+      book:
+        index: "Список книг"
+      genre:
+        index: "Список жанров"
+      books:
+        import: "Импорт книг"
   search:
     subtitle:
       one: 'совпадение'

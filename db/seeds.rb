@@ -3,86 +3,92 @@
 # require 'csv'
 
 # Создаем админа
-# if Rails.env.development?
-#   AdminUser.create!(
-#     username: 'admin', email: 'admin@mail.com',
-#     password: 'topsecret', password_confirmation: 'topsecret'
-#   )
-# end
+if Rails.env.development?
+  AdminUser.create!(
+    username: 'admin', email: 'admin@mail.com',
+    password: 'topsecret', password_confirmation: 'topsecret'
+  )
+end
 
 # Создаем пользователя
 # User.create!(username: 'testuser', email: 'test@mail.com',
 #              password: 'topsecret', password_confirmation: 'topsecret',
 #              tos_agreement: true)
 
-# Создаем жанры
-# scifi = Genre.create(name_en: 'Sci-Fi', name_ru: 'Фантастика')
-# horror = Genre.create(name_en: 'Horror', name_ru: 'Ужасы')
-# fantasy = Genre.create(name_en: 'Fantasy', name_ru: 'Фэнтези')
-# dystopian = Genre.create(name_en: 'Dystopian', name_ru: 'Антиутопия', parent: scifi)
+# Создаем авторов
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'authors.csv'))
+csv = CSV.parse(csv_text, headers: true)
 
-# Создаем несколько книг
-# fahrenheit451 = Book.new(
-#   title: '451 градус по Фаренгейту',
-#   author: 'Рэй Брэдбери',
-#   description: 'Роман-антиутопия о тоталитарном обществе будущего, в котором книги запрещены и сжигаются пожарами',
-#   rating: 4.2
-# )
+authors = []
 
-# it = Book.new(
-#   title: 'Оно',
-#   author: 'Стивен Кинг',
-#   description: 'Роман ужасов о маленьком городке в Нью-Хэмпшире, где появляется зловещий клоун',
-#   rating: 4.6
-# )
+csv&.each do |row|
+  full_name = row['full_name']
+  short_name = row['short_name']
+  bio = row['bio']
+  seo_description = row['seo_description']
 
-# lotr = Book.new(
-#   title: 'Властелин Колец',
-#   author: 'Дж. Р. Р. Толкин',
-#   description: 'Трилогия фэнтези о сражении добра и зла в Средиземье',
-#   rating: 4.9
-# )
+  birth_date = Date.parse(row['birth_date']) if row['birth_date']
+  death_date = Date.parse(row['death_date']) if row['death_date']
 
-# Обложки для книг
-# file1 = Down.download('https://upload.wikimedia.org/wikipedia/ru/d/d3/451_%D0%B3%D1%80%D0%B0%D0%B4%D1%83%D1%81_%D0%BF%D0%BE_%D0%A4%D0%B0%D1%80%D0%B5%D0%BD%D0%B3%D0%B5%D0%B9%D1%82%D1%83.jpg')
-# fahrenheit451.cover.attach(io: file1, filename: 'book1_cover.jpg', content_type: 'image/jpg')
-# fahrenheit451.save
-#
-# file2 = Down.download('https://s1.livelib.ru/boocover/1007351554/o/2490/Stiven_King__Ono.jpeg')
-# it.cover.attach(io: file2, filename: 'book2_cover.jpeg', content_type: 'image/jpeg')
-# it.save
-#
-# file3 = Down.download('https://s1.livelib.ru/boocover/1003446750/o/c351/Dzhon_R._R._Tolkin__Vlastelin_kolets_sbornik.jpeg')
-# lotr.cover.attach(io: file3, filename: 'book3_cover.jpeg', content_type: 'image/jpg')
-# lotr.save
+  place_of_birth = row['place_of_birth']
+  photo_url = row['photo_url']
 
-# Создаем связи между книгами и жанрами
-# fahrenheit451.genres << scifi
-# fahrenheit451.genres << dystopian
-#
-# it.genres << horror
-# lotr.genres << fantasy
+  pseudonyms = row['pseudonyms']&.split(';')
 
-# Создаем 100 книг из CSV файла
-# csv_text = File.read(Rails.root.join('lib', 'seeds', 'top_100_books.csv'))
-# csv = CSV.parse(csv_text, headers: true)
-#
-# csv&.each do |row|
-#   book = Book.new
-#   book.title = row['title']
-#   book.author_names = row['author']
-#   book.description = row['description']
-#
-#   url = row['cover_url']
-#
-#   book.download_cover(url)
-#
-#   if book.save
-#     puts "#{book.title} - #{book.author} saved"
-#   else
-#     puts "#{book.title} - #{book.author} failed to save"
-#   end
-# end
+  author = Author.new(full_name:, short_name:, bio:, seo_description:,
+                      birth_date:, death_date:, place_of_birth:, photo_url:)
+
+  if pseudonyms.present?
+    pseudonyms.each do |pseudonym|
+      author_pseudonym = AuthorPseudonym.create(name: pseudonym)
+      author.author_pseudonyms << author_pseudonym
+    end
+  end
+
+  authors << author
+
+  if authors.size >= 3000
+    Author.import authors, validate: true, recursive: true
+    authors = []
+  end
+end
+
+# Создаем книги
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'books.csv'))
+csv = CSV.parse(csv_text, headers: true)
+
+books = []
+
+csv&.each do |row|
+  title = row['title']
+  authors_names = row['authors']&.split(';')
+  genres_names = row['genres']&.split(';')
+  cover_url = row['cover_url']
+  description = row['description']
+
+  book = Book.new(title:, description:, cover_url:)
+
+  if authors_names.present?
+    authors_names.each do |author_name|
+      author = Author.find_or_create_by(short_name: author_name)
+      book.authors << author
+    end
+  end
+
+  if genres_names.present?
+    genres_names.each do |genre_name|
+      genre = Genre.find_by(name_ru: genre_name.strip)
+      book.genres << genre if genre
+    end
+  end
+
+  books << book
+
+  if books.size >= 3000
+    Book.import books, validate: true, recursive: true
+    books = []
+  end
+end
 
 # Создаем по 10 отзывов для каждой книги
 # books = Book.all
