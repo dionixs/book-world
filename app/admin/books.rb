@@ -5,6 +5,20 @@ ActiveAdmin.register Book do
 
   permit_params :title, :rating, :description
 
+  filter :title
+  filter :author
+  filter :genre
+  filter :description
+  filter :rating
+  filter :created_at
+  filter :updated_at
+
+  controller do
+    def scoped_collection
+      super.includes(:authors, :genres)
+    end
+  end
+
   index title: I18n.t('active_admin.resources.book.index') do
     selectable_column
     id_column

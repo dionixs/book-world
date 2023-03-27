@@ -5,6 +5,10 @@ ActiveAdmin.register Genre do
 
   permit_params :name_en, :name_ru, :parent_id
 
+  filter :name_ru
+  filter :name_en
+  filter :parent_id
+
   index title: I18n.t('active_admin.resources.genre.index') do
     selectable_column
     id_column
