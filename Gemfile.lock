@@ -182,6 +182,11 @@ GEM
     pg_search (2.3.6)
       activerecord (>= 5.2)
       activesupport (>= 5.2)
+    propshaft (0.7.0)
+      actionpack (>= 7.0.0)
+      activesupport (>= 7.0.0)
+      rack
+      railties (>= 7.0.0)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -299,13 +304,6 @@ GEM
       actionpack (>= 5.2)
       activemodel (>= 5.2)
     spring (4.1.1)
-    sprockets (4.2.0)
-      concurrent-ruby (~> 1.0)
-      rack (>= 2.2.4, < 4)
-    sprockets-rails (3.4.2)
-      actionpack (>= 5.2)
-      activesupport (>= 5.2)
-      sprockets (>= 3.0.0)
     stackprof (0.2.24)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
@@ -357,6 +355,7 @@ DEPENDENCIES
   pagy (= 6.0.2)
   pg (= 1.4.6)
   pg_search (= 2.3.6)
+  propshaft
   pry-rails
   puma (= 6.1.1)
   rack-mini-profiler
@@ -373,7 +372,6 @@ DEPENDENCIES
   shoulda-matchers (~> 5.0)
   simple_form (= 5.2.0)
   spring
-  sprockets-rails (= 3.4.2)
   stackprof
   stimulus-rails (= 1.2.1)
   turbo-rails (= 1.4.0)
