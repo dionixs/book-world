@@ -5,24 +5,6 @@ en:
   error:
     messages:
       alert: 'Please correct the following errors:'
-  active_admin:
-    menu:
-      admin_user: Admin Users
-      users: Users
-      book: "Books"
-      genre: "Genres"
-      books: "Import Books"
-    resources:
-      admin_user:
-        index: Admin Users
-      user:
-        index: List of users
-        new_model: 'Create User'
-        edit_model: 'Edit User'
-        delete_model: 'Delete User'
-        details: "%{model} Details"
-        save: 'Save'
-        para: Press cancel to return to the list without saving.
   search:
     subtitle:
       one: 'match'
