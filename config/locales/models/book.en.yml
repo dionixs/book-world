@@ -15,4 +15,5 @@ en:
       edit_book: Update a book
       update_book: Update a book
       back: Back
+      archive_book: Archive a book
       delete_book: Delete a book

@@ -4,6 +4,7 @@ class Author < ApplicationRecord
   include PgSearch::Model
   include AuthorImageable
   include AuthorQuery
+  include Statusable
 
   has_many :author_pseudonyms
 

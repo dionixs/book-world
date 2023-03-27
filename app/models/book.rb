@@ -5,6 +5,7 @@ class Book < ApplicationRecord
   include Authorable
   include BookDetails
   include Coverable
+  include Statusable
 
   attr_writer :author
 

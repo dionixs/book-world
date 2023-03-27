@@ -2,17 +2,31 @@
 
 class AuthorsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update destroy]
-  before_action :set_author, only: %i[show edit update destroy]
+  before_action :set_author, only: %i[show edit update archive destroy]
 
   # GET /authors or /authors.json
   def index
-    @authors = Author.includes([:photo_attachment]).all
+    @authors = Author.active.includes([:photo_attachment]).all
     @pagy, @authors = pagy(@authors, items: 30)
+  end
+
+  # TODO
+  def by_initial_letter
+    @initial = params[:initial]
+
+    unless @initial.match?(/\A[а-яА-Яa-zA-Z]\z/)
+      not_found("Invalid initial letter: #{@initial}")
+      return
+    end
+
+    @authors = Author.active.includes([:photo_attachment]).by_initial_letter(@initial)
+    @pagy, @authors = pagy(@authors, items: 30)
+    @authors = @authors.sorted_by_name
   end
 
   # GET /authors/1 or /authors/1.json
   def show
-    @books = @author.books.includes([:cover_attachment])
+    @books = @author.books.active.includes([:cover_attachment])
   end
 
   # GET /authors/new
@@ -51,6 +65,12 @@ class AuthorsController < ApplicationController
     end
   end
 
+  # TODO
+  def archive
+    @author.update(status: 'archived')
+    redirect_to authors_url, notice: 'Successfully Archived'
+  end
+
   # DELETE /authors/1 or /authors/1.json
   def destroy
     @author.destroy
@@ -59,20 +79,6 @@ class AuthorsController < ApplicationController
       format.html { redirect_to authors_url, notice: t('.destroy') }
       format.json { head :no_content }
     end
-  end
-
-  # TODO
-  def by_initial_letter
-    @initial = params[:initial]
-
-    unless @initial.match?(/\A[а-яА-Яa-zA-Z]\z/)
-      not_found("Invalid initial letter: #{@initial}")
-      return
-    end
-
-    @authors = Author.includes([:photo_attachment]).by_initial_letter(@initial)
-    @pagy, @authors = pagy(@authors, items: 30)
-    @authors = @authors.sorted_by_name
   end
 
   private

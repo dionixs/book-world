@@ -322,7 +322,8 @@ CREATE TABLE public.authors
     short_name      character varying,
     full_name       character varying,
     photo_url       character varying,
-    seo_description character varying
+    seo_description character varying,
+    status          character varying DEFAULT 'active':: character varying NOT NULL
 );
 
 
@@ -418,12 +419,13 @@ CREATE TABLE public.books
     title       character varying NOT NULL,
     created_at  timestamp(6) without time zone NOT NULL,
     updated_at  timestamp(6) without time zone NOT NULL,
-    rating      numeric(3, 2) DEFAULT 0.0,
+    rating      numeric(3, 2)     DEFAULT 0.0,
     description text,
     cover_url   character varying,
     searchable  tsvector GENERATED ALWAYS AS ((
             setweight(to_tsvector('russian'::regconfig, (COALESCE(title, ''::character varying))::text), 'A'::"char") ||
-            setweight(to_tsvector('russian'::regconfig, COALESCE(description, ''::text)), 'B'::"char"))) STORED
+            setweight(to_tsvector('russian'::regconfig, COALESCE(description, ''::text)), 'B'::"char"))) STORED,
+    status      character varying DEFAULT 'active':: character varying NOT NULL
 );
 
 
@@ -1214,6 +1216,8 @@ VALUES ('20230211211533'),
        ('20230322080517'),
        ('20230322085354'),
        ('20230322125809'),
-       ('20230322131130');
+       ('20230322131130'),
+       ('20230327181418'),
+       ('20230327191219');
 
 

@@ -26,8 +26,12 @@
 									 class: 'btn btn-success' %>
 
 			<% if book_editable? %>
-				<%= link_to t('activerecord.form.delete_book'), @book, class: 'btn btn-danger',
+				<%#= link_to t('activerecord.form.delete_book'), @book, class: 'btn btn-danger',
 										data: { turbo: true, turbo_method: :delete,
+														turbo_confirm: 'Are you sure?' } %>
+
+				<%= link_to t('activerecord.form.archive_book'), [:archive, @book], class: 'btn btn-danger',
+										data: { turbo: true, turbo_method: :patch,
 														turbo_confirm: 'Are you sure?' } %>
 
 			<% end %>

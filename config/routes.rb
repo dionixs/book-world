@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+
   scope '(:locale)', locale: /#{I18n.available_locales.join('|')}/ do
+
     devise_for :admin_users, ActiveAdmin::Devise.config
     ActiveAdmin.routes(self)
 
@@ -21,12 +23,14 @@ Rails.application.routes.draw do
     end
 
     resources :authors do
+      patch :archive, on: :member
       collection do
         get 'letter-:initial', to: 'authors#by_initial_letter', as: 'by_initial_letter'
       end
     end
 
     resources :books do
+      patch :archive, on: :member
       resources :reviews
     end
 

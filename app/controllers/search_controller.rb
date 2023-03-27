@@ -3,8 +3,8 @@
 class SearchController < ApplicationController
   def search
     @query = params[:search]
-    @books = Book.search(@query).includes([:cover_attachment]).includes([:authors]).limit(100)
+    @books = Book.active.search(@query).includes([:cover_attachment]).includes([:authors]).limit(100)
     @books = @books.decorate
-    @authors = Author.search(@query).includes([:photo_attachment]).limit(6)
+    @authors = Author.active.search(@query).includes([:photo_attachment]).limit(6)
   end
 end

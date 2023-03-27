@@ -2,11 +2,11 @@
 
 class BooksController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update destroy]
-  before_action :set_book!, only: %i[show edit update destroy]
+  before_action :set_book!, only: %i[show edit update archive destroy]
   before_action :set_reviews, only: %i[show]
 
   def index
-    @books = Book.includes([:cover_attachment]).includes(:authors).all
+    @books = Book.active.includes([:cover_attachment]).includes(:authors)
     @pagy, @books = pagy(@books, items: 30)
     @books = @books.decorate
     @genres = Genre.where(parent_id: nil)
@@ -54,6 +54,12 @@ class BooksController < ApplicationController
         format.json { render json: @book.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  # TODO
+  def archive
+    @book.update(status: 'archived')
+    redirect_to books_url, notice: 'Successfully Archived'
   end
 
   def destroy
