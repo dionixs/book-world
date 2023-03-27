@@ -29,6 +29,8 @@ gem 'turbo-rails', '1.4.0'
 gem 'propshaft'
 # gem 'bcrypt',                       '~> 3.1.7'
 # gem 'kredis',                       '1.3.0.1'
+# gem 'cancancan'
+# gem 'omniauth'
 
 group :development, :test do
   gem 'awesome_print'
@@ -46,8 +48,10 @@ group :development, :test do
 end
 
 group :test do
+  # gem 'capybara'
   gem 'rails-controller-testing'
   gem 'shoulda-matchers', '~> 5.0'
+  # gem 'simplecov', require: false
 end
 
 group :development do
@@ -60,6 +64,7 @@ group :development do
   gem 'bullet'
   gem "better_errors"
   gem "binding_of_caller"
+  gem 'bundler-audit'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
