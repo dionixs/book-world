@@ -94,7 +94,13 @@ GEM
     ast (2.4.2)
     awesome_print (1.9.2)
     bcrypt (3.1.18)
+    better_errors (2.9.1)
+      coderay (>= 1.0.0)
+      erubi (>= 1.0.0)
+      rack (>= 0.9.0)
     bindex (0.8.1)
+    binding_of_caller (1.0.0)
+      debug_inspector (>= 0.0.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     builder (3.2.4)
@@ -113,6 +119,7 @@ GEM
     debug (1.7.1)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    debug_inspector (1.1.0)
     devise (4.9.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -380,6 +387,8 @@ DEPENDENCIES
   activeadmin (~> 2.13)
   activerecord-import (= 1.4.1)
   awesome_print
+  better_errors
+  binding_of_caller
   bootsnap (= 1.16.0)
   bullet
   byebug
