@@ -29,8 +29,8 @@ module Authorable
     def author_names=(names)
       names = names.split(',').map(&:strip)
 
-      self.authors = names.map do |name|
-        Author.find_or_create_by(name:)
+      self.authors = names.map do |short_name|
+        Author.find_or_create_by(short_name:)
       end
     end
 
