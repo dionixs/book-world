@@ -22,9 +22,7 @@ class AuthorsController < ApplicationController
       return
     end
 
-    @authors = cache('index_authors', expires_in: 1.day) do
-      Author.active.includes([:photo_attachment]).by_initial_letter(@initial)
-    end
+    @authors = Author.active.includes([:photo_attachment]).by_initial_letter(@initial)
 
     @pagy, @authors = pagy(@authors, items: 30)
     @authors = @authors.sorted_by_name
@@ -32,9 +30,7 @@ class AuthorsController < ApplicationController
 
   # GET /authors/1 or /authors/1.json
   def show
-    @books = cache('index_books', expires_in: 1.day) do
-      @author.books.active.includes([:cover_attachment])
-    end
+    @books = @author.books.active.includes([:cover_attachment])
   end
 
   # GET /authors/new
