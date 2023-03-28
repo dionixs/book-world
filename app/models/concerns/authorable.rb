@@ -5,6 +5,7 @@ module Authorable
 
   included do
     attr_accessor :author_names
+    attr_reader :pseudonyms
 
     def author
       author_names_with_separator(', ')
@@ -24,6 +25,10 @@ module Authorable
 
     def author_names
       author_names_with_separator(',')
+    end
+
+    def pseudonyms
+      author_pseudonyms.pluck(:name).join(', ')
     end
 
     def author_names=(names)
