@@ -6,6 +6,8 @@ ActiveAdmin.register Book do
   permit_params :title, :rating, :description
 
   filter :title
+  filter :status
+  filter :cover_url
   filter :author
   filter :genre
   filter :description
@@ -27,6 +29,8 @@ ActiveAdmin.register Book do
     column :genre
     column :description
     column :rating
+    column :status
+    column :cover_url
     column :created_at
     column :updated_at
     actions
@@ -35,7 +39,9 @@ ActiveAdmin.register Book do
   form do |f|
     f.inputs do
       f.input :title
+      f.input :status
       f.input :rating
+      f.input :cover_url
       f.input :description
     end
     f.actions
