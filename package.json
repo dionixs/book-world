@@ -26,7 +26,7 @@
   ],
   "scripts": {
     "build:css:dev": "yarn build:css:application && yarn build:css:active_admin",
-    "build:css": "npm-run-all --parallel \"build:css:prod:* {@}\" --",
+    "build:css": "yarn build:css:prod:application && yarn build:css:prod:active_admin && yarn build:css:prod:postcss",
     "build:css:application": "sass --style compressed ./app/assets/stylesheets/application.bootstrap.scss ./app/assets/builds/application.css --no-source-map --load-path=node_modules",
     "build:css:active_admin": "sass --style compressed ./app/assets/stylesheets/active_admin/active_admin.scss ./app/assets/builds/active_admin.css --no-source-map --load-path=node_modules",
     "build:css:prod:application": "yarn build:css:application",
