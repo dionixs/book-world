@@ -3,6 +3,7 @@ import {Turbo} from "@hotwired/turbo-rails"
 
 Turbo.session.drive = false
 // import "./controllers"
+// import ahoy from "ahoy.js"
 import * as bootstrap from "bootstrap"
 import "trix"
 import "@rails/actiontext"

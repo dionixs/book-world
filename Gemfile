@@ -3,6 +3,9 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem "ahoy_matey"
+gem "geocoder"
+# gem "maxminddb"
 gem "activeadmin", "~> 2.13"
 gem 'active_storage_validations', '1.0.3'
 # gem 'aws-sdk-s3',                   '1.119.2', require: false

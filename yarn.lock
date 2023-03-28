@@ -661,6 +661,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ahoy.js@npm:^0.4.3":
+  version: 0.4.3
+  resolution: "ahoy.js@npm:0.4.3"
+  checksum: 3e84e1d691715ba4218a0182188f78cba285466f985bc415b752ef25e0645ffceaa92943671bdf5ef414db6345ff910853cc9e23134d020ade9845151165d6e3
+  languageName: node
+  linkType: hard
+
 "ansi-regex@npm:^5.0.1":
   version: 5.0.1
   resolution: "ansi-regex@npm:5.0.1"
@@ -771,6 +778,7 @@ __metadata:
     "@hotwired/turbo-rails": ^7.3.0
     "@popperjs/core": ^2.11.7
     "@rails/actiontext": ^7.0.4
+    ahoy.js: ^0.4.3
     autoprefixer: ^10.4.14
     bootstrap: ^5.2.3
     bootstrap-icons: ^1.10.3
