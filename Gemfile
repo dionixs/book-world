@@ -35,6 +35,7 @@ gem 'turbo-rails', '1.4.0'
 # gem 'cancancan'
 # gem 'omniauth'
 # gem 'ransack'
+# gem 'mobility'
 
 group :development, :test do
   gem 'awesome_print'
