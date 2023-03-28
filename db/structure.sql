@@ -544,7 +544,8 @@ CREATE TABLE public.genres
     name_ru    character varying,
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL,
-    parent_id  integer
+    parent_id  integer,
+    genre_slug character varying
 );
 
 
@@ -1157,6 +1158,13 @@ CREATE INDEX index_books_on_title ON public.books USING btree (title);
 
 
 --
+-- Name: index_genres_on_genre_slug; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_genres_on_genre_slug ON public.genres USING btree (genre_slug);
+
+
+--
 -- Name: index_genres_on_name_en; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -1377,6 +1385,7 @@ VALUES ('20230211211533'),
        ('20230322131130'),
        ('20230327181418'),
        ('20230327191219'),
-       ('20230328095843');
+       ('20230328095843'),
+       ('20230328131739');
 
 
