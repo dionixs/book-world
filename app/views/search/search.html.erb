@@ -11,7 +11,7 @@
 
     <div class="wrapper clearfix">
       <span class="search-results-subtitle">
-        Авторы (<%= @authors.size %> <%= I18n.translate 'search.subtitle', count: @authors.size %>)
+        Авторы (<%= @author_count %> <%= I18n.translate 'search.subtitle', count: @author_count %>)
       </span>
 
       <div class="catalog-book-list clearfix">
@@ -36,7 +36,7 @@
 <section class="search-results-books">
   <div class="container">
     <span class="search-results-subtitle">
-      Книги (<%= @books.size %> <%= I18n.translate 'search.subtitle', count: @books.size %>)
+      Книги (<%= @book_count %> <%= I18n.translate 'search.subtitle', count: @book_count %>)
     </span>
 
     <div class="catalog-book-list">
