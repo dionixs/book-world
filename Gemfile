@@ -31,6 +31,7 @@ gem 'turbo-rails', '1.4.0'
 # gem 'kredis',                       '1.3.0.1'
 # gem 'cancancan'
 # gem 'omniauth'
+# gem 'ransack'
 
 group :development, :test do
   gem 'awesome_print'
