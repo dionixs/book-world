@@ -6,7 +6,8 @@ class GenresController < ApplicationController
     @genre_ids = @genre.genre_and_subgenre_ids
 
     @books = cache('index_books', expires_in: 1.day) do
-      Book.active.with_cover_and_authors.books_for_genre_and_subgenres(@genre_ids)
+      Book.active.includes([:cover_attachment]).includes([:authors])
+          .books_for_genre_and_subgenres(@genre_ids)
     end
 
     @pagy, @books = pagy(@books, items: 30)
