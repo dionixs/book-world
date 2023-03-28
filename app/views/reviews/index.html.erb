@@ -11,7 +11,7 @@
 
         <%= render partial: 'books/book_review_section', locals: { book: @book, review: @review } %>
       <% else %>
-        <%= render partial: 'review', collection: @reviews, locals: { book: @book } %>
+        <%= render partial: 'review', collection: @reviews, cached: true, locals: { book: @book } %>
 
         <div class="d-flex justify-content-center mt-5 mb-5">
           <%= pagination(@pagy) %>

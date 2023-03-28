@@ -6,7 +6,10 @@ class AuthorsController < ApplicationController
 
   # GET /authors or /authors.json
   def index
-    @authors = Author.active.includes([:photo_attachment]).all
+    @authors = cache('index_authors', expires_in: 1.day) do
+      Author.active.includes([:photo_attachment]).all
+    end
+
     @pagy, @authors = pagy(@authors, items: 30)
   end
 
@@ -19,14 +22,19 @@ class AuthorsController < ApplicationController
       return
     end
 
-    @authors = Author.active.includes([:photo_attachment]).by_initial_letter(@initial)
+    @authors = cache('index_authors', expires_in: 1.day) do
+      Author.active.includes([:photo_attachment]).by_initial_letter(@initial)
+    end
+
     @pagy, @authors = pagy(@authors, items: 30)
     @authors = @authors.sorted_by_name
   end
 
   # GET /authors/1 or /authors/1.json
   def show
-    @books = @author.books.active.includes([:cover_attachment])
+    @books = cache('index_books', expires_in: 1.day) do
+      @author.books.active.includes([:cover_attachment])
+    end
   end
 
   # GET /authors/new

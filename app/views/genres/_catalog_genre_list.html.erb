@@ -23,19 +23,15 @@
           <li><a href="/reviews/waiting/">Ждут рецензий</a></li>
         </ul>
         <div class="catalog-genre-genres clearfix">
-          <% genres.each_slice(10).with_index do |slice, index| %>
-            <ul>
+          <% genres.in_groups_of(10, false).map.with_index do |group, index| %>
+            <%= content_tag :ul do %>
               <% if index == 0 %>
-                <li>
-                  <%= genre_tab 'Все', books_path %>
-                </li>
+                <%= content_tag :li, genre_tab('Все', books_path) %>
               <% end %>
-              <% slice.each do |genre| %>
-                <%= tag.li do %>
-                  <%= genre_tab localized_genre_name(genre), genre_path(genre) %>
-                <% end %>
+              <% group.each do |genre| %>
+                <%= content_tag :li, genre_tab(localized_genre_name(genre), genre_path(genre)) %>
               <% end %>
-            </ul>
+            <% end %>
           <% end %>
         </div>
       </div>

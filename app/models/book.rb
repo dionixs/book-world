@@ -24,6 +24,9 @@ class Book < ApplicationRecord
   validate :correct_cover_type
   validate :cover_size
 
+  scope :active, -> { where(status: 'active') }
+  scope :with_cover_and_authors, -> { includes(:cover_attachment, :authors) }
+
   pg_search_scope :search,
                   against: { title: 'A', description: 'B' },
                   associated_against: { authors: %i[full_name short_name] },

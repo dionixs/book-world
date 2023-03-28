@@ -6,10 +6,16 @@ class BooksController < ApplicationController
   before_action :set_reviews, only: %i[show]
 
   def index
-    @books = Book.active.includes([:cover_attachment]).includes(:authors)
+    @books = cache('index_books', expires_in: 1.day) do
+      Book.active.with_cover_and_authors
+    end
+
     @pagy, @books = pagy(@books, items: 30)
     @books = @books.decorate
-    @genres = Genre.where(parent_id: nil)
+
+    @genres = cache('index_genres', expires_in: 1.day) do
+      Genre.where(parent_id: nil)
+    end
 
     respond_to do |format|
       format.html

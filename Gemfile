@@ -19,6 +19,7 @@ gem 'mini_magick', '4.12.0'
 gem 'pagy', '6.0.2'
 gem 'pg', '1.4.6'
 gem 'pg_search', '2.3.6'
+gem 'propshaft', '0.7.0'
 gem 'puma', '6.1.1'
 gem 'rails', '7.0.4.2'
 gem 'rails-i18n', '7.0.6'
@@ -26,7 +27,6 @@ gem 'redis', '5.0.6'
 gem 'simple_form', '5.2.0'
 gem 'stimulus-rails', '1.2.1'
 gem 'turbo-rails', '1.4.0'
-gem 'propshaft'
 # gem 'bcrypt',                       '~> 3.1.7'
 # gem 'kredis',                       '1.3.0.1'
 # gem 'cancancan'
@@ -55,16 +55,16 @@ group :test do
 end
 
 group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem 'bullet'
+  gem 'bundler-audit'
   gem 'memory_profiler'
   gem 'rack-mini-profiler'
   gem 'rails-erd'
   gem "spring"
   gem 'stackprof'
   gem 'web-console'
-  gem 'bullet'
-  gem "better_errors"
-  gem "binding_of_caller"
-  gem 'bundler-audit'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
