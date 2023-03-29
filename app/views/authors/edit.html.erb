@@ -1,10 +1,14 @@
-<h1>Editing author</h1>
+<% provide(:title, 'New author') %>
 
-<%= render "form", author: @author %>
+<section class="section-edit">
+  <div class="container">
+    <div class="edit-block">
+      <h2 class="edit-block__title col-lg-10 mx-auto">
+        Editing author
+      </h2>
 
-<br>
+      <%= render "form", author: @author %>
+    </div>
+  </div>
+</section>
 
-<div>
-  <%= link_to "Show this author", @author %> |
-  <%= link_to "Back to authors", authors_path %>
-</div>

@@ -11,9 +11,6 @@
 @import 'components/header';
 @import 'components/footer';
 
-// Global styles for all pages
-@import 'components/main';
-
 // Pages
 @import 'pages/home';
 @import 'pages/auth';
@@ -23,3 +20,6 @@
 @import "pages/authors";
 @import "pages/author";
 @import "pages/search_results";
+
+// Global styles for all pages
+@import 'components/main';

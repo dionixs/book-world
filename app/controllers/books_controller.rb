@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class BooksController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create edit update destroy]
+  before_action :authenticate_user!, only: %i[new create edit update archive destroy]
   before_action :set_book!, only: %i[show edit update archive destroy]
   before_action :set_reviews, only: %i[show]
 

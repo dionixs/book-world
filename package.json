@@ -25,7 +25,7 @@
     "maintained node versions"
   ],
   "scripts": {
-    "build:css:dev": "npm-run-all --parallel \"build:css:dev:watch:*\" --",
+    "build:css:dev": "yarn build:css:dev:application",
     "build:css": "yarn build:css:prod:application && yarn build:css:prod:active_admin && yarn build:css:prod:postcss",
     "build:css:dev:application": "sass ./app/assets/stylesheets/application.bootstrap.scss ./app/assets/builds/application.css --no-source-map --load-path=node_modules",
     "build:css:dev:active_admin": "sass ./app/assets/stylesheets/active_admin/active_admin.scss ./app/assets/builds/active_admin.css --no-source-map --load-path=node_modules",

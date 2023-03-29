@@ -4,7 +4,7 @@ module ImageHelper
   # TODO
   def book_cover(obj, default_cover: '/images/defaults/default_cover.jpg')
     if obj.cover.attached?
-      url_for(obj.photo)
+      url_for(obj.cover)
     elsif obj.cover_url.present?
       obj.cover_url
     else

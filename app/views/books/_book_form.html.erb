@@ -1,9 +1,21 @@
-<div class="col-lg-8 mx-auto">
-	<%= simple_form_for @book do |f| %>
+<div class="col-lg-10 mx-auto">
+	<%= simple_form_for @book, local: true, multipart: true do |f| %>
 		<%= f.error_notification %>
 
-		<div class="form-inputs my-3">
+		<div class="form-inputs">
+
+			<div class="mb-3 text-center">
+				<% if @book.cover.attached? %>
+					<%= image_tag @book.cover.variant(resize_to_limit: [300, 300]), id: 'book-cover-preview', size: '120x160' %>
+				<% elsif !@book.cover.attached? && @book.cover_url.present? %>
+					<%= image_tag @book.cover_url, id: 'book-cover', size: '120x160' %>
+				<% else %>
+					<%= image_tag(url_for('/images/defaults/default_cover.jpg'), size: '120x160') %>
+				<% end %>
+			</div>
+
 			<%= f.input :cover, as: :file, required: false %>
+
 			<%= f.input :title, required: true, minlength: 1, maxlength: 70,
 									placeholder: gen_book_title %>
 
@@ -13,7 +25,7 @@
 																autocomplete: "off",
 																required: true } %>
 
-			<%= f.input :genre_ids, collection: Genre.all,
+			<%= f.input :genre_ids, collection: Genre.all, label: 'Genre:',
 									label_method: "name_#{I18n.locale}".to_sym, value_method: :id,
 									include_blank: false, input_html: { multiple: true } %>
 
@@ -30,7 +42,7 @@
 										data: { turbo: true, turbo_method: :delete,
 														turbo_confirm: 'Are you sure?' } %>
 
-				<%= link_to t('activerecord.form.archive_book'), [:archive, @book], class: 'btn btn-danger',
+				<%= link_to t('activerecord.form.delete_book'), [:archive, @book], class: 'btn btn-danger',
 										data: { turbo: true, turbo_method: :patch,
 														turbo_confirm: 'Are you sure?' } %>
 
