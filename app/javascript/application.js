@@ -30,3 +30,20 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+// Отображаем кнопку при прокрутке страницы на 200 пикселей
+window.onscroll = function () {
+  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+    document.querySelector(".scroll-to-top-btn").style.display = "block";
+  } else {
+    document.querySelector(".scroll-to-top-btn").style.display = "none";
+  }
+};
+
+// Прокручиваем страницу наверх при клике на кнопку
+document.querySelector(".scroll-to-top-btn").addEventListener("click", function () {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});

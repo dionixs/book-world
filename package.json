@@ -34,9 +34,9 @@
     "build:css:prod:application": "sass --style compressed ./app/assets/stylesheets/application.bootstrap.scss ./app/assets/builds/application.css --no-source-map --load-path=node_modules",
     "build:css:prod:active_admin": "sass --style compressed ./app/assets/stylesheets/active_admin/active_admin.scss ./app/assets/builds/active_admin.css --no-source-map --load-path=node_modules",
     "build:css:prod:postcss": "postcss ./app/assets/builds/*.css --use autoprefixer postcss-preset-env --dir ./app/assets/builds",
-    "build": "npm-run-all --parallel \"build:* {@}\" --",
-    "build:application": "esbuild app/javascript/application.js --bundle --minify --sourcemap --outfile=app/assets/builds/application.js",
-    "build:active_admin": "esbuild app/javascript/active_admin.js --bundle --minify --sourcemap --outfile=app/assets/builds/active_admin.js"
+    "build": "npm-run-all --parallel \"build:js:* {@}\" --",
+    "build:js:application": "esbuild app/javascript/application.js --bundle --minify --sourcemap --outfile=app/assets/builds/application.js",
+    "build:js:active_admin": "esbuild app/javascript/active_admin.js --bundle --minify --sourcemap --outfile=app/assets/builds/active_admin.js"
   },
   "packageManager": "yarn@3.4.1"
 }
