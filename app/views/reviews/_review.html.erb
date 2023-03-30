@@ -4,11 +4,12 @@
       <article>
         <h5 class="card-title"><%= review.title %></h5>
         <div class="card-text mb-3">
-          <div class="card-review-hidden trix-content"><%= review.body %></div>
-          <div class="review-content">
-            <%= summary(review, :body, length: 290) %>
-          </div>
-          <%= review_read_more_link(review, 290, :body) %>
+          <!--          <div class=" trix-content"><%#= review.body %></div>-->
+          <!--          <div class="review-content">-->
+          <%#= summary(review, :body, length: 290) %>
+          <!--          </div>-->
+          <%= review.body %>
+          <%#= review_read_more_link(review, 290, :body) %>
         </div>
         <div class="card-text mb-3">
           <small class="text-muted">

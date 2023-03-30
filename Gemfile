@@ -3,10 +3,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-gem "ahoy_matey"
-gem "geocoder"
+gem 'ahoy_matey'
+gem 'geocoder'
 # gem "maxminddb"
-gem "activeadmin", "~> 2.13"
+gem 'activeadmin', '~> 2.13'
 gem 'active_storage_validations', '1.0.3'
 # gem 'aws-sdk-s3',                   '1.119.2', require: false
 gem 'activerecord-import', '1.4.1'
@@ -61,14 +61,14 @@ group :test do
 end
 
 group :development do
-  gem "better_errors"
-  gem "binding_of_caller"
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'bullet'
   gem 'bundler-audit'
   gem 'memory_profiler'
   gem 'rack-mini-profiler'
   gem 'rails-erd'
-  gem "spring"
+  gem 'spring'
   gem 'stackprof'
   gem 'web-console'
 end

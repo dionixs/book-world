@@ -13,7 +13,7 @@ import "./components/_trix-editor-overrides"
 import './components/_select'
 
 // Pages
-import './pages/_review';
+// import './pages/_review';
 
 document.addEventListener("DOMContentLoaded", function () {
   const anchors = document.querySelectorAll("a[href^='#']");
