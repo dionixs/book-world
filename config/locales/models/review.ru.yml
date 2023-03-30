@@ -3,5 +3,5 @@ ru:
     models:
       review: Рецензия
     attributes:
-      book:
+      review:
         title: Заголовок рецензии

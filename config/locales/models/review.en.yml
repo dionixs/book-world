@@ -3,5 +3,5 @@ en:
     models:
       review: Review
     attributes:
-      book:
+      review:
         title: Title
