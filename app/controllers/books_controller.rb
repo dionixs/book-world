@@ -6,9 +6,7 @@ class BooksController < ApplicationController
   before_action :set_reviews, only: %i[show]
 
   def index
-    @books = cache('index_books', expires_in: 1.day) do
-      Book.active.with_cover_and_authors
-    end
+    @books = Book.active.with_cover_and_authors
 
     @pagy, @books = pagy(@books, items: 30)
     @books = @books.decorate

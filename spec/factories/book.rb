@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :book do
     title { Faker::Book.title }
     rating { Faker::Number.between(from: 0.0, to: 5.0) }
-    author_names { Faker::Name.name }
+    # author_names { "#{Faker::Name.name}, #{Faker::Name.name}" }
     description { Faker::Lorem.paragraph }
 
     after :build do |book|
