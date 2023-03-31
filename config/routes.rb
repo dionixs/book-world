@@ -39,6 +39,7 @@ Rails.application.routes.draw do
     get '/search', to: 'search#search', as: :search
 
     get '/about', to: 'static_pages#about'
+    get '/faq', to: 'static_pages#faq'
     get '/contacts', to: 'static_pages#contacts'
     get '/help', to: 'static_pages#help'
     get '/terms', to: 'static_pages#terms'

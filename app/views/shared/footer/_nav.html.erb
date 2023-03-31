@@ -50,13 +50,13 @@
   <h5 class="footer-title"><%= t('footer.title.about_us') %></h5>
   <ul class="nav flex-column">
     <li class="nav-item mb-2">
-      <%= link_to t('footer.nav.about'), '#', class: 'footer-subtitle nav-link p-0' %>
+      <%= nav_tab t('footer.nav.about'), about_path, class: 'footer-subtitle nav-link p-0' %>
     </li>
     <li class="nav-item mb-2">
-      <%= link_to t('footer.nav.faq'), '#', class: 'footer-subtitle nav-link p-0' %>
+      <%= nav_tab t('footer.nav.faq'), faq_path, class: 'footer-subtitle nav-link p-0' %>
     </li>
     <li class="nav-item mb-2">
-      <%= link_to t('footer.nav.feedback'), '#', class: 'footer-subtitle nav-link p-0' %>
+      <%= link_to t('footer.nav.feedback'), '#', class: 'footer-subtitle nav-link nav-link__white p-0' %>
     </li>
     <li class="nav-item mb-2">
       <%= nav_tab t('footer.nav.help'), help_path, class: 'footer-subtitle nav-link p-0' %>
