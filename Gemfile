@@ -41,6 +41,7 @@ gem 'turbo-rails', '1.4.0'
 group :development, :test do
   gem 'awesome_print'
   gem 'byebug'
+  gem 'bullet'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
@@ -63,7 +64,6 @@ end
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'bullet'
   gem 'bundler-audit'
   gem 'memory_profiler'
   gem 'rack-mini-profiler'
