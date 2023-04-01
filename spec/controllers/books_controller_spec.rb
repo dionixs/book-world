@@ -11,6 +11,8 @@ RSpec.describe BooksController, type: :controller do
 
   describe 'GET #index' do
 
+    let!(:books) { create_list(:book, 50) }
+
     it 'renders index template' do
       get :index
       expect(response).to render_template(:index)
@@ -33,6 +35,18 @@ RSpec.describe BooksController, type: :controller do
                              .and_return(Genre.where(parent_id: nil))
       get :index
       expect(assigns(:genres)).to eq(Genre.where(parent_id: nil))
+    end
+
+    it 'paginates books to 30 per page' do
+      get :index
+      expect(assigns(:books)).to eq(Book.active.with_cover_and_authors.limit(30).decorate)
+      expect(assigns(:pagy).count).to eq(50)
+    end
+
+    it 'paginates the second page correctly' do
+      get :index, params: { page: 2 }
+      expect(assigns(:books)).to eq(Book.active.with_cover_and_authors.offset(30).limit(20).decorate)
+      expect(assigns(:pagy).page).to eq(2)
     end
 
     it 'renders index json' do
