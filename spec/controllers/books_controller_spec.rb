@@ -61,12 +61,27 @@ RSpec.describe BooksController, type: :controller do
       get :new, params: { id: book.id }
       expect(response).to redirect_to(routes.url_helpers.new_user_session_path)
     end
+
+    it 'allows signed in user to access new page' do
+      sign_in user
+
+      get :new, params: { id: book.id }
+      expect(response).to have_http_status(:success)
+    end
+
   end
 
   describe 'GET #edit' do
     it 'redirects anonymous user to sign in' do
       get :edit, params: { id: book.id }
       expect(response).to redirect_to(routes.url_helpers.new_user_session_path)
+    end
+
+    it 'allows signed in user to access edit page' do
+      sign_in user
+
+      get :edit, params: { id: book.id }
+      expect(response).to have_http_status(:success)
     end
   end
 
