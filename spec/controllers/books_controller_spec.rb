@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe BooksController, type: :controller do
-
   include FactoryBot::Syntax::Methods
 
   let(:user) { FactoryBot.create(:user) }
@@ -68,7 +67,50 @@ RSpec.describe BooksController, type: :controller do
       get :new, params: { id: book.id }
       expect(response).to have_http_status(:success)
     end
+  end
 
+  describe 'POST #create' do
+    context 'with valid attributes' do
+      it 'creates a new book' do
+        sign_in user
+        expect do
+          post :create, params: { book: attributes_for(:book) }
+        end.to change(Book, :count).by(1)
+      end
+
+      it 'redirects to the newly created book' do
+        sign_in user
+        post :create, params: { book: attributes_for(:book) }
+        expect(response).to redirect_to(assigns(:book))
+      end
+
+      it 'sets a success notice' do
+        sign_in user
+        post :create, params: { book: attributes_for(:book) }
+        expect(flash[:notice]).to eq(I18n.t('books.create'))
+      end
+
+      it 'responds with a redirect status' do
+        post :create, params: { book: attributes_for(:book) }
+        expect(response).to have_http_status(:redirect)
+      end
+
+    end
+
+    context 'with invalid attributes' do
+      it 'does not create a new book' do
+        sign_in user
+        expect do
+          post :create, params: { book: attributes_for(:book, :invalid) }
+        end.not_to change(Book, :count)
+      end
+
+      it 'renders the new template' do
+        sign_in user
+        post :create, params: { book: attributes_for(:book, :invalid) }
+        expect(response).to render_template(:new)
+      end
+    end
   end
 
   describe 'GET #edit' do
@@ -91,5 +133,4 @@ RSpec.describe BooksController, type: :controller do
       expect(response).to have_http_status(:success)
     end
   end
-
 end

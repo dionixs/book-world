@@ -16,5 +16,9 @@ FactoryBot.define do
       authors = create_list(:author, 2)
       book.authors << authors
     end
+
+    trait :invalid do
+      title { nil }
+    end
   end
 end
