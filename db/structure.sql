@@ -1,74 +1,71 @@
-SET
-statement_timeout = 0;
-SET
-lock_timeout = 0;
-SET
-idle_in_transaction_session_timeout = 0;
-SET
-client_encoding = 'UTF8';
-SET
-standard_conforming_strings = on;
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
 SELECT pg_catalog.set_config('search_path', '', false);
-SET
-check_function_bodies = false;
-SET
-xmloption = content;
-SET
-client_min_messages = warning;
-SET
-row_security = off;
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
 
 --
 -- Name: fuzzystrmatch; Type: EXTENSION; Schema: -; Owner: -
 --
 
-CREATE
-EXTENSION IF NOT EXISTS fuzzystrmatch WITH SCHEMA public;
+CREATE EXTENSION IF NOT EXISTS fuzzystrmatch WITH SCHEMA public;
 
 
 --
 -- Name: EXTENSION fuzzystrmatch; Type: COMMENT; Schema: -; Owner: -
 --
 
-COMMENT
-ON EXTENSION fuzzystrmatch IS 'determine similarities and distance between strings';
+COMMENT ON EXTENSION fuzzystrmatch IS 'determine similarities and distance between strings';
 
 
 --
 -- Name: pg_trgm; Type: EXTENSION; Schema: -; Owner: -
 --
 
-CREATE
-EXTENSION IF NOT EXISTS pg_trgm WITH SCHEMA public;
+CREATE EXTENSION IF NOT EXISTS pg_trgm WITH SCHEMA public;
 
 
 --
 -- Name: EXTENSION pg_trgm; Type: COMMENT; Schema: -; Owner: -
 --
 
-COMMENT
-ON EXTENSION pg_trgm IS 'text similarity measurement and index searching based on trigrams';
+COMMENT ON EXTENSION pg_trgm IS 'text similarity measurement and index searching based on trigrams';
 
 
-SET
-default_tablespace = '';
+--
+-- Name: reading_status; Type: TYPE; Schema: public; Owner: -
+--
 
-SET
-default_table_access_method = heap;
+CREATE TYPE public.reading_status AS ENUM (
+    'unread',
+    'want_to_read',
+    'in_progress',
+    'not_finished',
+    'finished'
+);
+
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
 
 --
 -- Name: action_text_rich_texts; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE public.action_text_rich_texts
-(
-    id          bigint            NOT NULL,
-    name        character varying NOT NULL,
-    body        text,
+CREATE TABLE public.action_text_rich_texts (
+    id bigint NOT NULL,
+    name character varying NOT NULL,
+    body text,
     record_type character varying NOT NULL,
-    record_id   bigint            NOT NULL,
-    created_at  timestamp(6) without time zone NOT NULL,
-    updated_at  timestamp(6) without time zone NOT NULL
+    record_id bigint NOT NULL,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
 );
 
 
@@ -80,7 +77,8 @@ CREATE SEQUENCE public.action_text_rich_texts_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
-    NO MAXVALUE CACHE 1;
+    NO MAXVALUE
+    CACHE 1;
 
 
 --
@@ -94,17 +92,16 @@ ALTER SEQUENCE public.action_text_rich_texts_id_seq OWNED BY public.action_text_
 -- Name: active_admin_comments; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE public.active_admin_comments
-(
-    id            bigint NOT NULL,
-    namespace     character varying,
-    body          text,
+CREATE TABLE public.active_admin_comments (
+    id bigint NOT NULL,
+    namespace character varying,
+    body text,
     resource_type character varying,
-    resource_id   bigint,
-    author_type   character varying,
-    author_id     bigint,
-    created_at    timestamp(6) without time zone NOT NULL,
-    updated_at    timestamp(6) without time zone NOT NULL
+    resource_id bigint,
+    author_type character varying,
+    author_id bigint,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
 );
 
 
@@ -116,7 +113,8 @@ CREATE SEQUENCE public.active_admin_comments_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
-    NO MAXVALUE CACHE 1;
+    NO MAXVALUE
+    CACHE 1;
 
 
 --
@@ -130,14 +128,13 @@ ALTER SEQUENCE public.active_admin_comments_id_seq OWNED BY public.active_admin_
 -- Name: active_storage_attachments; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE public.active_storage_attachments
-(
-    id          bigint            NOT NULL,
-    name        character varying NOT NULL,
+CREATE TABLE public.active_storage_attachments (
+    id bigint NOT NULL,
+    name character varying NOT NULL,
     record_type character varying NOT NULL,
-    record_id   bigint            NOT NULL,
-    blob_id     bigint            NOT NULL,
-    created_at  timestamp(6) without time zone NOT NULL
+    record_id bigint NOT NULL,
+    blob_id bigint NOT NULL,
+    created_at timestamp(6) without time zone NOT NULL
 );
 
 
@@ -149,7 +146,8 @@ CREATE SEQUENCE public.active_storage_attachments_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
-    NO MAXVALUE CACHE 1;
+    NO MAXVALUE
+    CACHE 1;
 
 
 --
@@ -163,17 +161,16 @@ ALTER SEQUENCE public.active_storage_attachments_id_seq OWNED BY public.active_s
 -- Name: active_storage_blobs; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE public.active_storage_blobs
-(
-    id           bigint            NOT NULL,
-    key          character varying NOT NULL,
-    filename     character varying NOT NULL,
+CREATE TABLE public.active_storage_blobs (
+    id bigint NOT NULL,
+    key character varying NOT NULL,
+    filename character varying NOT NULL,
     content_type character varying,
-    metadata     text,
+    metadata text,
     service_name character varying NOT NULL,
-    byte_size    bigint            NOT NULL,
-    checksum     character varying,
-    created_at   timestamp(6) without time zone NOT NULL
+    byte_size bigint NOT NULL,
+    checksum character varying,
+    created_at timestamp(6) without time zone NOT NULL
 );
 
 
@@ -185,7 +182,8 @@ CREATE SEQUENCE public.active_storage_blobs_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
-    NO MAXVALUE CACHE 1;
+    NO MAXVALUE
+    CACHE 1;
 
 
 --
@@ -199,10 +197,9 @@ ALTER SEQUENCE public.active_storage_blobs_id_seq OWNED BY public.active_storage
 -- Name: active_storage_variant_records; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE public.active_storage_variant_records
-(
-    id               bigint            NOT NULL,
-    blob_id          bigint            NOT NULL,
+CREATE TABLE public.active_storage_variant_records (
+    id bigint NOT NULL,
+    blob_id bigint NOT NULL,
     variation_digest character varying NOT NULL
 );
 
@@ -215,7 +212,8 @@ CREATE SEQUENCE public.active_storage_variant_records_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
-    NO MAXVALUE CACHE 1;
+    NO MAXVALUE
+    CACHE 1;
 
 
 --
@@ -229,17 +227,16 @@ ALTER SEQUENCE public.active_storage_variant_records_id_seq OWNED BY public.acti
 -- Name: admin_users; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE public.admin_users
-(
-    id                     bigint NOT NULL,
-    email                  character varying DEFAULT '':: character varying NOT NULL,
-    encrypted_password     character varying DEFAULT '':: character varying NOT NULL,
-    reset_password_token   character varying,
+CREATE TABLE public.admin_users (
+    id bigint NOT NULL,
+    email character varying DEFAULT ''::character varying NOT NULL,
+    encrypted_password character varying DEFAULT ''::character varying NOT NULL,
+    reset_password_token character varying,
     reset_password_sent_at timestamp(6) without time zone,
-    remember_created_at    timestamp(6) without time zone,
-    created_at             timestamp(6) without time zone NOT NULL,
-    updated_at             timestamp(6) without time zone NOT NULL,
-    username               character varying
+    remember_created_at timestamp(6) without time zone,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL,
+    username character varying
 );
 
 
@@ -251,7 +248,8 @@ CREATE SEQUENCE public.admin_users_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
-    NO MAXVALUE CACHE 1;
+    NO MAXVALUE
+    CACHE 1;
 
 
 --
@@ -265,14 +263,13 @@ ALTER SEQUENCE public.admin_users_id_seq OWNED BY public.admin_users.id;
 -- Name: ahoy_events; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE public.ahoy_events
-(
-    id         bigint NOT NULL,
-    visit_id   bigint,
-    user_id    bigint,
-    name       character varying,
+CREATE TABLE public.ahoy_events (
+    id bigint NOT NULL,
+    visit_id bigint,
+    user_id bigint,
+    name character varying,
     properties jsonb,
-    "time"     timestamp(6) without time zone
+    "time" timestamp(6) without time zone
 );
 
 
@@ -284,7 +281,8 @@ CREATE SEQUENCE public.ahoy_events_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
-    NO MAXVALUE CACHE 1;
+    NO MAXVALUE
+    CACHE 1;
 
 
 --
@@ -298,34 +296,33 @@ ALTER SEQUENCE public.ahoy_events_id_seq OWNED BY public.ahoy_events.id;
 -- Name: ahoy_visits; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE public.ahoy_visits
-(
-    id               bigint NOT NULL,
-    visit_token      character varying,
-    visitor_token    character varying,
-    user_id          bigint,
-    ip               character varying,
-    user_agent       text,
-    referrer         text,
+CREATE TABLE public.ahoy_visits (
+    id bigint NOT NULL,
+    visit_token character varying,
+    visitor_token character varying,
+    user_id bigint,
+    ip character varying,
+    user_agent text,
+    referrer text,
     referring_domain character varying,
-    landing_page     text,
-    browser          character varying,
-    os               character varying,
-    device_type      character varying,
-    country          character varying,
-    region           character varying,
-    city             character varying,
-    latitude         double precision,
-    longitude        double precision,
-    utm_source       character varying,
-    utm_medium       character varying,
-    utm_term         character varying,
-    utm_content      character varying,
-    utm_campaign     character varying,
-    app_version      character varying,
-    os_version       character varying,
-    platform         character varying,
-    started_at       timestamp(6) without time zone
+    landing_page text,
+    browser character varying,
+    os character varying,
+    device_type character varying,
+    country character varying,
+    region character varying,
+    city character varying,
+    latitude double precision,
+    longitude double precision,
+    utm_source character varying,
+    utm_medium character varying,
+    utm_term character varying,
+    utm_content character varying,
+    utm_campaign character varying,
+    app_version character varying,
+    os_version character varying,
+    platform character varying,
+    started_at timestamp(6) without time zone
 );
 
 
@@ -337,7 +334,8 @@ CREATE SEQUENCE public.ahoy_visits_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
-    NO MAXVALUE CACHE 1;
+    NO MAXVALUE
+    CACHE 1;
 
 
 --
@@ -351,10 +349,9 @@ ALTER SEQUENCE public.ahoy_visits_id_seq OWNED BY public.ahoy_visits.id;
 -- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE public.ar_internal_metadata
-(
-    key        character varying NOT NULL,
-    value      character varying,
+CREATE TABLE public.ar_internal_metadata (
+    key character varying NOT NULL,
+    value character varying,
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL
 );
@@ -364,11 +361,10 @@ CREATE TABLE public.ar_internal_metadata
 -- Name: author_pseudonyms; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE public.author_pseudonyms
-(
-    id         bigint NOT NULL,
-    name       character varying,
-    author_id  bigint,
+CREATE TABLE public.author_pseudonyms (
+    id bigint NOT NULL,
+    name character varying,
+    author_id bigint,
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL
 );
@@ -382,7 +378,8 @@ CREATE SEQUENCE public.author_pseudonyms_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
-    NO MAXVALUE CACHE 1;
+    NO MAXVALUE
+    CACHE 1;
 
 
 --
@@ -396,20 +393,19 @@ ALTER SEQUENCE public.author_pseudonyms_id_seq OWNED BY public.author_pseudonyms
 -- Name: authors; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE public.authors
-(
-    id              bigint NOT NULL,
-    bio             text,
-    birth_date      date,
-    death_date      date,
-    place_of_birth  character varying,
-    created_at      timestamp(6) without time zone NOT NULL,
-    updated_at      timestamp(6) without time zone NOT NULL,
-    short_name      character varying,
-    full_name       character varying,
-    photo_url       character varying,
+CREATE TABLE public.authors (
+    id bigint NOT NULL,
+    bio text,
+    birth_date date,
+    death_date date,
+    place_of_birth character varying,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL,
+    short_name character varying,
+    full_name character varying,
+    photo_url character varying,
     seo_description character varying,
-    status          character varying DEFAULT 'active':: character varying NOT NULL
+    status character varying DEFAULT 'active'::character varying NOT NULL
 );
 
 
@@ -421,7 +417,8 @@ CREATE SEQUENCE public.authors_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
-    NO MAXVALUE CACHE 1;
+    NO MAXVALUE
+    CACHE 1;
 
 
 --
@@ -435,11 +432,10 @@ ALTER SEQUENCE public.authors_id_seq OWNED BY public.authors.id;
 -- Name: book_authors; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE public.book_authors
-(
-    id         bigint NOT NULL,
-    book_id    bigint NOT NULL,
-    author_id  bigint NOT NULL,
+CREATE TABLE public.book_authors (
+    id bigint NOT NULL,
+    book_id bigint NOT NULL,
+    author_id bigint NOT NULL,
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL
 );
@@ -453,7 +449,8 @@ CREATE SEQUENCE public.book_authors_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
-    NO MAXVALUE CACHE 1;
+    NO MAXVALUE
+    CACHE 1;
 
 
 --
@@ -467,11 +464,10 @@ ALTER SEQUENCE public.book_authors_id_seq OWNED BY public.book_authors.id;
 -- Name: book_genres; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE public.book_genres
-(
-    id         bigint NOT NULL,
-    book_id    bigint NOT NULL,
-    genre_id   bigint NOT NULL,
+CREATE TABLE public.book_genres (
+    id bigint NOT NULL,
+    book_id bigint NOT NULL,
+    genre_id bigint NOT NULL,
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL
 );
@@ -485,7 +481,8 @@ CREATE SEQUENCE public.book_genres_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
-    NO MAXVALUE CACHE 1;
+    NO MAXVALUE
+    CACHE 1;
 
 
 --
@@ -499,19 +496,16 @@ ALTER SEQUENCE public.book_genres_id_seq OWNED BY public.book_genres.id;
 -- Name: books; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE public.books
-(
-    id          bigint            NOT NULL,
-    title       character varying NOT NULL,
-    created_at  timestamp(6) without time zone NOT NULL,
-    updated_at  timestamp(6) without time zone NOT NULL,
-    rating      numeric(3, 2)     DEFAULT 0.0,
+CREATE TABLE public.books (
+    id bigint NOT NULL,
+    title character varying NOT NULL,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL,
+    rating numeric(3,2) DEFAULT 0.0,
     description text,
-    cover_url   character varying,
-    searchable  tsvector GENERATED ALWAYS AS ((
-            setweight(to_tsvector('russian'::regconfig, (COALESCE(title, ''::character varying))::text), 'A'::"char") ||
-            setweight(to_tsvector('russian'::regconfig, COALESCE(description, ''::text)), 'B'::"char"))) STORED,
-    status      character varying DEFAULT 'active':: character varying NOT NULL
+    cover_url character varying,
+    searchable tsvector GENERATED ALWAYS AS ((setweight(to_tsvector('russian'::regconfig, (COALESCE(title, ''::character varying))::text), 'A'::"char") || setweight(to_tsvector('russian'::regconfig, COALESCE(description, ''::text)), 'B'::"char"))) STORED,
+    status character varying DEFAULT 'active'::character varying NOT NULL
 );
 
 
@@ -523,7 +517,8 @@ CREATE SEQUENCE public.books_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
-    NO MAXVALUE CACHE 1;
+    NO MAXVALUE
+    CACHE 1;
 
 
 --
@@ -537,14 +532,13 @@ ALTER SEQUENCE public.books_id_seq OWNED BY public.books.id;
 -- Name: genres; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE public.genres
-(
-    id         bigint NOT NULL,
-    name_en    character varying,
-    name_ru    character varying,
+CREATE TABLE public.genres (
+    id bigint NOT NULL,
+    name_en character varying,
+    name_ru character varying,
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL,
-    parent_id  integer,
+    parent_id integer,
     genre_slug character varying
 );
 
@@ -557,7 +551,8 @@ CREATE SEQUENCE public.genres_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
-    NO MAXVALUE CACHE 1;
+    NO MAXVALUE
+    CACHE 1;
 
 
 --
@@ -571,24 +566,23 @@ ALTER SEQUENCE public.genres_id_seq OWNED BY public.genres.id;
 -- Name: profiles; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE public.profiles
-(
-    id                    bigint NOT NULL,
-    first_name            character varying,
-    last_name             character varying,
-    bio                   text,
-    date_of_birth         date,
-    country               character varying,
-    city                  character varying,
-    facebook_url          character varying,
-    vk_url                character varying,
-    twitter_url           character varying,
-    instagram_url         character varying,
+CREATE TABLE public.profiles (
+    id bigint NOT NULL,
+    first_name character varying,
+    last_name character varying,
+    bio text,
+    date_of_birth date,
+    country character varying,
+    city character varying,
+    facebook_url character varying,
+    vk_url character varying,
+    twitter_url character varying,
+    instagram_url character varying,
     notifications_enabled boolean DEFAULT true,
-    user_id               bigint NOT NULL,
-    created_at            timestamp(6) without time zone NOT NULL,
-    updated_at            timestamp(6) without time zone NOT NULL,
-    gravatar_hash         character varying
+    user_id bigint NOT NULL,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL,
+    gravatar_hash character varying
 );
 
 
@@ -600,7 +594,8 @@ CREATE SEQUENCE public.profiles_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
-    NO MAXVALUE CACHE 1;
+    NO MAXVALUE
+    CACHE 1;
 
 
 --
@@ -614,14 +609,13 @@ ALTER SEQUENCE public.profiles_id_seq OWNED BY public.profiles.id;
 -- Name: reviews; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE public.reviews
-(
-    id         bigint            NOT NULL,
-    book_id    bigint            NOT NULL,
+CREATE TABLE public.reviews (
+    id bigint NOT NULL,
+    book_id bigint NOT NULL,
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL,
-    title      character varying NOT NULL,
-    user_id    bigint            NOT NULL
+    title character varying NOT NULL,
+    user_id bigint NOT NULL
 );
 
 
@@ -633,7 +627,8 @@ CREATE SEQUENCE public.reviews_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
-    NO MAXVALUE CACHE 1;
+    NO MAXVALUE
+    CACHE 1;
 
 
 --
@@ -647,8 +642,7 @@ ALTER SEQUENCE public.reviews_id_seq OWNED BY public.reviews.id;
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE public.schema_migrations
-(
+CREATE TABLE public.schema_migrations (
     version character varying NOT NULL
 );
 
@@ -657,18 +651,17 @@ CREATE TABLE public.schema_migrations
 -- Name: users; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE public.users
-(
-    id                     bigint NOT NULL,
-    email                  character varying DEFAULT '':: character varying NOT NULL,
-    encrypted_password     character varying DEFAULT '':: character varying NOT NULL,
-    reset_password_token   character varying,
+CREATE TABLE public.users (
+    id bigint NOT NULL,
+    email character varying DEFAULT ''::character varying NOT NULL,
+    encrypted_password character varying DEFAULT ''::character varying NOT NULL,
+    reset_password_token character varying,
     reset_password_sent_at timestamp(6) without time zone,
-    remember_created_at    timestamp(6) without time zone,
-    created_at             timestamp(6) without time zone NOT NULL,
-    updated_at             timestamp(6) without time zone NOT NULL,
-    username               character varying DEFAULT '':: character varying NOT NULL,
-    tos_agreement          boolean
+    remember_created_at timestamp(6) without time zone,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL,
+    username character varying DEFAULT ''::character varying NOT NULL,
+    tos_agreement boolean
 );
 
 
@@ -680,7 +673,8 @@ CREATE SEQUENCE public.users_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
-    NO MAXVALUE CACHE 1;
+    NO MAXVALUE
+    CACHE 1;
 
 
 --
@@ -1325,67 +1319,66 @@ ALTER TABLE ONLY public.profiles
 -- PostgreSQL database dump complete
 --
 
-SET
-search_path TO "$user", public;
+SET search_path TO "$user", public;
 
-INSERT INTO "schema_migrations" (version)
-VALUES ('20230211211533'),
-       ('20230212070932'),
-       ('20230213180047'),
-       ('20230215175317'),
-       ('20230215175731'),
-       ('20230215180553'),
-       ('20230215181232'),
-       ('20230216205648'),
-       ('20230216210152'),
-       ('20230217115521'),
-       ('20230221142211'),
-       ('20230222080109'),
-       ('20230222080500'),
-       ('20230222080634'),
-       ('20230222081130'),
-       ('20230222081718'),
-       ('20230222082508'),
-       ('20230222082839'),
-       ('20230222083850'),
-       ('20230222172612'),
-       ('20230226082146'),
-       ('20230226113859'),
-       ('20230226125258'),
-       ('20230226161141'),
-       ('20230227122109'),
-       ('20230227125557'),
-       ('20230227132322'),
-       ('20230228114942'),
-       ('20230228150500'),
-       ('20230301101231'),
-       ('20230301142427'),
-       ('20230302091926'),
-       ('20230302093858'),
-       ('20230304080213'),
-       ('20230304083316'),
-       ('20230305095600'),
-       ('20230305095602'),
-       ('20230305112508'),
-       ('20230309144349'),
-       ('20230309165213'),
-       ('20230311064140'),
-       ('20230318132436'),
-       ('20230319083606'),
-       ('20230319090453'),
-       ('20230319091350'),
-       ('20230319093421'),
-       ('20230319094648'),
-       ('20230319100652'),
-       ('20230319100802'),
-       ('20230322080249'),
-       ('20230322080517'),
-       ('20230322085354'),
-       ('20230322125809'),
-       ('20230322131130'),
-       ('20230327181418'),
-       ('20230327191219'),
-       ('20230328095843'),
-       ('20230328131739');
+INSERT INTO "schema_migrations" (version) VALUES
+('20230211211533'),
+('20230212070932'),
+('20230213180047'),
+('20230215175317'),
+('20230215175731'),
+('20230215180553'),
+('20230215181232'),
+('20230216205648'),
+('20230216210152'),
+('20230217115521'),
+('20230221142211'),
+('20230222080109'),
+('20230222080500'),
+('20230222080634'),
+('20230222081130'),
+('20230222081718'),
+('20230222082508'),
+('20230222082839'),
+('20230222083850'),
+('20230222172612'),
+('20230226082146'),
+('20230226113859'),
+('20230226125258'),
+('20230226161141'),
+('20230227122109'),
+('20230227125557'),
+('20230227132322'),
+('20230228114942'),
+('20230228150500'),
+('20230301101231'),
+('20230301142427'),
+('20230302091926'),
+('20230302093858'),
+('20230304080213'),
+('20230304083316'),
+('20230305095600'),
+('20230305095602'),
+('20230305112508'),
+('20230309144349'),
+('20230309165213'),
+('20230311064140'),
+('20230318132436'),
+('20230319083606'),
+('20230319090453'),
+('20230319091350'),
+('20230319093421'),
+('20230319094648'),
+('20230319100652'),
+('20230319100802'),
+('20230322080249'),
+('20230322080517'),
+('20230322085354'),
+('20230322125809'),
+('20230322131130'),
+('20230327181418'),
+('20230327191219'),
+('20230328095843'),
+('20230328131739');
 
 
