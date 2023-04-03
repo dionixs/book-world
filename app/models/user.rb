@@ -13,6 +13,9 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
 
+  has_many :reading_statuses
+  has_many :books, through: :reading_statuses
+
   after_create :create_profile
   after_update :update_gravatar_hash
 

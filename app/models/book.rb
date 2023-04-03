@@ -15,6 +15,9 @@ class Book < ApplicationRecord
   has_many :book_genres, dependent: :destroy
   has_many :genres, through: :book_genres
 
+  has_many :reading_statuses
+  has_many :users, through: :reading_statuses
+
   has_one_attached :cover
 
   validates :title, presence: true, allow_blank: false, length: { minimum: 3, maximum: 70 }

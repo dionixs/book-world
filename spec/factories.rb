@@ -2,6 +2,11 @@
 # # frozen_string_literal: true
 #
 # FactoryBot.define do
+#   factory :reading_status do
+#     user { nil }
+#     book { nil }
+#   end
+
 #   factory :profile do
 #     first_name { "MyString" }
 #     last_name { "MyString" }
