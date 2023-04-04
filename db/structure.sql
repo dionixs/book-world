@@ -37,19 +37,6 @@ CREATE EXTENSION IF NOT EXISTS pg_trgm WITH SCHEMA public;
 COMMENT ON EXTENSION pg_trgm IS 'text similarity measurement and index searching based on trigrams';
 
 
---
--- Name: reading_status; Type: TYPE; Schema: public; Owner: -
---
-
-CREATE TYPE public.reading_status AS ENUM (
-    'want_to_read',
-    'rereading',
-    'reading',
-    'finished',
-    'unfinished'
-);
-
-
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
@@ -606,39 +593,6 @@ ALTER SEQUENCE public.profiles_id_seq OWNED BY public.profiles.id;
 
 
 --
--- Name: reading_statuses; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.reading_statuses (
-    id bigint NOT NULL,
-    user_id bigint NOT NULL,
-    book_id bigint NOT NULL,
-    status public.reading_status NOT NULL,
-    created_at timestamp(6) without time zone NOT NULL,
-    updated_at timestamp(6) without time zone NOT NULL
-);
-
-
---
--- Name: reading_statuses_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.reading_statuses_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: reading_statuses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.reading_statuses_id_seq OWNED BY public.reading_statuses.id;
-
-
---
 -- Name: reviews; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -823,13 +777,6 @@ ALTER TABLE ONLY public.profiles ALTER COLUMN id SET DEFAULT nextval('public.pro
 
 
 --
--- Name: reading_statuses id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.reading_statuses ALTER COLUMN id SET DEFAULT nextval('public.reading_statuses_id_seq'::regclass);
-
-
---
 -- Name: reviews id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -969,14 +916,6 @@ ALTER TABLE ONLY public.genres
 
 ALTER TABLE ONLY public.profiles
     ADD CONSTRAINT profiles_pkey PRIMARY KEY (id);
-
-
---
--- Name: reading_statuses reading_statuses_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.reading_statuses
-    ADD CONSTRAINT reading_statuses_pkey PRIMARY KEY (id);
 
 
 --
@@ -1228,20 +1167,6 @@ CREATE INDEX index_profiles_on_user_id ON public.profiles USING btree (user_id);
 
 
 --
--- Name: index_reading_statuses_on_book_id; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE INDEX index_reading_statuses_on_book_id ON public.reading_statuses USING btree (book_id);
-
-
---
--- Name: index_reading_statuses_on_user_id; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE INDEX index_reading_statuses_on_user_id ON public.reading_statuses USING btree (user_id);
-
-
---
 -- Name: index_reviews_on_book_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -1306,27 +1231,11 @@ ALTER TABLE ONLY public.book_authors
 
 
 --
--- Name: reading_statuses fk_rails_0d3729339f; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.reading_statuses
-    ADD CONSTRAINT fk_rails_0d3729339f FOREIGN KEY (book_id) REFERENCES public.books(id);
-
-
---
 -- Name: author_pseudonyms fk_rails_0fc5d43dd1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.author_pseudonyms
     ADD CONSTRAINT fk_rails_0fc5d43dd1 FOREIGN KEY (author_id) REFERENCES public.authors(id);
-
-
---
--- Name: reading_statuses fk_rails_17ee7cb2c4; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.reading_statuses
-    ADD CONSTRAINT fk_rails_17ee7cb2c4 FOREIGN KEY (user_id) REFERENCES public.users(id);
 
 
 --
@@ -1457,7 +1366,6 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20230327181418'),
 ('20230327191219'),
 ('20230328095843'),
-('20230328131739'),
-('20230403071836');
+('20230328131739');
 
 
