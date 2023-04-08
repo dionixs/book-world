@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     end
 
     resources :books do
+      resources :reading_lists, only: %i[create update destroy]
+
       patch :archive, on: :member
       resources :reviews
     end
