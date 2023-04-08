@@ -17,7 +17,18 @@
           <%= image_tag(book_cover(@book), width: 300, alt: "#{@book.title}", class: "img-fluid") %>
 
           <div class="d-grid gap-2 book-card-button">
-            <button class="btn btn-primary btn-half-width mt-3" type="button">Want to Read</button>
+
+            <%= form_tag book_reading_lists_path(@book), method: :post do %>
+              <%= select_tag :reading_status, options_for_select(ReadingList.reading_statuses.map { |key, value| [key.humanize, value] }) %>
+              <%= submit_tag "Add reading list" %>
+            <% end %>
+
+            <% if current_user&.reading_lists&.exists?(book_id: @book.id) %>
+              <%= button_to book_reading_list_path(@book), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-half-width mt-3' do %>
+                <span class="material-icons">delete</span>
+                Remove from reading list
+              <% end %>
+            <% end %>
           </div>
 
         </div>

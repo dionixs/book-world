@@ -593,6 +593,39 @@ ALTER SEQUENCE public.profiles_id_seq OWNED BY public.profiles.id;
 
 
 --
+-- Name: reading_lists; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.reading_lists (
+    id bigint NOT NULL,
+    user_id bigint NOT NULL,
+    book_id bigint NOT NULL,
+    reading_status integer,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+--
+-- Name: reading_lists_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.reading_lists_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: reading_lists_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.reading_lists_id_seq OWNED BY public.reading_lists.id;
+
+
+--
 -- Name: reviews; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -777,6 +810,13 @@ ALTER TABLE ONLY public.profiles ALTER COLUMN id SET DEFAULT nextval('public.pro
 
 
 --
+-- Name: reading_lists id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.reading_lists ALTER COLUMN id SET DEFAULT nextval('public.reading_lists_id_seq'::regclass);
+
+
+--
 -- Name: reviews id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -916,6 +956,14 @@ ALTER TABLE ONLY public.genres
 
 ALTER TABLE ONLY public.profiles
     ADD CONSTRAINT profiles_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: reading_lists reading_lists_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.reading_lists
+    ADD CONSTRAINT reading_lists_pkey PRIMARY KEY (id);
 
 
 --
@@ -1167,6 +1215,20 @@ CREATE INDEX index_profiles_on_user_id ON public.profiles USING btree (user_id);
 
 
 --
+-- Name: index_reading_lists_on_book_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_reading_lists_on_book_id ON public.reading_lists USING btree (book_id);
+
+
+--
+-- Name: index_reading_lists_on_user_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_reading_lists_on_user_id ON public.reading_lists USING btree (user_id);
+
+
+--
 -- Name: index_reviews_on_book_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -1239,6 +1301,14 @@ ALTER TABLE ONLY public.author_pseudonyms
 
 
 --
+-- Name: reading_lists fk_rails_431f74855c; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.reading_lists
+    ADD CONSTRAINT fk_rails_431f74855c FOREIGN KEY (book_id) REFERENCES public.books(id);
+
+
+--
 -- Name: book_genres fk_rails_4a117802d7; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1252,6 +1322,14 @@ ALTER TABLE ONLY public.book_genres
 
 ALTER TABLE ONLY public.reviews
     ADD CONSTRAINT fk_rails_74a66bd6c5 FOREIGN KEY (user_id) REFERENCES public.users(id);
+
+
+--
+-- Name: reading_lists fk_rails_8dbc902ed2; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.reading_lists
+    ADD CONSTRAINT fk_rails_8dbc902ed2 FOREIGN KEY (user_id) REFERENCES public.users(id);
 
 
 --
@@ -1366,6 +1444,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20230327181418'),
 ('20230327191219'),
 ('20230328095843'),
-('20230328131739');
+('20230328131739'),
+('20230408083755');
 
 

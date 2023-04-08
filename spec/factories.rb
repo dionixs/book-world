@@ -2,9 +2,10 @@
 # # frozen_string_literal: true
 #
 # FactoryBot.define do
-#   factory :reading_status do
+#   factory :reading_list do
 #     user { nil }
 #     book { nil }
+#     status { 1 }
 #   end
 
 #   factory :profile do
