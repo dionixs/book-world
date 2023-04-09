@@ -30,4 +30,12 @@ class User < ApplicationRecord
   validate :password_complexity
 
   validates :tos_agreement, acceptance: { allow_nil: false, on: :create }
+
+  # TODO
+  def user_book_status(book)
+    reading_list = reading_lists.find { |r| r.user_id == id && r.book_id == book.id }
+    status = reading_list&.reading_status
+    ReadingList.reading_statuses[status]
+  end
+
 end

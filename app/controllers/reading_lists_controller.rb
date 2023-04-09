@@ -20,7 +20,7 @@ class ReadingListsController < ApplicationController
 
   # TODO
   def update
-    @reading_list = current_user.reading_lists.find_by(book_id: params[:id])
+    @reading_list = current_user.reading_lists.find_by(book_id: @book)
     if @reading_list.update(reading_status: params[:reading_status].to_i)
       redirect_to @book, notice: 'Book was successfully updated in your reading list.'
     else
@@ -30,7 +30,7 @@ class ReadingListsController < ApplicationController
 
   # TODO
   def destroy
-    @reading_list = current_user.reading_lists.find_by(book_id: params[:id])
+    @reading_list = current_user.reading_lists.find_by(book_id: @book)
     @reading_list.destroy
     redirect_to book_url, notice: 'Book was successfully removed from your reading list.'
   end

@@ -15,4 +15,8 @@ class ReadingList < ApplicationRecord
 
   validates :book_id, uniqueness: { scope: :user_id }
   validates :reading_status, presence: true
+
+  def self.humanized_statuses
+    ReadingList.reading_statuses.map { |key, value| [I18n.t("reading_statuses.#{key}"), value] }
+  end
 end

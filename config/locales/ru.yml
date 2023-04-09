@@ -35,3 +35,10 @@ ru:
       few: 'совпадения'
       many: 'совпадений'
       other: 'совпадений'
+  reading_statuses:
+    planned: "Запланировано"
+    reading: "Читаю"
+    rereading: "Перечитываю"
+    completed: "Прочитано"
+    on_hold: "Отложено"
+    dropped: "Брошено"

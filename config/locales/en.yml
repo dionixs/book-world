@@ -27,3 +27,10 @@ en:
     subtitle:
       one: 'match'
       other: 'matches'
+  reading_statuses:
+    planned: "Planned"
+    reading: "Reading"
+    rereading: "Re-reading"
+    completed: "Completed"
+    on_hold: "On hold"
+    dropped: "Dropped"
