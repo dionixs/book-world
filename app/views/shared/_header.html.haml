@@ -1,0 +1,13 @@
+%body
+  %header#header.cf.sticky-top
+    .container
+      .nav
+        = render partial: 'shared/header/logo'
+        = render partial: 'shared/header/nav'
+        = render partial: 'shared/header/search'
+        - if user_signed_in?
+          = render partial: 'shared/header/dropdown'
+        - else
+          .header--login-new
+            = link_to t('header.buttons.login'), new_user_session_path, class: 'header--login-btn-new'
+            = link_to t('header.buttons.signup'), new_user_registration_path, class: 'header--login-btn-signup fancybox'

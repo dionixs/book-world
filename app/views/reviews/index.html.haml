@@ -1,0 +1,12 @@
+- provide(:title, t('review.index.title', value: @book.title))
+.pt-3
+  .row
+    .col-md-2
+    .col-md-8
+      - if @reviews.empty?
+        %h2.text-center.mb-4= t('review.index.reviews_not_found')
+        = render partial: 'books/book_review_section', locals: { book: @book, review: @review }
+      - else
+        = render partial: 'review', collection: @reviews, cached: true, locals: { book: @book }
+        .d-flex.justify-content-center.mt-5.mb-5
+          = pagination(@pagy)

@@ -1,0 +1,28 @@
+%section.grayback
+  .clearfix
+    .container
+      .catalog-genre-list.clearfix
+        %ul.catalog-genre-aside
+          %li
+            %span Популярное
+          %li
+            %a{:href => "/books/"} Каталог
+          %li
+            %a{:href => "/books/top/"} Рейтинг
+          %li
+            %a{:href => "/recommendations/"} Рекомендации
+          %li
+            %a{:href => "/books/new/"} Новинки
+          %li
+            %a{:href => "/series/"} Серии и циклы
+          %li
+            %a{:href => "/collections/"} Подборки
+          %li
+            %a{:href => "/reviews/waiting/"} Ждут рецензий
+        .catalog-genre-genres.clearfix
+          - genres.in_groups_of(10, false).map.with_index do |group, index|
+            = content_tag :ul do
+              - if index == 0
+                = content_tag :li, genre_tab('Все', books_path)
+              - group.each do |genre|
+                = content_tag :li, genre_tab(localized_genre_name(genre), genre_path(genre))

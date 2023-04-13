@@ -1,0 +1,10 @@
+%article.catalog-book-list--item
+  .book-hover--librarian-wrap
+    = link_to book_path(book), title: "#{book.title}" do
+      = image_tag(book_cover(book), alt: "#{book.title}", class: "book--image")
+  = link_to book_path(book), title: "#{book.title}" do
+    %h3= truncate(book.title, length: 35)
+  - if book.author?
+    %span.book--author
+      = link_to author_path(book.first_author), title: "#{book.author_names.split(',').join(', ')}", class: 'text-decoration-none' do
+        = book.short_author_name

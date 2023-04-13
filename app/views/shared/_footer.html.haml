@@ -1,0 +1,12 @@
+%footer#footer.footer.cf
+  .container
+    .footer-wrapper
+      .row
+        = render partial: 'shared/footer/nav'
+        = render partial: 'shared/footer/newsletter_form'
+      .d-flex.justify-content-between.py-4.my-4.border-top
+        %p
+          © #{Time.now.year} #{t('name')}, #{t('footer.all_rights_reserved')}
+        = render partial: 'shared/footer/lang_dropdown'
+  = link_to '#', class: 'scroll-to-top-btn' do
+    = icon_tag('arrow_upward')

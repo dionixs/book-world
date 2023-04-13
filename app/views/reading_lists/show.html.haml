@@ -1,0 +1,14 @@
+- provide(:title, "Список книг / #{@user.username} / Профиль")
+%section.section-list.pt-2
+  .container
+    .btn-group.section-list_group{:role => "group"}
+      = link_to 'Запланированные', user_list_path(@user.username, type: 'planned'), class: "btn #{params[:type] == 'planned' ? 'btn-primary active' : 'btn-outline-primary'}"
+      = link_to 'Прочитанные', user_list_path(@user.username, type: 'completed'), class: "btn #{params[:type] == 'completed' ? 'btn-primary active' : 'btn-outline-primary'}"
+      = link_to 'Читаю сейчас', user_list_path(@user.username, type: 'reading'), class: "btn #{params[:type] == 'reading' ? 'btn-primary active' : 'btn-outline-primary'}"
+      = link_to 'Перечитываю сейчас', user_list_path(@user.username, type: 'rereading'), class: "btn #{params[:type] == 'rereading' ? 'btn-primary active' : 'btn-outline-primary'}"
+      = link_to 'Брошенные', user_list_path(@user.username, type: 'dropped'), class: "btn #{params[:type] == 'dropped' ? 'btn-primary active' : 'btn-outline-primary'}"
+      = link_to 'Отложенные', user_list_path(@user.username, type: 'on_hold'), class: "btn #{params[:type] == 'on_hold' ? 'btn-primary active' : 'btn-outline-primary'}"
+    %h3.section-title-head= reading_list_title(params[:type], @user)
+    %ul.books-list
+      - @books.each do |book|
+        %li= book.title

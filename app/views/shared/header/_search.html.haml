@@ -1,0 +1,7 @@
+.header-search.ng-scope
+  = form_tag(search_path, method: :get, class: 'dropdown-triger') do
+    = text_field_tag :search, params[:search], placeholder: t('header.search.form.input.placeholder'), autocomplete: "off", class: 'form-control'
+    = link_to search_path(search: params[:search]), rel: "nofollow", title: t('header.search.form.input.link') do
+      %i.icon_sprite.search-w
+%a.shuffle-btn.header-btn-icon{:href => "/books/i_am_lucky/", :rel => "nofollow", :title => "#{t('header.shuffle.link')}"}
+  %span.shuffle.shuffle-btn__icon.material-icons shuffle

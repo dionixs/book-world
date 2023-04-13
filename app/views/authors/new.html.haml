@@ -1,0 +1,7 @@
+- provide(:title, 'New author')
+%section.section-edit
+  .container
+    .edit-block
+      %h2.edit-block__title.col-lg-10.mx-auto
+        New author
+      = render "form", author: @author

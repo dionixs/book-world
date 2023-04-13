@@ -1,0 +1,6 @@
+- provide(:title, @review.title)
+.pt-3
+  .row
+    .col-md-2
+    .col-md-8
+      = render partial: 'reviews/review', locals: { book: @book, review: @review }

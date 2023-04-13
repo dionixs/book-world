@@ -1,0 +1,25 @@
+= tag.div class: 'card card-review mb-3', id: dom_id(review) do
+  #review-
+  = review.id
+  "&gt;
+  .card-body
+    %article
+      %h5.card-title= review.title
+      .card-text.mb-3
+        / <div class=" trix-content"><haml_silent></haml_silent></div>
+        / <div class="review-content">
+        / </div>
+        = review.body
+      .card-text.mb-3
+        %small.text-muted
+          = review.user.username
+          ,
+          %time{:datetime => ""}
+          = review.formatted_created_at
+          " , title="#{review.formatted_created_at}"&gt;
+          \#{review.formatted_created_at}
+    .mt-2
+      = link_to t('simple_form.buttons.edit'), edit_book_review_path(book, review), class: 'btn btn-secondary', title: 'Edit'
+      = link_to t('simple_form.buttons.delete'), book_review_path(book, review), class: 'btn btn-danger', |
+        data: { turbo: true, turbo_method: :delete,                                                       |
+        turbo_confirm: 'Are you sure?' }                                                                  |

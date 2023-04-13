@@ -1,0 +1,8 @@
+.reviews
+  %h3.mb-3 Отзывы:
+  - if book.not_reviewed_by_user?(current_user)
+    = render partial: 'book_review_section', locals: { book: book, review: review }
+  - unless reviews.empty?
+    = render partial: 'reviews/review', collection: reviews, locals: { book: book }
+    .d-flex.justify-content-center.mt-5.mb-5
+      = pagination(@pagy)

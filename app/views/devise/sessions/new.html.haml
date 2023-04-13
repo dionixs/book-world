@@ -1,0 +1,31 @@
+- provide(:title, t('login.title'))
+%section.section-login
+  .container
+    .ui-auth-block
+      %h2.ui-auth-block__title
+        = t('login.title')
+      = render partial: 'devise/shared/social'
+      .ui-auth-section
+        = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .form-inputs
+            .ui-auth-field
+              = f.input :login,                                                  |
+                required: false, autofocus: true,                                |
+                label_html: { class: 'ui-auth-field__label' },                   |
+                input_html: { autocomplete: "username email",                    |
+                              class: 'generic-ui-input',                         |
+                              placeholder: t('login.input.login.placeholder') }, |
+                label: t('login.input.login.label')                              |
+            .ui-auth-field
+              = f.input :password,                                       |
+                required: false, label: t('login.input.password.label'), |
+                label_html: { class: 'ui-auth-field__label' },           |
+                input_html: { autocomplete: "current-password",          |
+                class: 'generic-ui-input',                               |
+                placeholder: t('login.input.password.placeholder') }     |
+              .ui-auth-field__checkbox
+                = f.input :remember_me, as: :boolean, label: t('login.input.remember_me.label') if devise_mapping.rememberable?
+            .ui-auth-form-buttons
+              = f.button :submit, t('simple_form.buttons.login'), class: 'btn btn-green'
+              .ui-auth-form__links
+                = render "devise/shared/links"

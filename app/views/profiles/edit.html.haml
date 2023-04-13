@@ -1,0 +1,25 @@
+- provide(:title, t('profile.edit.title'))
+%section.section.section-settings
+  .container
+    .profile-settings
+      = render partial: 'profiles/sidebar',                          |
+        locals: { profile: @profile, active_controller: 'profiles' } |
+      .profile-settings--main-wrap
+        %h1= t('profile.edit.form.title')
+        .ps-description= t('profile.edit.form.description')
+        = form_with(model: @profile, url: profile_path, method: :patch, id: "profile-settings--form", |
+          class: "profile-settings--form ng-pristine ng-valid") do |form|                             |
+          .field-item
+            = form.label :first_name, t('profile.edit.form.input.first_name.label')
+            = form.text_field :first_name, maxlength: 30,                      |
+              placeholder: t('profile.edit.form.input.first_name.placeholder') |
+          .field-item
+            = form.label :last_name, t('profile.edit.form.input.last_name.label')
+            = form.text_field :last_name, maxlength: 50,                      |
+              placeholder: t('profile.edit.form.input.last_name.placeholder') |
+          .field-item
+            .symbol-counter.ng-binding 200
+            = form.label :bio, t('profile.edit.form.input.bio.label')
+            = form.text_area :bio, class: 'profile-bio', cols: 40, rows: 7, |
+              placeholder: t('profile.edit.form.input.bio.placeholder')     |
+          = form.submit t('profile.edit.form.input.button.submit'), class: 'profile--btn-blue'

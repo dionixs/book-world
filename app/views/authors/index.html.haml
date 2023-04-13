@@ -1,0 +1,13 @@
+- provide(:title, 'Популярные авторы')
+%section.section.section-authors
+  .container
+    .authors-wrapper
+      .section-title-head
+        %h1 Популярные авторы
+      = render partial: 'navigation'
+      %h1.authors-title
+        Популярные авторы
+      .authors
+        = render partial: 'authors/author', collection: @authors, cached: true
+      .d-flex.justify-content-center.mt-5.mb-2
+        = pagination(@pagy)

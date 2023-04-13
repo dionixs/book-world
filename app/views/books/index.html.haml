@@ -1,0 +1,11 @@
+- provide(:title, 'Каталог книг по жанрам')
+= render partial: 'genres/catalog_genre_list', locals: { genres: @genres }, cached: true
+%section.books-cards
+  .container
+    .wrapper
+      .section-title-head
+        %h1 Узнай, что почитать
+      .catalog-book-list.clearfix
+        = render partial: 'books/book', collection: @books, cached: true
+      .d-flex.justify-content-center.mt-5.pb-5
+        = pagination(@pagy)

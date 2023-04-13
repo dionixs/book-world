@@ -1,0 +1,8 @@
+.search-block.clearfix.visible-lg.visible-md
+  .container
+    .section.section-search
+      %span.header--title= t('home.section.search.title')
+      = render partial: 'static_pages/home/search_form'
+      = render partial: 'static_pages/home/about_service'
+      = tag.div class: 'want-more' do
+        = link_to t('home.section.search.want_more'), about_path, class: "btn-transp-big-20"

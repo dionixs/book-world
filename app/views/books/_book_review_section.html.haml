@@ -1,0 +1,9 @@
+.mb-4.text-center
+  %h4= t('review.index.what_do_you_think')
+  .d-flex.justify-content-center.align-items-center
+    .rate
+      = stars_for_rating(0)
+      %br/
+      %span= t('review.index.rate_this_book')
+    .new-review-btn
+      = link_to t('review.new.title'), new_book_review_path(book), class: 'btn btn-dark'

@@ -1,0 +1,17 @@
+.col-lg-10.mx-auto
+  = simple_form_for(@author) do |f|
+    = f.error_notification
+    = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+    .form-inputs
+      = f.input :photo, as: :file, required: false
+      = f.input :short_name
+      = f.input :full_name
+      = f.input :bio
+      = f.input :birth_date, as: :date, html5: true
+      = f.input :death_date, as: :date, html5: true
+      = f.input :place_of_birth
+    .form-actions
+      = f.button :submit, class: 'btn btn-success'
+      / TODO
+      = link_to "Back to authors", authors_path
+      = link_to "Show this author", @author

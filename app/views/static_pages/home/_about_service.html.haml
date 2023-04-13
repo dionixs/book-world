@@ -1,0 +1,29 @@
+.about-service
+  .about-service--item
+    .service-name
+      .icon
+        = icon_tag('search')
+      .text
+        = sanitize t('home.section.search.about.item.interesting_books'), |
+          tags: %w(span br)                                               |
+  .about-service--item.bibl
+    .service-name
+      .icon
+        = icon_tag('library_books')
+      .text
+        = sanitize t('home.section.search.about.item.collect_library'), |
+          tags: %w(span br)                                             |
+  .about-service--item.rate
+    .service-name
+      .icon
+        = icon_tag('chat')
+      .text
+        = sanitize t('home.section.search.about.item.rate_and_discuss'), |
+          tags: %w(span br)                                              |
+  .about-service--item.track
+    .service-name
+      .icon
+        = icon_tag('groups')
+      .text
+        = sanitize t('home.section.search.about.item.follow_friends_reading'), |
+          tags: %w(span br)                                                    |

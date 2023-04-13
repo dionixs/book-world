@@ -1,0 +1,69 @@
+- provide(:title, @author.short_name)
+%section.author-profile
+  .container
+    .d-flex.author-wrapper
+      %div
+        = image_tag author_photo(@author), class: "author-image", alt: @author.full_name
+      .author-title
+        %h1.h1= @author.short_name
+        %h4= @author.full_name
+%section.section-author-details
+  .container
+    .author-block
+      .d-flex.author-info
+        .author__quick
+          %ul.author__quick-nav
+            = tag.li link_to 'Информация', '#author_information'
+            = tag.li link_to 'Книги', '#author_books'
+            = tag.li link_to 'Биография', '#author_bio'
+            = tag.li link_to 'Интересные факты', '#author_interesting_facts'
+            = tag.li link_to 'Рецензии', '#'
+            = tag.li link_to 'Цитаты', '#'
+        .author-info.author-about
+          %h3#author_information.info-title Информация
+          %h4.genre.mb-3
+            Жанры:
+            \#{genres_links(@author)}
+          = birth_info(@author) do
+            - if format_birth_date(@author)
+              = content_tag(:b, 'Дата и место рождения:')
+              = format_birth_place(@author).present? ? format_birth_date(@author) + ',' : format_birth_date(@author)
+              = format_birth_place(@author) if format_birth_place(@author)
+          %p.death-date
+            - if @author.death_date
+              %b Дата смерти:
+              = format_date(@author.death_date)
+          - unless @author.author_pseudonyms.empty?
+            %p
+              = content_tag(:b, 'Псевдонимы:')
+              - @author.author_pseudonyms.each do |pseudonym|
+                = pseudonym.name
+                ,
+          %h3#author_books.books-title Все книги автора
+          %ol.books-list
+            - @books.each do |book|
+              = tag.li class: %w() do
+                = link_to book.title, book_path(book), title: book.title, class: "inline-block book-link"
+          %h3#author_bio.bio-title Биография
+          .bio-content
+            %p
+              = @author.bio
+          %h3#author_interesting_facts.facts-title Интересные факты
+          .facts-content
+            %ul
+              %li Факт 1.
+              %li Факт 2.
+        .popular-books-container
+          %h3.popular-books-title Популярные книги
+          .popular-books-flex
+            - @books[0..5].each do |book|
+              .popular-book
+                = link_to book_path(book), title: book.title do
+                  = image_tag book_cover(book), class: "popular-book-cover", alt: book.title, width: 135, height: 215
+                = link_to book_path(book), class: "popular-book-title", title: book.title do
+                  = truncate(book.title, length: 35)
+- if @author.seo_description
+  %section.section-author-seo
+    .container.clearfix
+      %p.seo--author-description
+        = @author.seo_description

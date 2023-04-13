@@ -1,0 +1,32 @@
+- provide(:title, t('reset.edit.title'))
+%section.section-sign-up
+  .container
+    .ui-auth-block
+      %h2.ui-auth-block__title
+        = t('reset.edit.title')
+      .ui-auth-section
+        = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+          .ui-auth__error_notification
+            = f.error_notification
+          = f.input :reset_password_token, as: :hidden
+          = f.full_error :reset_password_token
+          .ui-auth-field
+            = f.input :password,                                                                                                 |
+              label: t('reset.edit.form.input.new_password.label'),                                                              |
+              required: true,                                                                                                    |
+              autofocus: true, label_html: { class: 'ui-auth-field__label' },                                                    |
+              hint: (t('reset.edit.form.input.new_password.hint', value: @minimum_password_length) if @minimum_password_length), |
+              input_html: { autocomplete: "new-password",                                                                        |
+              placeholder: t('reset.edit.form.input.new_password.placeholder'),                                                  |
+              class: 'generic-ui-input' }                                                                                        |
+          .ui-auth-field
+            = f.input :password_confirmation,                                           |
+              label: t('reset.edit.form.input.confirm_new_password.placeholder'),       |
+              required: true, label_html: { class: 'ui-auth-field__label' },            |
+              input_html: { autocomplete: "new-password",                               |
+              placeholder: t('reset.edit.form.input.confirm_new_password.placeholder'), |
+              class: 'generic-ui-input' }                                               |
+          .ui-auth-form-buttons
+            = f.button :submit, t('reset.new.buttons.reset'), class: 'btn btn-primary'
+            .ui-auth-form__links
+              = render "devise/shared/links"

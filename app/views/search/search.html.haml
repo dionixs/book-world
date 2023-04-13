@@ -1,0 +1,23 @@
+- provide(:title, "Результат поиска: #{@query}")
+%section.search-results-title
+  .container
+    %h1.search-main-title Результат поиска:
+%section.search-results-authors
+  .container
+    .wrapper.clearfix
+      %span.search-results-subtitle
+        Авторы (#{@author_count} #{I18n.translate 'search.subtitle', count: @author_count})
+      .catalog-book-list.clearfix
+        - if @authors.any?
+          - @authors.each do |author|
+            %article.catalog-book-list--item.item-author-result
+              %figure
+                = link_to author_path(author), class: 'author-link', title: author.short_name do
+                  = image_tag author_photo(author), class: 'book--image', alt: author.short_name
+                  = content_tag(:h3, author.short_name)
+%section.search-results-books
+  .container
+    %span.search-results-subtitle
+      Книги (#{@book_count} #{I18n.translate 'search.subtitle', count: @book_count})
+    .catalog-book-list
+      = render partial: 'books/book', collection: @books, cached: true

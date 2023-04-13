@@ -1,0 +1,21 @@
+.book_info
+  %h1.book__title.mb-3= book.title
+  - if book.author?
+    %h2.author.mb-3
+      Автор:
+      \#{author_links(book)}
+  %h2.genre.mb-3
+    Жанры:
+    \#{genres_links(book)}
+  .rating.d-flex.align-items-center.mb-3
+    %span Рейтинг:
+    .stars.me-2.ms-2
+      = stars_for_rating(book.rating)
+    .rating-text
+      %span.my-0= "#{book.rating}/5 (100 голосов)"
+  .description.mb-3.fs-5
+    - if book.description?
+      %h5 Описание
+      .mt-2
+        %p.description-text
+          = book.description

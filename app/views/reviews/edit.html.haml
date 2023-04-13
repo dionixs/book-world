@@ -1,0 +1,7 @@
+- provide(:title, t('review.edit.title'))
+%section.section-edit
+  .container
+    .edit-block
+      %h2.edit-block__title.col-lg-10.mx-auto
+        = t('review.edit.title')
+      = render partial: 'review_form', locals: { book: @book, review: @review }

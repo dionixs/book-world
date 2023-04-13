@@ -1,0 +1,38 @@
+- provide(:title, t('signup.title'))
+%section.section-sign-up
+  .container
+    .ui-auth-block
+      %h2.ui-auth-block__title
+        = t('signup.title')
+      = render partial: 'devise/shared/social'
+      .ui-auth-section
+        = simple_form_for(resource, as: resource_name, url: user_registration_path) do |f|
+          .ui-auth__error_notification
+          .form-inputs
+            .ui-auth-field
+              = f.input :username, label_html: { class: 'ui-auth-field__label' }, |
+                input_html: { class: 'generic-ui-input' },                        |
+                required: true,                                                   |
+                autofocus: true                                                   |
+            .ui-auth-field
+              = f.input :email, label_html: { class: 'ui-auth-field__label' },   |
+                required: true,                                                  |
+                autofocus: true,                                                 |
+                input_html: { autocomplete: "email", class: 'generic-ui-input' } |
+            .ui-auth-field
+              = f.input :password, required: true,                                                                    |
+                label_html: { class: 'ui-auth-field__label' },                                                        |
+                hint: (t('signup.input.password.hint', value: @minimum_password_length) if @minimum_password_length), |
+                input_html: { autocomplete: "new-password", class: 'generic-ui-input' }                               |
+            .ui-auth-field
+              = f.input :password_confirmation, required: true,                         |
+                label_html: { class: 'ui-auth-field__label' },                          |
+                input_html: { autocomplete: "new-password", class: 'generic-ui-input' } |
+            .ui-auth-field__terms
+              = f.input :tos_agreement, as: :boolean,                                                            |
+                label: "#{t('signup.input.tos_agreement.label')} #{link_to t('signup.input.tos_agreement.link'), |
+                terms_path, target: '_blank'}".html_safe                                                         |
+          .ui-auth-form-buttons
+            = f.button :submit, t('simple_form.buttons.sign_up'), class: 'btn btn-green'
+            .ui-auth-form__links
+              = render "devise/shared/links"

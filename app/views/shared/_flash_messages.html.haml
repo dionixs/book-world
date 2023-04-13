@@ -1,0 +1,9 @@
+- if flash.any?
+  #flash-messages
+    - flash.each do |key, value|
+      = content_tag :div, class: "alert alert-#{flash_class(key)} alert-dismissible fade show" do
+        .container
+          .d-flex.justify-content-center
+            .alert-text
+              = value
+            %button.btn-close.alert-btn-close{"aria-label" => "Close", "data-bs-dismiss" => "alert", :type => "button"}

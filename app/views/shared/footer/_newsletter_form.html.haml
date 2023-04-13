@@ -1,0 +1,9 @@
+.col-4.offset-1
+  %form.footer-form
+    %h5= t('footer.form.title')
+    %p= t('footer.form.subtitle')
+    .d-flex.w-100.gap-2
+      %label.visually-hidden{:for => "newsletter1"} Email:
+      %input#newsletter1.form-control{:placeholder => "Email", :type => "text"}/
+      %button.btn.btn-primary.profile--btn-blue{:type => "button"}
+        = t('footer.form.button')

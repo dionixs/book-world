@@ -1,0 +1,15 @@
+%aside.profile-settings--sidebar.cf
+  = render partial: 'profiles/avatar', locals: { profile: profile }
+  %ul.ps--nav
+    %li
+      = link_to t('profile.edit.sidebar.link.profile'), edit_profile_path, |
+        class: active_controller == 'profiles' ? 'active' : ''             |
+    %li
+      = link_to t('profile.edit.sidebar.link.interests'), '#',  |
+        class: active_controller == 'interests' ? 'active' : '' |
+    %li
+      = link_to t('profile.edit.sidebar.link.account'), edit_user_registration_path, |
+        class: active_controller == 'registrations' ? 'active' : ''                  |
+  %a.btn-gray-blue{:href => "#"}
+    %i ←
+    = t('profile.edit.sidebar.button')

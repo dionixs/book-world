@@ -1,0 +1,45 @@
+.col-2
+  %h5.footer-title= t('footer.title.sections')
+  %ul.nav.flex-column
+    %li.nav-item.mb-2
+      = nav_tab t('footer.nav.what_to_read'), books_path, class: 'footer-subtitle nav-link p-0'
+    %li.nav-item.mb-2
+      = link_to t('footer.nav.popular_books'), '#', class: 'footer-subtitle nav-link p-0'
+    %li.nav-item.mb-2
+      = link_to t('footer.nav.rating_of_books'), '#', class: 'footer-subtitle nav-link p-0'
+    %li.nav-item.mb-2
+      = link_to t('footer.nav.book_collections'), '#', class: 'footer-subtitle nav-link p-0'
+    %li.nav-item.mb-2
+      = link_to t('footer.nav.new_books'), '#', class: 'footer-subtitle nav-link p-0'
+    %li.nav-item.mb-2
+      = nav_tab t('footer.nav.popular_authors'), authors_path, class: 'footer-subtitle nav-link p-0'
+    %li.nav-item.mb-2
+      = link_to t('footer.nav.random_books'), '#', class: 'footer-subtitle nav-link p-0'
+    %li.nav-item.mb-2
+      = link_to t('footer.nav.book_converter'), '#', class: 'footer-subtitle nav-link p-0'
+.col-2
+  %h5.footer-title= t('footer.title.discussions')
+  %ul.nav.flex-column
+    %li.nav-item.mb-2
+      = link_to t('footer.nav.topics'), '#', class: 'footer-subtitle nav-link p-0'
+    %li.nav-item.mb-2
+      = link_to t('footer.nav.reviews'), '#', class: 'footer-subtitle nav-link p-0'
+    %li.nav-item.mb-2
+      = link_to t('footer.nav.games'), '#', class: 'footer-subtitle nav-link p-0'
+    %li.nav-item.mb-2
+      = link_to t('footer.nav.flood'), '#', class: 'footer-subtitle nav-link p-0'
+.col-2
+  %h5.footer-title= t('footer.title.about_us')
+  %ul.nav.flex-column
+    %li.nav-item.mb-2
+      = nav_tab t('footer.nav.about'), about_path, class: 'footer-subtitle nav-link p-0'
+    %li.nav-item.mb-2
+      = nav_tab t('footer.nav.faq'), faq_path, class: 'footer-subtitle nav-link p-0'
+    %li.nav-item.mb-2
+      = link_to t('footer.nav.feedback'), '#', class: 'footer-subtitle nav-link nav-link__white p-0'
+    %li.nav-item.mb-2
+      = nav_tab t('footer.nav.help'), help_path, class: 'footer-subtitle nav-link p-0'
+    %li.nav-item.mb-2
+      = nav_tab t('footer.nav.contacts'), contacts_path, class: 'footer-subtitle nav-link p-0'
+    %li.nav-item.mb-2
+      = nav_tab t('footer.nav.terms'), terms_path, class: 'footer-subtitle nav-link p-0'

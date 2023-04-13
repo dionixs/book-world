@@ -1,0 +1,5 @@
+%article.authors-list--item{:id => "#{dom_id author}"}
+  %figure
+    = link_to author_path(author), title: author.short_name do
+      = image_tag author_photo(author), class: 'authors--image', title: author.short_name, alt: author.short_name
+    = link_to author.short_name, author_path(author), class: "authors-list-name", title: author.full_name
