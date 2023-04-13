@@ -55,8 +55,8 @@ BookWorld - это приложение аналог сайта LiveLib. Пре�
 - Sass
 - Bootstrap
 - Redis
-- MongoDB
-- Docker
+- MongoDB(?)
+- Docker(?)
 - Elasticsearch(?)
 - JavaScript
 - gems: devise, simpleform, carrierwave, rspec-rails, factory-bot-rails, CanCan
