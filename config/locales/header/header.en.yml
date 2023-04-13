@@ -20,5 +20,6 @@ en:
       signup: Sign up
     dropdown:
       item:
+        list: List of books
         edit: Settings
         log_out: Log Out

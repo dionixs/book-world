@@ -36,6 +36,11 @@ Rails.application.routes.draw do
       resources :reviews
     end
 
+    resources :users, param: :username do
+      get 'list/:type', to: 'reading_lists#show', as: 'list',
+                        constraints: { type: /(planned|reading|rereading|completed|on_hold|dropped)/ }
+    end
+
     resources :genres, only: %i[show]
 
     get '/search', to: 'search#search', as: :search

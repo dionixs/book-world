@@ -2,7 +2,14 @@
 
 class ReadingListsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_book!
+  before_action :set_user!, except: %i[create update destroy]
+  before_action :set_book!, except: %i[show]
+
+  # TODO
+  def show
+    @reading_lists = @user.reading_lists.send(params[:type])
+    @books = Book.where(id: @reading_lists.pluck(:book_id))
+  end
 
   # TODO
   def create
@@ -36,6 +43,11 @@ class ReadingListsController < ApplicationController
   end
 
   private
+
+  # TODO
+  def set_user!
+    @user = User.find_by(username: params[:user_username])
+  end
 
   def set_book!
     @book = Book.find(params[:book_id])

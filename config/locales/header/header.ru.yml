@@ -20,5 +20,6 @@ ru:
       signup: Регистрация
     dropdown:
       item:
+        list: Список книг
         edit: Настройки
         log_out: Выйти
